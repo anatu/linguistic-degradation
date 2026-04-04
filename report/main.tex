@@ -1,0 +1,311 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Encoding & fonts ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% --- Math ---
+\usepackage{amsmath,amssymb}
+
+% --- Tables ---
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% --- Figures ---
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[dvipsnames]{xcolor}
+
+% --- Layout ---
+\usepackage[margin=1in]{geometry}
+
+% --- References ---
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+
+% --- Misc ---
+\usepackage{enumitem}
+\usepackage{microtype}
+
+\title{Distribution Narrowing Under Synthetic Data Contamination:\\
+  A Proof-of-Concept Study on Linguistic Novelty Comprehension}
+\author{Nat Anand}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We investigate whether training language models on synthetic-contaminated data degrades their ability to process genuinely novel linguistic constructions.
+Using GPT-2 (124M) fine-tuned on WikiText-103 across multiple generations with contamination ratios from 0\% to 100\%, we measure the \emph{log-probability gap} between standard and novel text as a continuous proxy for distributional competence.
+We find partial support for the distribution stagnation hypothesis: the gap widens monotonically with contamination in a dose-dependent manner, and generation diversity collapses even at 10\% contamination.
+However, the mechanism differs from what was predicted.
+At moderate contamination (10--50\%), the gap widens because the model becomes more confident on in-distribution text while novel-text processing remains unchanged---distribution \emph{narrowing} rather than competence \emph{loss}.
+Only at 100\% contamination do we observe genuine degradation of novel-text log-probabilities alongside catastrophic perplexity collapse.
+These results suggest that realistic levels of synthetic contamination do not destroy linguistic competence but instead produce models that are increasingly specialized toward conventional language patterns, widening the gap between in-distribution and out-of-distribution processing.
+\end{abstract}
+
+%----------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+%----------------------------------------------------------------------
+
+Large Language Models (LLMs) increasingly train on data that includes outputs from prior-generation models.
+As synthetically generated text accumulates on the internet, each successive generation of models risks training on a distribution that has been progressively filtered through the representational biases of its predecessors.
+\citet{shumailov2024curse} demonstrated that this recursive training loop causes \emph{model collapse}: the tails of the original data distribution vanish irreversibly, and output quality degrades to repetitive, incoherent text.
+
+This paper asks a stronger question: does synthetic contamination destroy a model's ability to \emph{comprehend} genuinely novel linguistic constructions---not just degrade its outputs, but eliminate the representational capacity for out-of-distribution language?
+If so, the consequence is not merely worse generation quality but a structural competence ceiling that constrains what future models can understand.
+
+We present a proof-of-concept experiment that tests this hypothesis by fine-tuning GPT-2~\citep{radford2019language} on WikiText-103~\citep{merity2017pointer} with controlled synthetic contamination across multiple generations.
+Our contributions are:
+
+\begin{enumerate}[leftmargin=*]
+  \item We introduce the \emph{log-probability gap}, a continuous metric that measures the differential between a model's processing of standard versus novel text, providing finer-grained signal than multiple-choice accuracy.
+  \item We demonstrate a dose-dependent gap widening under synthetic contamination, with the 100\% arm producing a gap nearly $3\times$ the baseline.
+  \item We decompose the gap into its constituent parts, revealing that at moderate contamination (10--50\%), the widening is driven by improved standard-text processing rather than degraded novel-text processing---a \emph{narrowing} mechanism rather than the predicted \emph{stagnation}.
+  \item We show that generation diversity (Distinct-N) collapses dramatically even at low contamination levels, providing the most robust signal of distribution narrowing.
+\end{enumerate}
+
+%----------------------------------------------------------------------
+\section{Related Work}
+\label{sec:related}
+%----------------------------------------------------------------------
+
+\paragraph{Model collapse.}
+\citet{shumailov2024curse} established the foundational result: generative models trained recursively on their own outputs lose the tails of the original distribution.
+They demonstrated this across VAEs, GMMs, and LLMs (OPT-125M), showing that model collapse is architecture-general.
+Their protocol used full data replacement at each generation---the maximally pessimistic scenario.
+
+\paragraph{Mitigating collapse through data mixing.}
+\citet{gerstgrasser2024model} showed that if real and synthetic data \emph{accumulate} rather than replace each other, collapse can be avoided.
+\citet{dohmatob2024tale} provided statistical formalization: collapse is unavoidable with 100\% synthetic training but can be bounded below a threshold when mixing real and synthetic data.
+Our experiment uses mixed contamination ratios (0--100\%) to map the degradation curve rather than studying only the extremes.
+
+\paragraph{Comprehension versus generation.}
+Prior work has primarily measured model collapse through generation quality: perplexity, output diversity, and qualitative inspection of generated text.
+Our work shifts the evaluation target from generation to \emph{comprehension}---the model's ability to process inputs it has never seen, measured through log-probability assignment to held-out novel linguistic constructions.
+
+%----------------------------------------------------------------------
+\section{Experimental Setup}
+\label{sec:method}
+%----------------------------------------------------------------------
+
+\subsection{Model and Training}
+
+We fine-tune GPT-2 (124M parameters) from HuggingFace pretrained weights on a 2M-token subset of WikiText-103.
+Fine-tuning uses AdamW with learning rate $5 \times 10^{-5}$, cosine schedule, effective batch size 32 (batch 4 with 8-step gradient accumulation), and a budget of 500 steps per generation.
+All models start from the same pretrained GPT-2 weights to isolate the effect of data contamination from weight drift.
+
+\subsection{Generational Loop}
+
+For each contamination ratio $r \in \{0\%, 10\%, 25\%, 50\%, 100\%\}$:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Generation 0:} Fine-tune GPT-2 on clean WikiText-103.
+  \item \textbf{Generation $n$ ($n \geq 1$):} Generate synthetic text from generation $n{-}1$'s model using nucleus sampling (top-$p = 0.95$, $T = 1.0$). Mix with the base corpus at ratio $r$. Fine-tune a fresh GPT-2 on the mixed data.
+\end{itemize}
+
+We run 3 generations per arm. An additional \emph{compounding arm} at 25\% inherits model weights across generations (fine-tuning generation $n$'s model, not fresh GPT-2) to simulate realistic accumulation.
+
+\subsection{Evaluation Metrics}
+
+\paragraph{Log-probability gap (primary metric).}
+For a model $M$, we compute mean per-token log-probability on two held-out sets: (i) 200 random passages from the WikiText validation split (\emph{standard}), and (ii) 51 hand-curated sentences containing novel linguistic constructions with correct completions filled in (\emph{novel}). The gap is:
+\begin{equation}
+  \Delta_{\text{LP}} = \bar{\ell}_{\text{standard}} - \bar{\ell}_{\text{novel}}
+  \label{eq:gap}
+\end{equation}
+where $\bar{\ell}$ denotes mean log-probability. Since novel constructions are harder, $\Delta_{\text{LP}} > 0$. A widening gap under contamination indicates that the model is becoming relatively worse at novel text compared to standard text.
+
+\paragraph{Validation perplexity.} Standard cross-entropy loss on held-out WikiText, reported as $\exp(\text{loss})$.
+
+\paragraph{Distinct-N.} Unigram, bigram, and trigram diversity over 50 prompted generations of 100 tokens each~\citep{li2016diversity}.
+
+\paragraph{Novelty accuracy.} Multiple-choice cloze accuracy on the 51-example linguistic novelty benchmark. Each example presents a sentence with a blank and four options; the model selects the option with the highest mean log-probability.
+
+\subsection{Linguistic Novelty Benchmark}
+
+The benchmark comprises 51 examples across five categories of linguistic phenomena that post-date or are absent from GPT-2's training distribution: novel slang (20 examples), creative neologisms (14), rhetorical subversion (8), pragmatic inference (6), and code-switching (3). Constructions include terms such as ``no cap,'' ``doom-scrolling,'' ``beige flag,'' and Spanglish mixed-register sentences. The benchmark is formatted as multiple-choice cloze tasks with four options per item.
+
+%----------------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+%----------------------------------------------------------------------
+
+\subsection{Log-Probability Gap Widens with Contamination}
+
+\Cref{tab:gap} presents the log-probability gap across all experimental conditions.
+The 0\% control arm produces a constant gap of 0.489 across all generations, confirming experimental stability.
+Contaminated arms show dose-dependent gap widening at generation 1, with partial recovery at generation 2.
+The 100\% arm produces a gap of 1.390 at generation 1---nearly $3\times$ the baseline.
+
+\begin{table}[t]
+\centering
+\caption{Log-probability gap ($\Delta_{\text{LP}}$) across contamination ratios and generations. Higher values indicate a wider differential between standard and novel text processing. The 0\% control is constant; all contaminated arms show dose-dependent widening.}
+\label{tab:gap}
+\begin{tabular}{lccc}
+\toprule
+Contamination & Gen 0 & Gen 1 & Gen 2 \\
+\midrule
+0\% (control)   & 0.489 & 0.489 & 0.489 \\
+10\%            & 0.489 & 0.641 & 0.597 \\
+25\%            & 0.489 & 0.682 & 0.616 \\
+50\%            & 0.489 & 0.777 & 0.647 \\
+100\%           & 0.489 & \textbf{1.390} & \textbf{1.129} \\
+\midrule
+Compound (25\%) & 0.489 & 0.682 & 0.615 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Decomposing the Gap: Two Distinct Mechanisms}
+
+\Cref{tab:decomp} decomposes the gap into its standard and novel components.
+At 10--50\% contamination, the gap widens primarily because standard-text log-probability \emph{improves} (from $-5.73$ toward $-5.46$) while novel-text log-probability remains approximately constant (${\sim}{-6.22}$).
+The model becomes more confident on in-distribution text without losing capacity for novel constructions.
+
+At 100\% contamination, both mechanisms contribute: standard-text log-probability improves sharply ($-5.73 \to -5.04$) \emph{and} novel-text log-probability degrades ($-6.22 \to -6.43$).
+This is the only condition where novel-text processing genuinely worsens.
+
+\begin{table}[t]
+\centering
+\caption{Decomposition of mean log-probability into standard ($\bar{\ell}_{\text{std}}$) and novel ($\bar{\ell}_{\text{nov}}$) components at generation 1. At moderate contamination, the gap widens because standard text gets easier. At 100\%, novel text also gets harder.}
+\label{tab:decomp}
+\begin{tabular}{lcccc}
+\toprule
+Contamination & $\bar{\ell}_{\text{std}}$ (Gen 0) & $\bar{\ell}_{\text{std}}$ (Gen 1) & $\bar{\ell}_{\text{nov}}$ (Gen 0) & $\bar{\ell}_{\text{nov}}$ (Gen 1) \\
+\midrule
+0\%   & $-5.729$ & $-5.729$ & $-6.218$ & $-6.218$ \\
+10\%  & $-5.729$ & $-5.624$ & $-6.218$ & $-6.264$ \\
+25\%  & $-5.729$ & $-5.565$ & $-6.218$ & $-6.247$ \\
+50\%  & $-5.729$ & $-5.460$ & $-6.218$ & $-6.237$ \\
+100\% & $-5.729$ & $\mathbf{-5.041}$ & $-6.218$ & $\mathbf{-6.432}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Validation Perplexity}
+
+Perplexity degrades monotonically with contamination (\cref{tab:ppl}), replicating the model collapse findings of \citet{shumailov2024curse}.
+At 10--50\% contamination, the degradation is modest (5--22\%).
+The 100\% arm exhibits catastrophic collapse, reaching a perplexity of 1686 by generation~2.
+
+\begin{table}[t]
+\centering
+\caption{Validation perplexity across conditions. The 100\% arm shows catastrophic collapse; moderate contamination produces modest degradation.}
+\label{tab:ppl}
+\begin{tabular}{lccc}
+\toprule
+Contamination & Gen 0 & Gen 1 & Gen 2 \\
+\midrule
+0\%   & 230 & 230 & 230 \\
+10\%  & 230 & 243 & 244 \\
+25\%  & 230 & 254 & 254 \\
+50\%  & 230 & 283 & 279 \\
+100\% & 230 & \textbf{897} & \textbf{1686} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Generation Diversity Collapses}
+
+Distinct-1 (unigram diversity) provides the clearest experimental signal (\cref{tab:diversity}).
+Even 10\% contamination reduces diversity from 0.42 to 0.26---a 38\% drop.
+At 100\% contamination by generation 2, Distinct-1 falls to 0.04, indicating near-repetitive output.
+The 0\% control remains stable across all generations.
+
+\begin{table}[t]
+\centering
+\caption{Distinct-1 (unigram diversity) across conditions. Diversity collapses dramatically under contamination, providing the strongest signal of distribution narrowing.}
+\label{tab:diversity}
+\begin{tabular}{lccc}
+\toprule
+Contamination & Gen 0 & Gen 1 & Gen 2 \\
+\midrule
+0\%   & 0.421 & 0.420 & 0.423 \\
+10\%  & 0.425 & 0.261 & 0.288 \\
+25\%  & 0.424 & 0.239 & 0.160 \\
+50\%  & 0.422 & 0.187 & 0.152 \\
+100\% & 0.420 & 0.108 & \textbf{0.040} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Novelty Accuracy Is Non-Discriminative}
+
+Multiple-choice novelty accuracy remained flat across all conditions (0.29--0.37), confirming that GPT-2 answers these questions from token-frequency priors rather than pragmatic comprehension.
+This metric is too coarse to detect the effects captured by the log-probability gap.
+We retain it for completeness but do not draw conclusions from it.
+
+\subsection{Compounding Shows No Additional Degradation}
+
+The compounding arm (25\% contamination with model-weight inheritance) produced results nearly identical to the fixed 25\% arm: a generation-1 gap of 0.682 versus 0.682, and a generation-2 gap of 0.615 versus 0.616.
+Over 3 generations, compounding confers no additional degradation beyond what fixed-ratio contamination produces, suggesting rapid saturation to a contaminated equilibrium.
+
+%----------------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+%----------------------------------------------------------------------
+
+\subsection{Distribution Narrowing, Not Stagnation}
+
+The original hypothesis predicted that synthetic contamination would destroy the model's representational capacity for novel linguistic constructions---that novel-text log-probabilities would decline as the model's internal distribution narrows.
+Our results reveal a more nuanced picture.
+
+At moderate contamination levels (10--50\%), the model does not \emph{lose} capacity for novel constructions.
+Instead, it develops a narrower but more confident distribution over in-distribution text.
+Novel constructions are not degraded; they are simply left behind as the model specializes.
+This is distribution \emph{narrowing}---the model becomes a specialist rather than a generalist---but not distribution \emph{stagnation} in the strong sense of competence destruction.
+
+The practical implication is still concerning: contaminated models would exhibit an increasing bias toward conventional language patterns, potentially disadvantaging novel or minority linguistic forms in downstream applications, even without an absolute degradation in the model's ability to process them.
+
+\subsection{A Threshold Between 50\% and 100\%}
+
+Novel-text log-probabilities remain approximately constant at 10--50\% contamination but degrade meaningfully at 100\%.
+This suggests the existence of a threshold---likely between 50\% and 100\%---above which contamination transitions from narrowing to active competence loss.
+Identifying this threshold precisely would require a finer sweep in the 60--90\% range.
+
+\subsection{Diversity Collapse as an Early Warning}
+
+Generation diversity proved to be the most sensitive indicator of distribution narrowing, collapsing even at 10\% contamination.
+This metric could serve as a practical early-warning signal for synthetic contamination in training data: a sharp drop in Distinct-N from a fine-tuned model relative to its pretrained baseline may indicate distributional narrowing before it manifests in downstream task performance.
+
+\subsection{Limitations}
+
+Several limitations constrain the conclusions we can draw from this proof-of-concept:
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{No statistical replication.} All results are $n{=}1$ per condition. The dose-response patterns are suggestive but not statistically testable. The partial recovery at generation~2 could be noise.
+  \item \textbf{Only 3 generations.} The compounding effect may require more generations to manifest. \citet{shumailov2024curse} used up to 10 generations.
+  \item \textbf{Small model, short fine-tuning.} GPT-2 124M fine-tuned for 500 steps may not absorb contamination deeply enough. Longer training or larger models might exhibit stronger effects.
+  \item \textbf{Benchmark sensitivity.} The multiple-choice novelty accuracy metric was non-discriminative at this scale. While the log-probability gap provides finer-grained signal, it measures token-level prediction rather than pragmatic comprehension directly.
+  \item \textbf{Self-contamination only.} All synthetic data is generated by variants of the same model architecture. Cross-model contamination (e.g., GPT-2 contaminated with data from a different model family) might produce different dynamics.
+\end{enumerate}
+
+%----------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+%----------------------------------------------------------------------
+
+We tested whether synthetic data contamination destroys a language model's ability to process novel linguistic constructions.
+Our proof-of-concept provides partial support for this hypothesis, but the mechanism is weaker and more nuanced than predicted.
+
+At moderate contamination (10--50\%), we observe distribution \emph{narrowing}: the model becomes more confident on in-distribution text while its processing of novel constructions remains unchanged.
+The gap between standard and novel text widens, but through improved in-distribution performance rather than degraded out-of-distribution capacity.
+Only at 100\% contamination do we observe genuine degradation of novel-text processing, and this coincides with catastrophic model collapse visible across all metrics.
+
+Generation diversity emerges as the most sensitive early indicator of distributional narrowing, collapsing even at low contamination levels.
+We recommend Distinct-N monitoring as a practical diagnostic for synthetic contamination in training pipelines.
+
+Future work should extend this experiment to more generations, multiple seeds for statistical power, and a finer contamination sweep in the 50--100\% range to identify the threshold at which narrowing transitions to active competence loss.
+
+%----------------------------------------------------------------------
+\bibliography{references}
+%----------------------------------------------------------------------
+
+\end{document}
