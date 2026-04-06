@@ -72,3 +72,7 @@ DIVERSITY_GEN_LEN = 100
 # ── Log-prob gap evaluation ──────────────────────────────────────────────────
 LOGPROB_NUM_STANDARD_PASSAGES = 200  # random val passages for standard log-prob
 LOGPROB_PASSAGE_LENGTH = 128         # tokens per passage
+
+# ── V3/V4 results ────────────────────────────────────────────────────────────
+RESULTS_V3_PATH = os.path.join(RESULTS_DIR, "all_results_v3.jsonl")
+RESULTS_V4_PATH = os.path.join(RESULTS_DIR, "all_results_v4.jsonl")
