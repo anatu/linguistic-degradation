@@ -317,6 +317,102 @@ def plot_decomposed_critical(results, output_dir):
     print("Saved decomposed_critical.png")
 
 
+def plot_v4_lr_comparison(results, output_dir):
+    """V4-specific: compare primary vs aggressive LR on the 100% arm."""
+    has_config = any("v4_config" in r for r in results)
+    if not has_config:
+        return
+
+    primary = [r for r in results if r.get("v4_config") == "primary" and r["ratio"] == 1.0]
+    aggressive = [r for r in results if r.get("v4_config") == "aggressive_lr" and r["ratio"] == 1.0]
+    if not primary or not aggressive:
+        return
+
+    gens = sorted(set(r["generation"] for r in primary))
+
+    fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+
+    # Panel 1: Novel LP (critical span)
+    ax = axes[0]
+    for data, label, color, marker in [(primary, "LR=5e-5", "tab:blue", "o"), (aggressive, "LR=1e-4", "tab:red", "s")]:
+        vals = [np.mean([r["logprob_novel_critical"] for r in data if r["generation"] == g]) for g in gens]
+        ax.plot(gens, vals, f"{marker}-", color=color, label=label, linewidth=2)
+    ax.set_xlabel("Generation")
+    ax.set_ylabel("Mean Log-Prob")
+    ax.set_title("Novel Text Log-Prob\n(Critical Span)")
+    ax.legend()
+
+    # Panel 2: Critical-span gap
+    ax = axes[1]
+    for data, label, color, marker in [(primary, "LR=5e-5", "tab:blue", "o"), (aggressive, "LR=1e-4", "tab:red", "s")]:
+        vals = [np.mean([r["logprob_gap_critical"] for r in data if r["generation"] == g]) for g in gens]
+        ax.plot(gens, vals, f"{marker}-", color=color, label=label, linewidth=2)
+    ax.set_xlabel("Generation")
+    ax.set_ylabel("Log-Prob Gap (Critical Span)")
+    ax.set_title("Critical-Span Gap\n(higher = worse at novel text)")
+    ax.legend()
+
+    # Panel 3: Standard LP
+    ax = axes[2]
+    for data, label, color, marker in [(primary, "LR=5e-5", "tab:blue", "o"), (aggressive, "LR=1e-4", "tab:red", "s")]:
+        vals = [np.mean([r["logprob_standard"] for r in data if r["generation"] == g]) for g in gens]
+        ax.plot(gens, vals, f"{marker}-", color=color, label=label, linewidth=2)
+    ax.set_xlabel("Generation")
+    ax.set_ylabel("Mean Log-Prob")
+    ax.set_title("Standard Text Log-Prob")
+    ax.legend()
+
+    fig.suptitle("V4: Primary vs Aggressive LR at 100% Contamination", y=1.02, fontsize=14)
+    fig.tight_layout()
+    fig.savefig(os.path.join(output_dir, "v4_lr_comparison.png"), dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    print("Saved v4_lr_comparison.png")
+
+
+def plot_v4_decomposed_by_config(results, output_dir):
+    """V4-specific: decomposed log-probs with each config shown separately."""
+    has_config = any("v4_config" in r for r in results)
+    if not has_config:
+        return
+
+    configs = sorted(set(r.get("v4_config", "unknown") for r in results))
+
+    fig, axes = plt.subplots(len(configs), 2, figsize=(14, 6 * len(configs)), squeeze=False)
+
+    for row, cfg in enumerate(configs):
+        cfg_results = [r for r in results if r.get("v4_config") == cfg]
+        ratios = sorted(set(r["ratio"] for r in cfg_results))
+        gens = sorted(set(r["generation"] for r in cfg_results))
+        colors = plt.cm.viridis(np.linspace(0, 1, len(ratios)))
+
+        lr = cfg_results[0].get("v4_learning_rate", "?")
+
+        for ratio, color in zip(ratios, colors):
+            means_std, means_novel = [], []
+            for gen in gens:
+                group = [r for r in cfg_results if r["ratio"] == ratio and r["generation"] == gen]
+                means_std.append(np.mean([r["logprob_standard"] for r in group]))
+                means_novel.append(np.mean([r["logprob_novel_critical"] for r in group]))
+            axes[row, 0].plot(gens, means_std, "o-", color=color, label=f"{ratio:.0%}", linewidth=2)
+            axes[row, 1].plot(gens, means_novel, "o-", color=color, label=f"{ratio:.0%}", linewidth=2)
+
+        axes[row, 0].set_xlabel("Generation")
+        axes[row, 0].set_ylabel("Mean Log-Prob")
+        axes[row, 0].set_title(f"Standard Text — {cfg} (LR={lr})")
+        axes[row, 0].legend(title="Contamination")
+
+        axes[row, 1].set_xlabel("Generation")
+        axes[row, 1].set_ylabel("Mean Log-Prob")
+        axes[row, 1].set_title(f"Novel Text (Critical Span) — {cfg} (LR={lr})")
+        axes[row, 1].legend(title="Contamination")
+
+    fig.suptitle("V4: Decomposed Log-Probs by Config", y=1.01, fontsize=14)
+    fig.tight_layout()
+    fig.savefig(os.path.join(output_dir, "v4_decomposed_by_config.png"), dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    print("Saved v4_decomposed_by_config.png")
+
+
 def print_summary_table(results):
     """Print a summary table with means across seeds."""
     has_v3 = any("logprob_gap_critical" in r for r in results)
@@ -425,6 +521,12 @@ def main():
         plot_logprob_gap_critical(results, config.PLOT_DIR)
         plot_gap_comparison(results, config.PLOT_DIR)
         plot_decomposed_critical(results, config.PLOT_DIR)
+
+    # V4-specific plots
+    has_v4 = any("v4_config" in r for r in results)
+    if has_v4:
+        plot_v4_lr_comparison(results, config.PLOT_DIR)
+        plot_v4_decomposed_by_config(results, config.PLOT_DIR)
 
     print(f"\nAll plots saved to: {config.PLOT_DIR}")
 
