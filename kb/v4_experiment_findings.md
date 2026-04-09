@@ -81,6 +81,22 @@ The novel critical-span LP declined from -7.90 to -7.97 over 2 generations at 50
 
 Deeper training amplifies the degradation signal by 7-10x at 100% contamination.
 
+## Validation: Overtraining Control
+
+A concern was raised that LR=1e-4 + 5000 steps may simply be overtraining — catastrophic forgetting of pretrained knowledge regardless of contamination. To test this, we ran the **0% control at LR=1e-4** for 3 generations.
+
+| | Gen 0 | Gen 1 | Gen 2 |
+|---|---|---|---|
+| Novel LP (critical) | -7.789 | -7.789 | -7.789 |
+| Standard LP | -6.636 | -6.636 | -6.636 |
+| Gap (critical) | 1.153 | 1.153 | 1.153 |
+| Val PPL | 179.7 | 179.7 | 179.7 |
+| D-1 | 0.391 | 0.397 | 0.401 |
+
+**All metrics are perfectly stable.** Aggressive training on clean data does not degrade novel-text comprehension. The degradation observed in the 100% arm (-7.79 → -9.95) is contamination-driven, not an overtraining artifact.
+
+This validates the V4 finding: the combination of deep fine-tuning and synthetic contamination is required to break through the pretrained buffer. Either factor alone is insufficient.
+
 ## Implications
 
 1. **The original hypothesis is supported under sufficient training pressure.** Synthetic contamination does degrade novel-text comprehension — it just requires enough training for the contaminated distribution to overwrite pretrained representations.
