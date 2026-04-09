@@ -2,14 +2,16 @@
 
 Proof-of-concept experiment testing whether training language models on synthetic-contaminated data degrades their ability to comprehend novel linguistic constructions.
 
-## Status: V4 Experiment Ready to Run
+## Status: V4 Experiment Complete
 
 - **V1 (from-scratch training):** Abandoned — 30M model had no baseline competence.
-- **V2 (fine-tuning GPT-2 124M, 500 steps):** Complete. At moderate contamination (10-50%), the log-prob gap widens through distribution narrowing, not degraded novel-text processing. Only 100% contamination degrades novel-text comprehension, coinciding with catastrophic model collapse.
-- **V3 (critical-span metric):** Complete. Refined the log-prob gap to score only construction-defining tokens. Amplifies the signal but confirms the same qualitative finding as V2.
-- **V4 (extended fine-tuning, 5000 steps):** Infrastructure built, ready to run. Stress-tests whether 10x deeper fine-tuning can break through GPT-2's pretrained representations.
+- **V2 (fine-tuning GPT-2 124M, 500 steps):** Complete. At moderate contamination (10-50%), the log-prob gap widens through distribution narrowing, not degraded novel-text processing.
+- **V3 (critical-span metric):** Complete. Scoring only construction-defining tokens amplifies the gap but confirms the same qualitative finding as V2.
+- **V4 (extended fine-tuning, 5000 steps):** Complete. Deeper training breaks through the pretrained buffer. At 100% contamination with LR=1e-4, novel-text comprehension degrades monotonically (-7.79 → -9.01 → -9.95 nats). At 50% with LR=5e-5, a small but real signal emerges (-7.90 → -7.97).
 
-**Key finding so far:** Synthetic contamination dramatically narrows what models *generate* (D-1 drops from 0.42 to 0.04) without meaningfully affecting what they *comprehend*. Log-prob scoring is a single forward pass that can still recognize novel patterns; generation is autoregressive sampling that systematically avoids low-probability paths in a peakier distribution.
+**Key findings:**
+1. At shallow fine-tuning (500 steps), synthetic contamination narrows what models *generate* (D-1: 0.42 → 0.04) without affecting what they *comprehend* — a generation-comprehension asymmetry.
+2. At deeper fine-tuning (5000 steps), contamination does degrade comprehension of novel constructions. The pretrained representations act as a buffer, not a permanent shield.
 
 ## Project Structure
 
@@ -41,6 +43,7 @@ Proof-of-concept experiment testing whether training language models on syntheti
 │   ├── v1_experiment_findings.md
 │   ├── v2_experiment_findings.md
 │   ├── v3_experiment_findings.md
+│   ├── v4_experiment_findings.md
 │   ├── benchmark_critique.md
 │   └── lit_review.md
 ├── report/
@@ -50,6 +53,7 @@ Proof-of-concept experiment testing whether training language models on syntheti
 └── results/
     ├── all_results.jsonl      # V2 raw results
     ├── all_results_v3.jsonl   # V3 results (critical-span re-evaluation)
+    ├── all_results_v4.jsonl   # V4 results (extended fine-tuning)
     ├── checkpoints/           # Model checkpoints
     ├── logs/                  # Training logs
     └── plots/                 # Generated figures
