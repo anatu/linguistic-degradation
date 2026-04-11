@@ -44,6 +44,7 @@ Proof-of-concept experiment testing whether training language models on syntheti
 │   ├── v2_experiment_findings.md
 │   ├── v3_experiment_findings.md
 │   ├── v4_experiment_findings.md
+│   ├── V4_IMPROVEMENTS.md     # Publication-readiness improvement plan
 │   ├── benchmark_critique.md
 │   └── lit_review.md
 ├── report/
