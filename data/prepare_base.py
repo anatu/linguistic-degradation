@@ -37,21 +37,30 @@ def download_and_tokenize():
         train_tokens = train_tokens[: config.MAX_BASE_TOKENS]
     print(f"Train tokens: {len(train_tokens):,}")
 
-    # Tokenize validation split (use the dataset's own val split)
+    # Tokenize validation split (use the dataset's own val split) and split it
+    # in half: first half -> val (checkpoint selection), second half -> test (final metrics).
+    # This prevents leakage between the data used for best-checkpoint selection
+    # and the data used to report perplexity / log-prob metrics.
     print("Tokenizing validation split...")
-    val_tokens = tokenize_split("validation")
-    print(f"Validation tokens: {len(val_tokens):,}")
+    val_all = tokenize_split("validation")
+    split_idx = len(val_all) // 2
+    val_tokens = val_all[:split_idx]
+    test_tokens = val_all[split_idx:]
+    print(f"Validation tokens: {len(val_tokens):,}  Test tokens: {len(test_tokens):,}")
 
     # Save
     os.makedirs(config.DATA_DIR, exist_ok=True)
-    train_path = os.path.join(config.DATA_DIR, "base_train.npy")
-    val_path = os.path.join(config.DATA_DIR, "base_val.npy")
+    train_path = config.TRAIN_DATA_PATH
+    val_path = config.VAL_DATA_PATH
+    test_path = config.TEST_DATA_PATH
     np.save(train_path, train_tokens)
     np.save(val_path, val_tokens)
+    np.save(test_path, test_tokens)
     print(f"Saved: {train_path} ({train_tokens.nbytes / 1e6:.1f} MB)")
     print(f"Saved: {val_path} ({val_tokens.nbytes / 1e6:.1f} MB)")
+    print(f"Saved: {test_path} ({test_tokens.nbytes / 1e6:.1f} MB)")
 
-    return train_path, val_path
+    return train_path, val_path, test_path
 
 
 if __name__ == "__main__":

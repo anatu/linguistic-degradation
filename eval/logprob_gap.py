@@ -48,7 +48,7 @@ def mean_logprob_on_tokens(model, input_ids, device):
 
 def compute_standard_logprob(model, device, val_data_path=None, num_passages=None, passage_length=None):
     """Compute mean log-prob on standard (validation) text passages."""
-    val_data_path = val_data_path or os.path.join(config.DATA_DIR, "base_val.npy")
+    val_data_path = val_data_path or config.TEST_DATA_PATH
     num_passages = num_passages or config.LOGPROB_NUM_STANDARD_PASSAGES
     passage_length = passage_length or config.LOGPROB_PASSAGE_LENGTH
 
@@ -56,8 +56,11 @@ def compute_standard_logprob(model, device, val_data_path=None, num_passages=Non
     total_logprob = 0.0
     total_tokens = 0
 
+    # Deterministic passage sampling: use a seeded RNG so repeated evaluation of
+    # the same checkpoint returns identical numbers regardless of outer random state.
+    rng = np.random.RandomState(config.SEED)
     for i in range(num_passages):
-        start = np.random.randint(0, len(data) - passage_length - 1)
+        start = rng.randint(0, len(data) - passage_length - 1)
         passage = torch.tensor(data[start:start + passage_length].astype(np.int64))
         lp, n = mean_logprob_on_tokens(model, passage, device)
         total_logprob += lp * n

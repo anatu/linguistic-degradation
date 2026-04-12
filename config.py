@@ -51,6 +51,12 @@ BASE_CORPUS = "wikitext-103"
 VAL_FRACTION = 0.05
 MAX_BASE_TOKENS = 2_000_000    # reduced for tractable synthetic generation
 
+# Data paths. base_val is used for checkpoint selection during training;
+# base_test is held out for final metrics (perplexity, log-prob eval).
+TRAIN_DATA_PATH = os.path.join(DATA_DIR, "base_train.npy")
+VAL_DATA_PATH = os.path.join(DATA_DIR, "base_val.npy")
+TEST_DATA_PATH = os.path.join(DATA_DIR, "base_test.npy")
+
 # ── Experiment sweep ─────────────────────────────────────────────────────────
 CONTAMINATION_RATIOS = [0.0, 0.10, 0.25, 0.50, 1.0]
 NUM_GENERATIONS = 3

@@ -75,7 +75,7 @@ def run_fixed_ratio_arm(ratio, num_generations, seeds, device, results_path):
     print(f"FIXED-RATIO ARM: contamination={ratio:.0%}")
     print(f"{'='*60}")
 
-    val_data_path = os.path.join(config.DATA_DIR, "base_val.npy")
+    val_data_path = config.VAL_DATA_PATH
 
     for gen in range(num_generations):
         # For gen > 0, generate synthetic data from the previous gen's first-seed checkpoint
@@ -107,12 +107,17 @@ def run_fixed_ratio_arm(ratio, num_generations, seeds, device, results_path):
             else:
                 train_data_path = os.path.join(config.DATA_DIR, f"mixed_{arm_tag}_gen{gen}.npy")
 
-            train(train_data_path, val_data_path, ckpt_path, log_path, device=device, seed=seed)
+            # 0% control: vary the seed per generation so gen0/gen1/gen2 aren't
+            # a deterministic identity (same data + same seed -> same checkpoint).
+            # Offset keeps nominal seed in filenames but gives real batch-order variance.
+            effective_seed = seed + 1000 * gen if ratio == 0 else seed
+            train(train_data_path, val_data_path, ckpt_path, log_path, device=device, seed=effective_seed)
 
             eval_results = run_full_eval(ckpt_path, device)
             eval_results["generation"] = gen
             eval_results["ratio"] = ratio
             eval_results["seed"] = seed
+            eval_results["effective_seed"] = effective_seed
             eval_results["arm"] = "fixed"
             append_result(eval_results, results_path)
 
@@ -132,7 +137,7 @@ def run_compounding_arm(ratio, num_generations, seeds, device, results_path):
     print(f"COMPOUNDING ARM: ratio={ratio:.0%}")
     print(f"{'='*60}")
 
-    val_data_path = os.path.join(config.DATA_DIR, "base_val.npy")
+    val_data_path = config.VAL_DATA_PATH
 
     for gen in range(num_generations):
         arm_tag = "compound"

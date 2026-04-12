@@ -17,7 +17,7 @@ from model.gpt2_finetune import load_checkpoint
 def evaluate_perplexity(model_or_path, val_data_path=None, device=None, num_batches=100):
     """Compute perplexity on validation data."""
     device = device or config.DEVICE
-    val_data_path = val_data_path or os.path.join(config.DATA_DIR, "base_val.npy")
+    val_data_path = val_data_path or config.TEST_DATA_PATH
 
     if isinstance(model_or_path, str):
         model = load_checkpoint(model_or_path, device=device)

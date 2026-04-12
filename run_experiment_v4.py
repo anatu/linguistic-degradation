@@ -101,7 +101,7 @@ def run_v4_arm(config_name, v4_config, ratios, num_generations, seeds, device, r
     original_finetune = dict(config.FINETUNE)
     patch_config(v4_config)
 
-    val_data_path = os.path.join(config.DATA_DIR, "base_val.npy")
+    val_data_path = config.VAL_DATA_PATH
 
     for ratio in ratios:
         print(f"\n{'='*60}")
@@ -137,16 +137,21 @@ def run_v4_arm(config_name, v4_config, ratios, num_generations, seeds, device, r
                 else:
                     train_data_path = os.path.join(config.DATA_DIR, f"mixed_{arm_tag}_gen{gen}.npy")
 
+                # 0% control: vary the seed per generation so gen0/gen1/gen2 aren't
+                # a deterministic identity. Offset keeps nominal seed in filenames.
+                effective_seed = seed + 1000 * gen if ratio == 0 else seed
+
                 # Skip if checkpoint already exists (resumability)
                 if os.path.exists(ckpt_path):
                     print(f"  Checkpoint exists, skipping training: {ckpt_path}")
                 else:
-                    train(train_data_path, val_data_path, ckpt_path, log_path, device=device, seed=seed)
+                    train(train_data_path, val_data_path, ckpt_path, log_path, device=device, seed=effective_seed)
 
                 eval_results = run_full_eval_v4(ckpt_path, device)
                 eval_results["generation"] = gen
                 eval_results["ratio"] = ratio
                 eval_results["seed"] = seed
+                eval_results["effective_seed"] = effective_seed
                 eval_results["arm"] = "fixed"
                 eval_results["v4_config"] = config_name
                 eval_results["v4_max_steps"] = v4_config["max_steps"]
