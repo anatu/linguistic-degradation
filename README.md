@@ -9,6 +9,7 @@ Proof-of-concept experiment testing whether training language models on syntheti
 - **V3 (critical-span metric):** Complete. Scoring only construction-defining tokens amplifies the gap but confirms the same qualitative finding as V2.
 - **V4 (extended fine-tuning, 5000 steps):** Complete. Deeper training breaks through the pretrained buffer. At 100% contamination with LR=1e-4, novel-text comprehension degrades monotonically (-7.79 → -9.01 → -9.95 nats). At 50% with LR=5e-5, a small but real signal emerges (-7.90 → -7.97).
 - **Phase 1 publication-readiness fixes (2026-04-12):** val/test split (separate `base_test.npy` for final metrics vs. `base_val.npy` for checkpoint selection), seeded log-prob passage sampling, and per-generation seed offsetting at 0% contamination so the control arm has genuine variance. See `plans/V4_IMPROVEMENTS.md`.
+- **Phase 2 V2 multi-seed replication (2026-04-13):** Complete. 54 cells at n=3 (seeds 42, 137, 256), 14.5h wall-clock on MPS. Contamination effects are 5–50× their standard deviation; all V2 qualitative findings survive. V4 multi-seed rerun (~110h) not yet launched.
 
 **Key findings:**
 1. At shallow fine-tuning (500 steps), synthetic contamination narrows what models *generate* (D-1: 0.42 → 0.04) without affecting what they *comprehend* — a generation-comprehension asymmetry.
