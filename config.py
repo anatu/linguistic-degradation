@@ -60,7 +60,7 @@ TEST_DATA_PATH = os.path.join(DATA_DIR, "base_test.npy")
 # ── Experiment sweep ─────────────────────────────────────────────────────────
 CONTAMINATION_RATIOS = [0.0, 0.10, 0.25, 0.50, 1.0]
 NUM_GENERATIONS = 3
-NUM_SEEDS = 1                  # single seed first for fast directional signal
+NUM_SEEDS = 3                  # Phase 2: multi-seed replication for error bars
 COMPOUNDING_RATIO = 0.25
 
 # ── Synthetic generation ─────────────────────────────────────────────────────

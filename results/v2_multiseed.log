@@ -1,0 +1,1515 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Device: mps
+Model: gpt2
+Contamination ratios: [0.0, 0.1, 0.25, 0.5, 1.0]
+Generations per arm: 3
+Seeds: [42, 137, 256]
+Base data already exists: /Users/natuanand/linguistic_degradation/data/base_train.npy
+
+============================================================
+FIXED-RATIO ARM: contamination=0%
+============================================================
+
+--- Gen 0, Ratio 0%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8103.88it/s]
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.4862 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.7s
+step    50 | train_loss 6.2173 | val_loss 6.1739 | val_ppl 480.06 | lr 5.00e-05 | 92.8s
+step   100 | train_loss 5.7594 | val_loss 5.7233 | val_ppl 305.90 | lr 4.85e-05 | 181.4s
+step   150 | train_loss 5.6313 | val_loss 5.5901 | val_ppl 267.76 | lr 4.43e-05 | 270.4s
+step   200 | train_loss 5.5711 | val_loss 5.4594 | val_ppl 234.96 | lr 3.78e-05 | 359.2s
+step   250 | train_loss 5.4023 | val_loss 5.3985 | val_ppl 221.07 | lr 2.98e-05 | 447.6s
+step   300 | train_loss 5.5523 | val_loss 5.4436 | val_ppl 231.27 | lr 2.12e-05 | 536.4s
+step   350 | train_loss 5.4154 | val_loss 5.3433 | val_ppl 209.20 | lr 1.33e-05 | 624.9s
+step   400 | train_loss 5.4413 | val_loss 5.3999 | val_ppl 221.38 | lr 6.73e-06 | 713.3s
+step   450 | train_loss 5.3280 | val_loss 5.3442 | val_ppl 209.39 | lr 2.48e-06 | 801.7s
+step   499 | train_loss 5.4385 | val_loss 5.4894 | val_ppl 242.12 | lr 1.00e-06 | 888.0s
+Training complete. Best val_loss: 5.3433 (ppl 209.20)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen0_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8462.60it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 26710.71it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17518.68it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9778.01it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    248.38
+  logprob_gap:       0.4867 (std=-5.7096 novel=-6.1963)
+  distinct_1/2/3:    0.4228 / 0.9032 / 0.9771
+
+--- Gen 0, Ratio 0%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21297.46it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5476 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.2350 | val_loss 6.1260 | val_ppl 457.61 | lr 5.00e-05 | 91.6s
+step   100 | train_loss 5.6993 | val_loss 5.6730 | val_ppl 290.91 | lr 4.85e-05 | 179.8s
+step   150 | train_loss 5.6549 | val_loss 5.6067 | val_ppl 272.25 | lr 4.43e-05 | 268.3s
+step   200 | train_loss 5.6843 | val_loss 5.4598 | val_ppl 235.04 | lr 3.78e-05 | 356.3s
+step   250 | train_loss 5.4831 | val_loss 5.4864 | val_ppl 241.38 | lr 2.98e-05 | 445.6s
+step   300 | train_loss 5.4546 | val_loss 5.3740 | val_ppl 215.73 | lr 2.12e-05 | 535.6s
+step   350 | train_loss 5.5030 | val_loss 5.3844 | val_ppl 217.97 | lr 1.33e-05 | 625.9s
+step   400 | train_loss 5.4170 | val_loss 5.3969 | val_ppl 220.71 | lr 6.73e-06 | 715.9s
+step   450 | train_loss 5.4412 | val_loss 5.3697 | val_ppl 214.79 | lr 2.48e-06 | 805.9s
+step   499 | train_loss 5.4571 | val_loss 5.3006 | val_ppl 200.46 | lr 1.00e-06 | 894.5s
+Training complete. Best val_loss: 5.3006 (ppl 200.46)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen0_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7323.10it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28906.03it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17848.62it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24170.90it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    244.94
+  logprob_gap:       0.4912 (std=-5.7365 novel=-6.2277)
+  distinct_1/2/3:    0.4354 / 0.9133 / 0.9869
+
+--- Gen 0, Ratio 0%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24748.12it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5730 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.3s
+step    50 | train_loss 6.2323 | val_loss 6.1332 | val_ppl 460.93 | lr 5.00e-05 | 93.8s
+step   100 | train_loss 5.8972 | val_loss 5.7246 | val_ppl 306.30 | lr 4.85e-05 | 184.2s
+step   150 | train_loss 5.6182 | val_loss 5.5478 | val_ppl 256.66 | lr 4.43e-05 | 274.6s
+step   200 | train_loss 5.5257 | val_loss 5.5467 | val_ppl 256.39 | lr 3.78e-05 | 365.0s
+step   250 | train_loss 5.6209 | val_loss 5.5085 | val_ppl 246.79 | lr 2.98e-05 | 455.4s
+step   300 | train_loss 5.5649 | val_loss 5.4652 | val_ppl 236.33 | lr 2.12e-05 | 545.7s
+step   350 | train_loss 5.3247 | val_loss 5.3486 | val_ppl 210.32 | lr 1.33e-05 | 636.1s
+step   400 | train_loss 5.4397 | val_loss 5.4079 | val_ppl 223.16 | lr 6.73e-06 | 726.6s
+step   450 | train_loss 5.4170 | val_loss 5.4160 | val_ppl 224.98 | lr 2.48e-06 | 816.5s
+step   499 | train_loss 5.4185 | val_loss 5.3983 | val_ppl 221.03 | lr 1.00e-06 | 904.8s
+Training complete. Best val_loss: 5.3486 (ppl 210.32)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen0_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 11301.29it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24933.00it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20414.27it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 25122.71it/s]
+  novelty_accuracy:  0.3333
+  val_perplexity:    248.30
+  logprob_gap:       0.4909 (std=-5.7057 novel=-6.1966)
+  distinct_1/2/3:    0.4212 / 0.9164 / 0.9892
+
+--- Gen 1, Ratio 0%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23559.93it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.6532 | val_loss 9.1893 | val_ppl 9792.23 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.3785 | val_loss 6.1707 | val_ppl 478.53 | lr 5.00e-05 | 93.6s
+step   100 | train_loss 5.8183 | val_loss 5.7021 | val_ppl 299.48 | lr 4.85e-05 | 184.1s
+step   150 | train_loss 5.7296 | val_loss 5.5858 | val_ppl 266.62 | lr 4.43e-05 | 274.5s
+step   200 | train_loss 5.5958 | val_loss 5.4373 | val_ppl 229.81 | lr 3.78e-05 | 364.9s
+step   250 | train_loss 5.5228 | val_loss 5.4111 | val_ppl 223.87 | lr 2.98e-05 | 455.3s
+step   300 | train_loss 5.5494 | val_loss 5.4107 | val_ppl 223.79 | lr 2.12e-05 | 545.8s
+step   350 | train_loss 5.5282 | val_loss 5.3675 | val_ppl 214.33 | lr 1.33e-05 | 636.2s
+step   400 | train_loss 5.3156 | val_loss 5.4614 | val_ppl 235.43 | lr 6.73e-06 | 726.6s
+step   450 | train_loss 5.3442 | val_loss 5.3476 | val_ppl 210.11 | lr 2.48e-06 | 816.6s
+step   499 | train_loss 5.3782 | val_loss 5.3407 | val_ppl 208.66 | lr 1.00e-06 | 905.3s
+Training complete. Best val_loss: 5.3407 (ppl 208.66)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen1_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16528.84it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24115.50it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21787.06it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 22974.83it/s]
+  novelty_accuracy:  0.2941
+  val_perplexity:    244.63
+  logprob_gap:       0.5178 (std=-5.7253 novel=-6.2431)
+  distinct_1/2/3:    0.4402 / 0.9135 / 0.9884
+
+--- Gen 1, Ratio 0%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23653.29it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5143 | val_loss 9.1464 | val_ppl 9380.53 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.3344 | val_loss 6.1841 | val_ppl 484.95 | lr 5.00e-05 | 93.8s
+step   100 | train_loss 5.8683 | val_loss 5.7035 | val_ppl 299.93 | lr 4.85e-05 | 184.2s
+step   150 | train_loss 5.5726 | val_loss 5.6347 | val_ppl 279.97 | lr 4.43e-05 | 274.7s
+step   200 | train_loss 5.5537 | val_loss 5.3764 | val_ppl 216.23 | lr 3.78e-05 | 365.1s
+step   250 | train_loss 5.5448 | val_loss 5.3626 | val_ppl 213.27 | lr 2.98e-05 | 455.5s
+step   300 | train_loss 5.4493 | val_loss 5.3594 | val_ppl 212.59 | lr 2.12e-05 | 545.9s
+step   350 | train_loss 5.5207 | val_loss 5.4220 | val_ppl 226.34 | lr 1.33e-05 | 636.3s
+step   400 | train_loss 5.4478 | val_loss 5.3655 | val_ppl 213.89 | lr 6.73e-06 | 726.3s
+step   450 | train_loss 5.4213 | val_loss 5.4583 | val_ppl 234.71 | lr 2.48e-06 | 816.3s
+step   499 | train_loss 5.4749 | val_loss 5.3819 | val_ppl 217.43 | lr 1.00e-06 | 904.5s
+Training complete. Best val_loss: 5.3594 (ppl 212.59)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen1_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9536.76it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 32766.27it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20839.16it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27407.70it/s]
+  novelty_accuracy:  0.3333
+  val_perplexity:    253.32
+  logprob_gap:       0.5131 (std=-5.6687 novel=-6.1818)
+  distinct_1/2/3:    0.4302 / 0.9063 / 0.9798
+
+--- Gen 1, Ratio 0%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21738.23it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.6032 | val_loss 9.0613 | val_ppl 8615.28 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.2945 | val_loss 6.1947 | val_ppl 490.12 | lr 5.00e-05 | 93.8s
+step   100 | train_loss 5.8337 | val_loss 5.7514 | val_ppl 314.65 | lr 4.85e-05 | 184.4s
+step   150 | train_loss 5.5698 | val_loss 5.5494 | val_ppl 257.09 | lr 4.43e-05 | 274.9s
+step   200 | train_loss 5.4667 | val_loss 5.5032 | val_ppl 245.47 | lr 3.78e-05 | 365.5s
+step   250 | train_loss 5.5497 | val_loss 5.4350 | val_ppl 229.30 | lr 2.98e-05 | 456.0s
+step   300 | train_loss 5.4557 | val_loss 5.3761 | val_ppl 216.19 | lr 2.12e-05 | 546.5s
+step   350 | train_loss 5.4317 | val_loss 5.4111 | val_ppl 223.88 | lr 1.33e-05 | 636.3s
+step   400 | train_loss 5.5729 | val_loss 5.4359 | val_ppl 229.51 | lr 6.73e-06 | 724.6s
+step   450 | train_loss 5.4831 | val_loss 5.4577 | val_ppl 234.56 | lr 2.48e-06 | 813.2s
+step   499 | train_loss 5.2986 | val_loss 5.3428 | val_ppl 209.09 | lr 1.00e-06 | 900.8s
+Training complete. Best val_loss: 5.3428 (ppl 209.09)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen1_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7831.61it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 30884.97it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15719.35it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 29087.53it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    244.69
+  logprob_gap:       0.4803 (std=-5.7340 novel=-6.2143)
+  distinct_1/2/3:    0.4440 / 0.9121 / 0.9884
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen0_seed137.pt
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen0_seed256.pt
+
+--- Gen 2, Ratio 0%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 22427.00it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.4440 | val_loss 9.1971 | val_ppl 9868.30 | lr 0.00e+00 | 3.3s
+step    50 | train_loss 6.3058 | val_loss 6.1371 | val_ppl 462.73 | lr 5.00e-05 | 93.3s
+step   100 | train_loss 5.8355 | val_loss 5.7147 | val_ppl 303.30 | lr 4.85e-05 | 183.4s
+step   150 | train_loss 5.6910 | val_loss 5.6292 | val_ppl 278.45 | lr 4.43e-05 | 273.4s
+step   200 | train_loss 5.6044 | val_loss 5.4547 | val_ppl 233.85 | lr 3.78e-05 | 363.6s
+step   250 | train_loss 5.5746 | val_loss 5.4597 | val_ppl 235.02 | lr 2.98e-05 | 453.3s
+step   300 | train_loss 5.4559 | val_loss 5.3731 | val_ppl 215.53 | lr 2.12e-05 | 544.4s
+step   350 | train_loss 5.4781 | val_loss 5.4212 | val_ppl 226.15 | lr 1.33e-05 | 635.2s
+step   400 | train_loss 5.4738 | val_loss 5.3206 | val_ppl 204.51 | lr 6.73e-06 | 726.5s
+step   450 | train_loss 5.5263 | val_loss 5.3629 | val_ppl 213.34 | lr 2.48e-06 | 816.6s
+step   499 | train_loss 5.4211 | val_loss 5.3404 | val_ppl 208.60 | lr 1.00e-06 | 905.0s
+Training complete. Best val_loss: 5.3206 (ppl 204.51)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen2_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8075.94it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16062.65it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14739.22it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9972.32it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    246.32
+  logprob_gap:       0.4749 (std=-5.7295 novel=-6.2044)
+  distinct_1/2/3:    0.4308 / 0.9182 / 0.9851
+
+--- Gen 2, Ratio 0%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 13648.41it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.6486 | val_loss 9.1073 | val_ppl 9021.02 | lr 0.00e+00 | 3.2s
+step    50 | train_loss 6.2651 | val_loss 6.1853 | val_ppl 485.57 | lr 5.00e-05 | 94.1s
+step   100 | train_loss 5.8325 | val_loss 5.6993 | val_ppl 298.64 | lr 4.85e-05 | 185.1s
+step   150 | train_loss 5.7246 | val_loss 5.5299 | val_ppl 252.11 | lr 4.43e-05 | 276.3s
+step   200 | train_loss 5.3494 | val_loss 5.3937 | val_ppl 220.02 | lr 3.78e-05 | 367.5s
+step   250 | train_loss 5.4077 | val_loss 5.4320 | val_ppl 228.61 | lr 2.98e-05 | 459.6s
+step   300 | train_loss 5.5497 | val_loss 5.3788 | val_ppl 216.76 | lr 2.12e-05 | 549.9s
+step   350 | train_loss 5.2740 | val_loss 5.3481 | val_ppl 210.21 | lr 1.33e-05 | 640.1s
+step   400 | train_loss 5.4732 | val_loss 5.4401 | val_ppl 230.47 | lr 6.73e-06 | 730.3s
+step   450 | train_loss 5.4350 | val_loss 5.3729 | val_ppl 215.49 | lr 2.48e-06 | 820.1s
+step   499 | train_loss 5.4636 | val_loss 5.3419 | val_ppl 208.92 | lr 1.00e-06 | 908.1s
+Training complete. Best val_loss: 5.3419 (ppl 208.92)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen2_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9795.60it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28113.99it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18079.42it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14328.25it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    244.67
+  logprob_gap:       0.4993 (std=-5.7384 novel=-6.2377)
+  distinct_1/2/3:    0.4442 / 0.9212 / 0.9859
+
+--- Gen 2, Ratio 0%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14949.35it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.6037 | val_loss 9.1449 | val_ppl 9366.23 | lr 0.00e+00 | 3.3s
+step    50 | train_loss 6.2394 | val_loss 6.2203 | val_ppl 502.86 | lr 5.00e-05 | 93.6s
+step   100 | train_loss 5.7808 | val_loss 5.6951 | val_ppl 297.40 | lr 4.85e-05 | 183.9s
+step   150 | train_loss 5.4903 | val_loss 5.6025 | val_ppl 271.09 | lr 4.43e-05 | 274.0s
+step   200 | train_loss 5.5005 | val_loss 5.4839 | val_ppl 240.79 | lr 3.78e-05 | 364.1s
+step   250 | train_loss 5.5045 | val_loss 5.4143 | val_ppl 224.59 | lr 2.98e-05 | 454.3s
+step   300 | train_loss 5.4448 | val_loss 5.2549 | val_ppl 191.51 | lr 2.12e-05 | 544.4s
+step   350 | train_loss 5.4918 | val_loss 5.3128 | val_ppl 202.92 | lr 1.33e-05 | 634.5s
+step   400 | train_loss 5.4258 | val_loss 5.3398 | val_ppl 208.46 | lr 6.73e-06 | 723.9s
+step   450 | train_loss 5.4395 | val_loss 5.3920 | val_ppl 219.64 | lr 2.48e-06 | 814.0s
+step   499 | train_loss 5.4236 | val_loss 5.4484 | val_ppl 232.39 | lr 1.00e-06 | 902.4s
+Training complete. Best val_loss: 5.2549 (ppl 191.51)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen2_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9720.14it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16010.45it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17005.64it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 31659.97it/s]
+  novelty_accuracy:  0.2941
+  val_perplexity:    252.86
+  logprob_gap:       0.5028 (std=-5.6613 novel=-6.1642)
+  distinct_1/2/3:    0.4484 / 0.9259 / 0.9904
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen1_seed137.pt
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.00_gen1_seed256.pt
+
+============================================================
+FIXED-RATIO ARM: contamination=10%
+============================================================
+
+--- Gen 0, Ratio 10%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18081.53it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.4862 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.2173 | val_loss 6.1739 | val_ppl 480.06 | lr 5.00e-05 | 93.7s
+step   100 | train_loss 5.7594 | val_loss 5.7233 | val_ppl 305.90 | lr 4.85e-05 | 184.3s
+step   150 | train_loss 5.6313 | val_loss 5.5901 | val_ppl 267.76 | lr 4.43e-05 | 274.8s
+step   200 | train_loss 5.5711 | val_loss 5.4594 | val_ppl 234.96 | lr 3.78e-05 | 365.3s
+step   250 | train_loss 5.4023 | val_loss 5.3985 | val_ppl 221.07 | lr 2.98e-05 | 456.1s
+step   300 | train_loss 5.5523 | val_loss 5.4436 | val_ppl 231.27 | lr 2.12e-05 | 547.1s
+step   350 | train_loss 5.4154 | val_loss 5.3433 | val_ppl 209.20 | lr 1.33e-05 | 636.1s
+step   400 | train_loss 5.4413 | val_loss 5.3999 | val_ppl 221.38 | lr 6.73e-06 | 725.9s
+step   450 | train_loss 5.3280 | val_loss 5.3442 | val_ppl 209.39 | lr 2.48e-06 | 816.7s
+step   499 | train_loss 5.4385 | val_loss 5.4894 | val_ppl 242.12 | lr 1.00e-06 | 906.1s
+Training complete. Best val_loss: 5.3433 (ppl 209.20)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen0_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9509.73it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28758.72it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15016.26it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15526.30it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    248.38
+  logprob_gap:       0.4867 (std=-5.7096 novel=-6.1963)
+  distinct_1/2/3:    0.4212 / 0.9067 / 0.9822
+
+--- Gen 0, Ratio 10%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14016.69it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5476 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.5s
+step    50 | train_loss 6.2350 | val_loss 6.1260 | val_ppl 457.61 | lr 5.00e-05 | 95.8s
+step   100 | train_loss 5.6993 | val_loss 5.6730 | val_ppl 290.91 | lr 4.85e-05 | 187.0s
+step   150 | train_loss 5.6549 | val_loss 5.6067 | val_ppl 272.25 | lr 4.43e-05 | 284.4s
+step   200 | train_loss 5.6843 | val_loss 5.4598 | val_ppl 235.04 | lr 3.78e-05 | 385.6s
+step   250 | train_loss 5.4831 | val_loss 5.4864 | val_ppl 241.38 | lr 2.98e-05 | 481.3s
+step   300 | train_loss 5.4546 | val_loss 5.3740 | val_ppl 215.73 | lr 2.12e-05 | 573.4s
+step   350 | train_loss 5.5030 | val_loss 5.3844 | val_ppl 217.97 | lr 1.33e-05 | 666.0s
+step   400 | train_loss 5.4170 | val_loss 5.3969 | val_ppl 220.71 | lr 6.73e-06 | 760.0s
+step   450 | train_loss 5.4412 | val_loss 5.3697 | val_ppl 214.79 | lr 2.48e-06 | 855.0s
+step   499 | train_loss 5.4571 | val_loss 5.3006 | val_ppl 200.46 | lr 1.00e-06 | 946.8s
+Training complete. Best val_loss: 5.3006 (ppl 200.46)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen0_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7205.70it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28412.53it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17343.94it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8681.31it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    244.94
+  logprob_gap:       0.4912 (std=-5.7365 novel=-6.2277)
+  distinct_1/2/3:    0.4350 / 0.9145 / 0.9863
+
+--- Gen 0, Ratio 10%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18705.95it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5730 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 6.2323 | val_loss 6.1332 | val_ppl 460.93 | lr 5.00e-05 | 96.7s
+step   100 | train_loss 5.8972 | val_loss 5.7246 | val_ppl 306.30 | lr 4.85e-05 | 191.3s
+step   150 | train_loss 5.6182 | val_loss 5.5478 | val_ppl 256.66 | lr 4.43e-05 | 289.4s
+step   200 | train_loss 5.5257 | val_loss 5.5467 | val_ppl 256.39 | lr 3.78e-05 | 387.7s
+step   250 | train_loss 5.6209 | val_loss 5.5085 | val_ppl 246.79 | lr 2.98e-05 | 482.5s
+step   300 | train_loss 5.5649 | val_loss 5.4652 | val_ppl 236.33 | lr 2.12e-05 | 573.2s
+step   350 | train_loss 5.3247 | val_loss 5.3486 | val_ppl 210.32 | lr 1.33e-05 | 661.9s
+step   400 | train_loss 5.4397 | val_loss 5.4079 | val_ppl 223.16 | lr 6.73e-06 | 749.9s
+step   450 | train_loss 5.4170 | val_loss 5.4160 | val_ppl 224.98 | lr 2.48e-06 | 838.0s
+step   499 | train_loss 5.4185 | val_loss 5.3983 | val_ppl 221.03 | lr 1.00e-06 | 924.4s
+Training complete. Best val_loss: 5.3486 (ppl 210.32)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen0_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7795.22it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23864.25it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15345.14it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28467.26it/s]
+  novelty_accuracy:  0.3333
+  val_perplexity:    248.30
+  logprob_gap:       0.4909 (std=-5.7057 novel=-6.1966)
+  distinct_1/2/3:    0.4268 / 0.9095 / 0.9788
+
+--- Gen 1, Ratio 10%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 12278.12it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.0066 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 5.9177 | val_loss 6.2112 | val_ppl 498.29 | lr 5.00e-05 | 91.3s
+step   100 | train_loss 5.6141 | val_loss 5.7798 | val_ppl 323.69 | lr 4.85e-05 | 179.4s
+step   150 | train_loss 5.4433 | val_loss 5.6435 | val_ppl 282.44 | lr 4.43e-05 | 268.0s
+step   200 | train_loss 5.5503 | val_loss 5.5162 | val_ppl 248.69 | lr 3.78e-05 | 356.3s
+step   250 | train_loss 5.4804 | val_loss 5.4491 | val_ppl 232.56 | lr 2.98e-05 | 444.7s
+step   300 | train_loss 5.5721 | val_loss 5.4958 | val_ppl 243.67 | lr 2.12e-05 | 533.0s
+step   350 | train_loss 5.2781 | val_loss 5.4000 | val_ppl 221.40 | lr 1.33e-05 | 622.1s
+step   400 | train_loss 5.2792 | val_loss 5.4560 | val_ppl 234.17 | lr 6.73e-06 | 712.4s
+step   450 | train_loss 5.3875 | val_loss 5.4005 | val_ppl 221.51 | lr 2.48e-06 | 802.3s
+step   499 | train_loss 5.3012 | val_loss 5.5396 | val_ppl 254.58 | lr 1.00e-06 | 890.5s
+Training complete. Best val_loss: 5.4000 (ppl 221.40)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen1_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7527.61it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16044.79it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16393.95it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 25153.25it/s]
+  novelty_accuracy:  0.2941
+  val_perplexity:    262.60
+  logprob_gap:       0.6126 (std=-5.6014 novel=-6.2140)
+  distinct_1/2/3:    0.2810 / 0.7414 / 0.9178
+
+--- Gen 1, Ratio 10%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17399.85it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.3894 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.1408 | val_loss 6.1679 | val_ppl 477.20 | lr 5.00e-05 | 93.7s
+step   100 | train_loss 5.8518 | val_loss 5.7200 | val_ppl 304.91 | lr 4.85e-05 | 184.0s
+step   150 | train_loss 5.4821 | val_loss 5.6561 | val_ppl 286.03 | lr 4.43e-05 | 274.3s
+step   200 | train_loss 5.5134 | val_loss 5.5201 | val_ppl 249.67 | lr 3.78e-05 | 364.6s
+step   250 | train_loss 5.4336 | val_loss 5.5340 | val_ppl 253.15 | lr 2.98e-05 | 454.9s
+step   300 | train_loss 5.4159 | val_loss 5.4267 | val_ppl 227.40 | lr 2.12e-05 | 544.9s
+step   350 | train_loss 5.5736 | val_loss 5.4416 | val_ppl 230.82 | lr 1.33e-05 | 635.2s
+step   400 | train_loss 5.4847 | val_loss 5.4590 | val_ppl 234.86 | lr 6.73e-06 | 725.1s
+step   450 | train_loss 5.4204 | val_loss 5.4198 | val_ppl 225.84 | lr 2.48e-06 | 815.0s
+step   499 | train_loss 5.5631 | val_loss 5.3564 | val_ppl 211.96 | lr 1.00e-06 | 903.6s
+Training complete. Best val_loss: 5.3564 (ppl 211.96)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen1_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9477.93it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19128.47it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15545.74it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21584.04it/s]
+  novelty_accuracy:  0.2941
+  val_perplexity:    258.54
+  logprob_gap:       0.6128 (std=-5.6350 novel=-6.2479)
+  distinct_1/2/3:    0.2616 / 0.7002 / 0.8798
+
+--- Gen 1, Ratio 10%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9820.86it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.2325 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.3654 | val_loss 6.1693 | val_ppl 477.87 | lr 5.00e-05 | 93.7s
+step   100 | train_loss 5.8567 | val_loss 5.7789 | val_ppl 323.41 | lr 4.85e-05 | 184.1s
+step   150 | train_loss 5.5343 | val_loss 5.5983 | val_ppl 269.97 | lr 4.43e-05 | 274.4s
+step   200 | train_loss 5.4169 | val_loss 5.6038 | val_ppl 271.46 | lr 3.78e-05 | 364.8s
+step   250 | train_loss 5.2544 | val_loss 5.5693 | val_ppl 262.24 | lr 2.98e-05 | 454.7s
+step   300 | train_loss 5.5279 | val_loss 5.5325 | val_ppl 252.76 | lr 2.12e-05 | 545.1s
+step   350 | train_loss 5.5103 | val_loss 5.4061 | val_ppl 222.77 | lr 1.33e-05 | 635.4s
+step   400 | train_loss 5.2903 | val_loss 5.4520 | val_ppl 233.23 | lr 6.73e-06 | 725.8s
+step   450 | train_loss 5.1561 | val_loss 5.5120 | val_ppl 247.65 | lr 2.48e-06 | 815.7s
+step   499 | train_loss 5.3988 | val_loss 5.4610 | val_ppl 235.34 | lr 1.00e-06 | 903.8s
+Training complete. Best val_loss: 5.4061 (ppl 222.77)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen1_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8707.86it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19285.95it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14765.87it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20769.44it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    262.19
+  logprob_gap:       0.5872 (std=-5.6160 novel=-6.2032)
+  distinct_1/2/3:    0.2732 / 0.7362 / 0.9090
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen0_seed137.pt
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen0_seed256.pt
+
+--- Gen 2, Ratio 10%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14695.60it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.1282 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.0944 | val_loss 6.2145 | val_ppl 499.93 | lr 5.00e-05 | 93.5s
+step   100 | train_loss 5.6505 | val_loss 5.7921 | val_ppl 327.70 | lr 4.85e-05 | 183.9s
+step   150 | train_loss 5.6895 | val_loss 5.6506 | val_ppl 284.45 | lr 4.43e-05 | 274.2s
+step   200 | train_loss 5.1904 | val_loss 5.5245 | val_ppl 250.76 | lr 3.78e-05 | 364.5s
+step   250 | train_loss 5.1178 | val_loss 5.4487 | val_ppl 232.45 | lr 2.98e-05 | 454.9s
+step   300 | train_loss 5.3233 | val_loss 5.4996 | val_ppl 244.59 | lr 2.12e-05 | 545.8s
+step   350 | train_loss 5.2462 | val_loss 5.4044 | val_ppl 222.38 | lr 1.33e-05 | 635.7s
+step   400 | train_loss 5.4258 | val_loss 5.4618 | val_ppl 235.52 | lr 6.73e-06 | 725.7s
+step   450 | train_loss 5.2178 | val_loss 5.4056 | val_ppl 222.65 | lr 2.48e-06 | 815.4s
+step   499 | train_loss 5.5398 | val_loss 5.5452 | val_ppl 256.02 | lr 1.00e-06 | 903.3s
+Training complete. Best val_loss: 5.4044 (ppl 222.38)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen2_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7453.23it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16517.84it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16363.70it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 12627.02it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    262.44
+  logprob_gap:       0.5927 (std=-5.6244 novel=-6.2171)
+  distinct_1/2/3:    0.2680 / 0.6430 / 0.8512
+
+--- Gen 2, Ratio 10%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23078.18it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5203 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 5.8308 | val_loss 6.1673 | val_ppl 476.88 | lr 5.00e-05 | 93.6s
+step   100 | train_loss 5.3620 | val_loss 5.7310 | val_ppl 308.27 | lr 4.85e-05 | 183.6s
+step   150 | train_loss 5.5606 | val_loss 5.6603 | val_ppl 287.22 | lr 4.43e-05 | 273.7s
+step   200 | train_loss 5.3702 | val_loss 5.5184 | val_ppl 249.25 | lr 3.78e-05 | 363.7s
+step   250 | train_loss 5.4180 | val_loss 5.5297 | val_ppl 252.07 | lr 2.98e-05 | 453.7s
+step   300 | train_loss 5.1228 | val_loss 5.4261 | val_ppl 227.26 | lr 2.12e-05 | 543.3s
+step   350 | train_loss 4.9708 | val_loss 5.4335 | val_ppl 228.95 | lr 1.33e-05 | 633.5s
+step   400 | train_loss 5.2579 | val_loss 5.4497 | val_ppl 232.68 | lr 6.73e-06 | 723.1s
+step   450 | train_loss 5.0671 | val_loss 5.4108 | val_ppl 223.80 | lr 2.48e-06 | 812.9s
+step   499 | train_loss 4.8220 | val_loss 5.3564 | val_ppl 211.97 | lr 1.00e-06 | 902.0s
+Training complete. Best val_loss: 5.3564 (ppl 211.97)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen2_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7088.45it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21551.82it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14441.58it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 22640.49it/s]
+  novelty_accuracy:  0.2941
+  val_perplexity:    258.38
+  logprob_gap:       0.5880 (std=-5.6490 novel=-6.2371)
+  distinct_1/2/3:    0.2504 / 0.5566 / 0.7584
+
+--- Gen 2, Ratio 10%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17155.57it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.3280 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.1583 | val_loss 6.1710 | val_ppl 478.68 | lr 5.00e-05 | 91.7s
+step   100 | train_loss 5.7030 | val_loss 5.7813 | val_ppl 324.19 | lr 4.85e-05 | 180.7s
+step   150 | train_loss 5.2006 | val_loss 5.6085 | val_ppl 272.72 | lr 4.43e-05 | 270.7s
+step   200 | train_loss 5.2391 | val_loss 5.5922 | val_ppl 268.32 | lr 3.78e-05 | 359.4s
+step   250 | train_loss 5.1584 | val_loss 5.5623 | val_ppl 260.42 | lr 2.98e-05 | 448.1s
+step   300 | train_loss 5.2030 | val_loss 5.5251 | val_ppl 250.91 | lr 2.12e-05 | 537.2s
+step   350 | train_loss 5.3859 | val_loss 5.4052 | val_ppl 222.56 | lr 1.33e-05 | 626.6s
+step   400 | train_loss 5.5903 | val_loss 5.4471 | val_ppl 232.08 | lr 6.73e-06 | 715.9s
+step   450 | train_loss 5.2718 | val_loss 5.5032 | val_ppl 245.47 | lr 2.48e-06 | 805.5s
+step   499 | train_loss 4.9210 | val_loss 5.4510 | val_ppl 232.99 | lr 1.00e-06 | 892.9s
+Training complete. Best val_loss: 5.4052 (ppl 222.56)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen2_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8342.72it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27851.62it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 12816.03it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23786.53it/s]
+  novelty_accuracy:  0.2941
+  val_perplexity:    261.75
+  logprob_gap:       0.5874 (std=-5.6159 novel=-6.2033)
+  distinct_1/2/3:    0.2830 / 0.6422 / 0.7798
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen1_seed137.pt
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.10_gen1_seed256.pt
+
+============================================================
+FIXED-RATIO ARM: contamination=25%
+============================================================
+
+--- Gen 0, Ratio 25%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16159.23it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.4862 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.2s
+step    50 | train_loss 6.2173 | val_loss 6.1739 | val_ppl 480.06 | lr 5.00e-05 | 92.5s
+step   100 | train_loss 5.7594 | val_loss 5.7233 | val_ppl 305.90 | lr 4.85e-05 | 181.8s
+step   150 | train_loss 5.6313 | val_loss 5.5901 | val_ppl 267.76 | lr 4.43e-05 | 271.6s
+step   200 | train_loss 5.5711 | val_loss 5.4594 | val_ppl 234.96 | lr 3.78e-05 | 362.1s
+step   250 | train_loss 5.4023 | val_loss 5.3985 | val_ppl 221.07 | lr 2.98e-05 | 452.7s
+step   300 | train_loss 5.5523 | val_loss 5.4436 | val_ppl 231.27 | lr 2.12e-05 | 542.1s
+step   350 | train_loss 5.4154 | val_loss 5.3433 | val_ppl 209.20 | lr 1.33e-05 | 631.2s
+step   400 | train_loss 5.4413 | val_loss 5.3999 | val_ppl 221.38 | lr 6.73e-06 | 721.2s
+step   450 | train_loss 5.3280 | val_loss 5.3442 | val_ppl 209.39 | lr 2.48e-06 | 811.2s
+step   499 | train_loss 5.4385 | val_loss 5.4894 | val_ppl 242.12 | lr 1.00e-06 | 898.7s
+Training complete. Best val_loss: 5.3433 (ppl 209.20)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen0_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7870.73it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8498.40it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15910.73it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9058.71it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    248.38
+  logprob_gap:       0.4867 (std=-5.7096 novel=-6.1963)
+  distinct_1/2/3:    0.4250 / 0.9071 / 0.9812
+
+--- Gen 0, Ratio 25%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7061.12it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5476 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.3s
+step    50 | train_loss 6.2350 | val_loss 6.1260 | val_ppl 457.61 | lr 5.00e-05 | 91.9s
+step   100 | train_loss 5.6993 | val_loss 5.6730 | val_ppl 290.91 | lr 4.85e-05 | 181.1s
+step   150 | train_loss 5.6549 | val_loss 5.6067 | val_ppl 272.25 | lr 4.43e-05 | 270.4s
+step   200 | train_loss 5.6843 | val_loss 5.4598 | val_ppl 235.04 | lr 3.78e-05 | 359.8s
+step   250 | train_loss 5.4831 | val_loss 5.4864 | val_ppl 241.38 | lr 2.98e-05 | 450.4s
+step   300 | train_loss 5.4546 | val_loss 5.3740 | val_ppl 215.73 | lr 2.12e-05 | 540.3s
+step   350 | train_loss 5.5030 | val_loss 5.3844 | val_ppl 217.97 | lr 1.33e-05 | 629.1s
+step   400 | train_loss 5.4170 | val_loss 5.3968 | val_ppl 220.71 | lr 6.73e-06 | 718.2s
+step   450 | train_loss 5.4412 | val_loss 5.3697 | val_ppl 214.79 | lr 2.48e-06 | 807.8s
+step   499 | train_loss 5.4571 | val_loss 5.3006 | val_ppl 200.46 | lr 1.00e-06 | 895.6s
+Training complete. Best val_loss: 5.3006 (ppl 200.46)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen0_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7947.62it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 33190.24it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10331.49it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7764.12it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    244.94
+  logprob_gap:       0.4912 (std=-5.7365 novel=-6.2277)
+  distinct_1/2/3:    0.4328 / 0.9180 / 0.9878
+
+--- Gen 0, Ratio 25%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7556.38it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5730 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 6.2323 | val_loss 6.1332 | val_ppl 460.93 | lr 5.00e-05 | 93.3s
+step   100 | train_loss 5.8972 | val_loss 5.7246 | val_ppl 306.30 | lr 4.85e-05 | 183.9s
+step   150 | train_loss 5.6182 | val_loss 5.5478 | val_ppl 256.66 | lr 4.43e-05 | 274.2s
+step   200 | train_loss 5.5257 | val_loss 5.5467 | val_ppl 256.39 | lr 3.78e-05 | 364.8s
+step   250 | train_loss 5.6209 | val_loss 5.5085 | val_ppl 246.79 | lr 2.98e-05 | 454.8s
+step   300 | train_loss 5.5649 | val_loss 5.4652 | val_ppl 236.33 | lr 2.12e-05 | 544.9s
+step   350 | train_loss 5.3247 | val_loss 5.3486 | val_ppl 210.32 | lr 1.33e-05 | 635.0s
+step   400 | train_loss 5.4397 | val_loss 5.4079 | val_ppl 223.16 | lr 6.73e-06 | 724.6s
+step   450 | train_loss 5.4170 | val_loss 5.4160 | val_ppl 224.98 | lr 2.48e-06 | 812.9s
+step   499 | train_loss 5.4185 | val_loss 5.3983 | val_ppl 221.03 | lr 1.00e-06 | 899.4s
+Training complete. Best val_loss: 5.3486 (ppl 210.32)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen0_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7354.85it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8402.46it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14975.32it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7767.91it/s]
+  novelty_accuracy:  0.3333
+  val_perplexity:    248.30
+  logprob_gap:       0.4909 (std=-5.7057 novel=-6.1966)
+  distinct_1/2/3:    0.4264 / 0.9194 / 0.9900
+
+--- Gen 1, Ratio 25%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21372.25it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.0979 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.3s
+step    50 | train_loss 5.8059 | val_loss 6.2500 | val_ppl 518.01 | lr 5.00e-05 | 91.3s
+step   100 | train_loss 5.5693 | val_loss 5.8358 | val_ppl 342.35 | lr 4.85e-05 | 179.7s
+step   150 | train_loss 4.9627 | val_loss 5.6950 | val_ppl 297.37 | lr 4.43e-05 | 267.7s
+step   200 | train_loss 5.3682 | val_loss 5.5691 | val_ppl 262.20 | lr 3.78e-05 | 356.0s
+step   250 | train_loss 5.1946 | val_loss 5.4998 | val_ppl 244.63 | lr 2.98e-05 | 444.6s
+step   300 | train_loss 5.2595 | val_loss 5.5495 | val_ppl 257.11 | lr 2.12e-05 | 532.8s
+step   350 | train_loss 5.1089 | val_loss 5.4552 | val_ppl 233.98 | lr 1.33e-05 | 620.8s
+step   400 | train_loss 4.9077 | val_loss 5.4973 | val_ppl 244.03 | lr 6.73e-06 | 709.3s
+step   450 | train_loss 5.1095 | val_loss 5.4572 | val_ppl 234.44 | lr 2.48e-06 | 797.5s
+step   499 | train_loss 5.0886 | val_loss 5.5916 | val_ppl 268.15 | lr 1.00e-06 | 883.8s
+Training complete. Best val_loss: 5.4552 (ppl 233.98)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen1_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7957.50it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28844.24it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9731.11it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9574.41it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    275.87
+  logprob_gap:       0.6469 (std=-5.5504 novel=-6.1973)
+  distinct_1/2/3:    0.2610 / 0.6806 / 0.8661
+
+--- Gen 1, Ratio 25%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9758.80it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.4285 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 5.6360 | val_loss 6.2246 | val_ppl 505.03 | lr 5.00e-05 | 93.9s
+step   100 | train_loss 5.5639 | val_loss 5.7687 | val_ppl 320.11 | lr 4.85e-05 | 184.3s
+step   150 | train_loss 5.0048 | val_loss 5.7113 | val_ppl 302.28 | lr 4.43e-05 | 274.6s
+step   200 | train_loss 4.9537 | val_loss 5.5730 | val_ppl 263.21 | lr 3.78e-05 | 365.0s
+step   250 | train_loss 4.8857 | val_loss 5.5847 | val_ppl 266.31 | lr 2.98e-05 | 455.4s
+step   300 | train_loss 5.1504 | val_loss 5.4728 | val_ppl 238.13 | lr 2.12e-05 | 545.3s
+step   350 | train_loss 5.0872 | val_loss 5.4917 | val_ppl 242.66 | lr 1.33e-05 | 635.7s
+step   400 | train_loss 5.3130 | val_loss 5.5100 | val_ppl 247.16 | lr 6.73e-06 | 725.7s
+step   450 | train_loss 5.1562 | val_loss 5.4684 | val_ppl 237.09 | lr 2.48e-06 | 815.6s
+step   499 | train_loss 5.0396 | val_loss 5.4115 | val_ppl 223.98 | lr 1.00e-06 | 904.2s
+Training complete. Best val_loss: 5.4115 (ppl 223.98)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen1_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9778.01it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27915.50it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18071.00it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10616.13it/s]
+  novelty_accuracy:  0.2745
+  val_perplexity:    271.33
+  logprob_gap:       0.6572 (std=-5.5810 novel=-6.2382)
+  distinct_1/2/3:    0.2206 / 0.6283 / 0.8418
+
+--- Gen 1, Ratio 25%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20775.00it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.8518 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 5.9296 | val_loss 6.2299 | val_ppl 507.71 | lr 5.00e-05 | 94.0s
+step   100 | train_loss 5.2945 | val_loss 5.8332 | val_ppl 341.46 | lr 4.85e-05 | 184.4s
+step   150 | train_loss 5.0086 | val_loss 5.6546 | val_ppl 285.61 | lr 4.43e-05 | 274.8s
+step   200 | train_loss 5.0365 | val_loss 5.6487 | val_ppl 283.93 | lr 3.78e-05 | 365.2s
+step   250 | train_loss 4.9767 | val_loss 5.6173 | val_ppl 275.13 | lr 2.98e-05 | 455.6s
+step   300 | train_loss 5.1780 | val_loss 5.5837 | val_ppl 266.06 | lr 2.12e-05 | 546.0s
+step   350 | train_loss 5.1032 | val_loss 5.4598 | val_ppl 235.05 | lr 1.33e-05 | 636.4s
+step   400 | train_loss 4.8545 | val_loss 5.5032 | val_ppl 245.49 | lr 6.73e-06 | 726.7s
+step   450 | train_loss 4.9917 | val_loss 5.5588 | val_ppl 259.51 | lr 2.48e-06 | 816.7s
+step   499 | train_loss 5.0950 | val_loss 5.5094 | val_ppl 246.99 | lr 1.00e-06 | 904.9s
+Training complete. Best val_loss: 5.4598 (ppl 235.05)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen1_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9833.93it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10838.56it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18303.32it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18183.75it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    274.57
+  logprob_gap:       0.6240 (std=-5.5679 novel=-6.1919)
+  distinct_1/2/3:    0.1964 / 0.6182 / 0.8408
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen0_seed137.pt
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen0_seed256.pt
+
+--- Gen 2, Ratio 25%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14321.97it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.0593 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 5.3608 | val_loss 6.2681 | val_ppl 527.45 | lr 5.00e-05 | 93.8s
+step   100 | train_loss 5.2487 | val_loss 5.8403 | val_ppl 343.89 | lr 4.85e-05 | 184.2s
+step   150 | train_loss 5.2548 | val_loss 5.6958 | val_ppl 297.62 | lr 4.43e-05 | 274.5s
+step   200 | train_loss 4.8176 | val_loss 5.5741 | val_ppl 263.52 | lr 3.78e-05 | 364.9s
+step   250 | train_loss 5.0903 | val_loss 5.4958 | val_ppl 243.68 | lr 2.98e-05 | 455.2s
+step   300 | train_loss 4.8922 | val_loss 5.5458 | val_ppl 256.15 | lr 2.12e-05 | 545.6s
+step   350 | train_loss 4.7973 | val_loss 5.4511 | val_ppl 233.01 | lr 1.33e-05 | 635.5s
+step   400 | train_loss 4.6503 | val_loss 5.5012 | val_ppl 244.97 | lr 6.73e-06 | 725.9s
+step   450 | train_loss 4.8587 | val_loss 5.4565 | val_ppl 234.27 | lr 2.48e-06 | 815.8s
+step   499 | train_loss 5.3433 | val_loss 5.5933 | val_ppl 268.62 | lr 1.00e-06 | 904.0s
+Training complete. Best val_loss: 5.4511 (ppl 233.01)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen2_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7688.73it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8346.99it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18972.37it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28131.83it/s]
+  novelty_accuracy:  0.2941
+  val_perplexity:    275.31
+  logprob_gap:       0.6173 (std=-5.5788 novel=-6.1961)
+  distinct_1/2/3:    0.1950 / 0.5036 / 0.7227
+
+--- Gen 2, Ratio 25%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20146.60it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.5434 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 4.9653 | val_loss 6.2288 | val_ppl 507.14 | lr 5.00e-05 | 94.0s
+step   100 | train_loss 4.5882 | val_loss 5.7901 | val_ppl 327.06 | lr 4.85e-05 | 184.3s
+step   150 | train_loss 5.1881 | val_loss 5.7145 | val_ppl 303.22 | lr 4.43e-05 | 274.7s
+step   200 | train_loss 4.9288 | val_loss 5.5657 | val_ppl 261.31 | lr 3.78e-05 | 365.1s
+step   250 | train_loss 5.1409 | val_loss 5.5812 | val_ppl 265.40 | lr 2.98e-05 | 455.4s
+step   300 | train_loss 4.4935 | val_loss 5.4715 | val_ppl 237.82 | lr 2.12e-05 | 545.4s
+step   350 | train_loss 4.6956 | val_loss 5.4774 | val_ppl 239.23 | lr 1.33e-05 | 635.8s
+step   400 | train_loss 4.5814 | val_loss 5.4958 | val_ppl 243.66 | lr 6.73e-06 | 725.7s
+step   450 | train_loss 4.4723 | val_loss 5.4551 | val_ppl 233.94 | lr 2.48e-06 | 815.7s
+step   499 | train_loss 4.1482 | val_loss 5.4035 | val_ppl 222.19 | lr 1.00e-06 | 904.3s
+Training complete. Best val_loss: 5.4035 (ppl 222.19)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen2_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7984.83it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27402.86it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9167.47it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8607.16it/s]
+  novelty_accuracy:  0.2745
+  val_perplexity:    269.79
+  logprob_gap:       0.6155 (std=-5.6017 novel=-6.2171)
+  distinct_1/2/3:    0.1880 / 0.4665 / 0.6592
+
+--- Gen 2, Ratio 25%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8825.85it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.7580 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 5.8329 | val_loss 6.2354 | val_ppl 510.51 | lr 5.00e-05 | 94.0s
+step   100 | train_loss 4.9397 | val_loss 5.8371 | val_ppl 342.80 | lr 4.85e-05 | 184.3s
+step   150 | train_loss 4.4794 | val_loss 5.6685 | val_ppl 289.61 | lr 4.43e-05 | 274.7s
+step   200 | train_loss 4.8838 | val_loss 5.6452 | val_ppl 282.94 | lr 3.78e-05 | 365.1s
+step   250 | train_loss 4.8359 | val_loss 5.6123 | val_ppl 273.79 | lr 2.98e-05 | 455.4s
+step   300 | train_loss 4.8151 | val_loss 5.5748 | val_ppl 263.69 | lr 2.12e-05 | 545.8s
+step   350 | train_loss 4.6319 | val_loss 5.4587 | val_ppl 234.79 | lr 1.33e-05 | 636.2s
+step   400 | train_loss 5.2724 | val_loss 5.4975 | val_ppl 244.09 | lr 6.73e-06 | 726.6s
+step   450 | train_loss 4.7969 | val_loss 5.5522 | val_ppl 257.81 | lr 2.48e-06 | 816.4s
+step   499 | train_loss 4.6336 | val_loss 5.4963 | val_ppl 243.79 | lr 1.00e-06 | 904.6s
+Training complete. Best val_loss: 5.4587 (ppl 234.79)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen2_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9058.58it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 33304.20it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16259.97it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23303.44it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    274.44
+  logprob_gap:       0.6096 (std=-5.5698 novel=-6.1794)
+  distinct_1/2/3:    0.1628 / 0.4337 / 0.6492
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen1_seed137.pt
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.25_gen1_seed256.pt
+
+============================================================
+FIXED-RATIO ARM: contamination=50%
+============================================================
+
+--- Gen 0, Ratio 50%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8318.80it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.4862 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.3s
+step    50 | train_loss 6.2173 | val_loss 6.1739 | val_ppl 480.06 | lr 5.00e-05 | 93.7s
+step   100 | train_loss 5.7594 | val_loss 5.7233 | val_ppl 305.90 | lr 4.85e-05 | 184.0s
+step   150 | train_loss 5.6313 | val_loss 5.5901 | val_ppl 267.76 | lr 4.43e-05 | 274.4s
+step   200 | train_loss 5.5711 | val_loss 5.4594 | val_ppl 234.96 | lr 3.78e-05 | 364.7s
+step   250 | train_loss 5.4023 | val_loss 5.3985 | val_ppl 221.07 | lr 2.98e-05 | 455.1s
+step   300 | train_loss 5.5523 | val_loss 5.4436 | val_ppl 231.27 | lr 2.12e-05 | 545.4s
+step   350 | train_loss 5.4154 | val_loss 5.3433 | val_ppl 209.20 | lr 1.33e-05 | 635.4s
+step   400 | train_loss 5.4413 | val_loss 5.3999 | val_ppl 221.38 | lr 6.73e-06 | 725.7s
+step   450 | train_loss 5.3280 | val_loss 5.3442 | val_ppl 209.39 | lr 2.48e-06 | 815.6s
+step   499 | train_loss 5.4385 | val_loss 5.4894 | val_ppl 242.12 | lr 1.00e-06 | 903.8s
+Training complete. Best val_loss: 5.3433 (ppl 209.20)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen0_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7302.51it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24033.33it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 6961.11it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7394.45it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    248.38
+  logprob_gap:       0.4867 (std=-5.7096 novel=-6.1963)
+  distinct_1/2/3:    0.4260 / 0.9063 / 0.9802
+
+--- Gen 0, Ratio 50%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8315.12it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5476 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 6.2350 | val_loss 6.1260 | val_ppl 457.61 | lr 5.00e-05 | 94.0s
+step   100 | train_loss 5.6993 | val_loss 5.6730 | val_ppl 290.91 | lr 4.85e-05 | 184.3s
+step   150 | train_loss 5.6549 | val_loss 5.6067 | val_ppl 272.25 | lr 4.43e-05 | 274.7s
+step   200 | train_loss 5.6843 | val_loss 5.4598 | val_ppl 235.04 | lr 3.78e-05 | 365.0s
+step   250 | train_loss 5.4831 | val_loss 5.4864 | val_ppl 241.38 | lr 2.98e-05 | 455.3s
+step   300 | train_loss 5.4546 | val_loss 5.3740 | val_ppl 215.73 | lr 2.12e-05 | 545.3s
+step   350 | train_loss 5.5030 | val_loss 5.3844 | val_ppl 217.97 | lr 1.33e-05 | 635.6s
+step   400 | train_loss 5.4170 | val_loss 5.3968 | val_ppl 220.71 | lr 6.73e-06 | 725.5s
+step   450 | train_loss 5.4412 | val_loss 5.3697 | val_ppl 214.79 | lr 2.48e-06 | 815.5s
+step   499 | train_loss 5.4571 | val_loss 5.3006 | val_ppl 200.46 | lr 1.00e-06 | 904.0s
+Training complete. Best val_loss: 5.3006 (ppl 200.46)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen0_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10259.94it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 25441.90it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17255.71it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9280.13it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    244.94
+  logprob_gap:       0.4912 (std=-5.7365 novel=-6.2277)
+  distinct_1/2/3:    0.4338 / 0.9083 / 0.9861
+
+--- Gen 0, Ratio 50%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21237.71it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5730 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 6.2323 | val_loss 6.1332 | val_ppl 460.93 | lr 5.00e-05 | 94.6s
+step   100 | train_loss 5.8972 | val_loss 5.7246 | val_ppl 306.30 | lr 4.85e-05 | 182.6s
+step   150 | train_loss 5.6182 | val_loss 5.5478 | val_ppl 256.66 | lr 4.43e-05 | 270.6s
+step   200 | train_loss 5.5257 | val_loss 5.5467 | val_ppl 256.39 | lr 3.78e-05 | 358.6s
+step   250 | train_loss 5.6209 | val_loss 5.5085 | val_ppl 246.79 | lr 2.98e-05 | 447.1s
+step   300 | train_loss 5.5649 | val_loss 5.4652 | val_ppl 236.33 | lr 2.12e-05 | 535.9s
+step   350 | train_loss 5.3247 | val_loss 5.3486 | val_ppl 210.32 | lr 1.33e-05 | 624.6s
+step   400 | train_loss 5.4397 | val_loss 5.4079 | val_ppl 223.16 | lr 6.73e-06 | 713.3s
+step   450 | train_loss 5.4170 | val_loss 5.4160 | val_ppl 224.98 | lr 2.48e-06 | 801.6s
+step   499 | train_loss 5.4185 | val_loss 5.3983 | val_ppl 221.03 | lr 1.00e-06 | 888.2s
+Training complete. Best val_loss: 5.3486 (ppl 210.32)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen0_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7747.94it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7977.24it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17816.34it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9466.66it/s]
+  novelty_accuracy:  0.3333
+  val_perplexity:    248.30
+  logprob_gap:       0.4909 (std=-5.7057 novel=-6.1966)
+  distinct_1/2/3:    0.4284 / 0.9172 / 0.9898
+
+--- Gen 1, Ratio 50%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19141.44it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 6.0220 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.5s
+step    50 | train_loss 4.9600 | val_loss 6.3468 | val_ppl 570.68 | lr 5.00e-05 | 93.5s
+step   100 | train_loss 4.7576 | val_loss 5.9572 | val_ppl 386.53 | lr 4.85e-05 | 182.6s
+step   150 | train_loss 4.6585 | val_loss 5.8094 | val_ppl 333.42 | lr 4.43e-05 | 271.1s
+step   200 | train_loss 4.6464 | val_loss 5.6841 | val_ppl 294.17 | lr 3.78e-05 | 359.7s
+step   250 | train_loss 4.7159 | val_loss 5.6103 | val_ppl 273.23 | lr 2.98e-05 | 448.1s
+step   300 | train_loss 4.3535 | val_loss 5.6642 | val_ppl 288.34 | lr 2.12e-05 | 536.9s
+step   350 | train_loss 4.7043 | val_loss 5.5575 | val_ppl 259.19 | lr 1.33e-05 | 625.7s
+step   400 | train_loss 4.6883 | val_loss 5.6030 | val_ppl 271.23 | lr 6.73e-06 | 715.4s
+step   450 | train_loss 4.3251 | val_loss 5.5683 | val_ppl 262.00 | lr 2.48e-06 | 804.4s
+step   499 | train_loss 4.4990 | val_loss 5.6971 | val_ppl 298.00 | lr 1.00e-06 | 892.0s
+Training complete. Best val_loss: 5.5575 (ppl 259.19)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen1_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9258.12it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9462.18it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16275.75it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7316.19it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    305.13
+  logprob_gap:       0.7442 (std=-5.4457 novel=-6.1899)
+  distinct_1/2/3:    0.2164 / 0.6321 / 0.8398
+
+--- Gen 1, Ratio 50%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20008.93it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 6.4005 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.3s
+step    50 | train_loss 5.0519 | val_loss 6.3190 | val_ppl 555.04 | lr 5.00e-05 | 93.3s
+step   100 | train_loss 4.5636 | val_loss 5.8844 | val_ppl 359.38 | lr 4.85e-05 | 182.8s
+step   150 | train_loss 4.3667 | val_loss 5.8214 | val_ppl 337.44 | lr 4.43e-05 | 271.4s
+step   200 | train_loss 4.4452 | val_loss 5.6915 | val_ppl 296.35 | lr 3.78e-05 | 360.6s
+step   250 | train_loss 4.3406 | val_loss 5.6987 | val_ppl 298.49 | lr 2.98e-05 | 449.2s
+step   300 | train_loss 4.4465 | val_loss 5.5851 | val_ppl 266.42 | lr 2.12e-05 | 537.5s
+step   350 | train_loss 4.5254 | val_loss 5.5979 | val_ppl 269.85 | lr 1.33e-05 | 626.1s
+step   400 | train_loss 4.4598 | val_loss 5.6288 | val_ppl 278.32 | lr 6.73e-06 | 714.5s
+step   450 | train_loss 4.6279 | val_loss 5.5810 | val_ppl 265.33 | lr 2.48e-06 | 802.9s
+step   499 | train_loss 4.3316 | val_loss 5.5210 | val_ppl 249.89 | lr 1.00e-06 | 889.7s
+Training complete. Best val_loss: 5.5210 (ppl 249.89)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen1_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9677.10it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27442.84it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15531.35it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 30776.25it/s]
+  novelty_accuracy:  0.2745
+  val_perplexity:    299.89
+  logprob_gap:       0.7590 (std=-5.4736 novel=-6.2326)
+  distinct_1/2/3:    0.2008 / 0.6168 / 0.8269
+
+--- Gen 1, Ratio 50%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16607.11it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 6.7849 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.3s
+step    50 | train_loss 5.2723 | val_loss 6.3075 | val_ppl 548.65 | lr 5.00e-05 | 92.3s
+step   100 | train_loss 4.5868 | val_loss 5.9390 | val_ppl 379.56 | lr 4.85e-05 | 181.6s
+step   150 | train_loss 4.6948 | val_loss 5.7736 | val_ppl 321.69 | lr 4.43e-05 | 270.3s
+step   200 | train_loss 4.7556 | val_loss 5.7632 | val_ppl 318.36 | lr 3.78e-05 | 359.0s
+step   250 | train_loss 4.7018 | val_loss 5.7249 | val_ppl 306.39 | lr 2.98e-05 | 448.6s
+step   300 | train_loss 4.7738 | val_loss 5.6908 | val_ppl 296.12 | lr 2.12e-05 | 537.6s
+step   350 | train_loss 4.4537 | val_loss 5.5686 | val_ppl 262.06 | lr 1.33e-05 | 627.0s
+step   400 | train_loss 4.4260 | val_loss 5.6015 | val_ppl 270.84 | lr 6.73e-06 | 716.1s
+step   450 | train_loss 4.4201 | val_loss 5.6634 | val_ppl 288.14 | lr 2.48e-06 | 804.9s
+step   499 | train_loss 4.7562 | val_loss 5.6092 | val_ppl 272.94 | lr 1.00e-06 | 891.5s
+Training complete. Best val_loss: 5.5686 (ppl 262.06)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen1_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7783.69it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8538.96it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 13634.32it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10004.14it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    303.73
+  logprob_gap:       0.7314 (std=-5.4562 novel=-6.1876)
+  distinct_1/2/3:    0.1928 / 0.6273 / 0.8786
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen0_seed137.pt
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen0_seed256.pt
+
+--- Gen 2, Ratio 50%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17473.32it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 5.4554 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.2s
+step    50 | train_loss 4.0759 | val_loss 6.3717 | val_ppl 585.04 | lr 5.00e-05 | 92.1s
+step   100 | train_loss 4.5372 | val_loss 5.9553 | val_ppl 385.81 | lr 4.85e-05 | 180.7s
+step   150 | train_loss 4.4710 | val_loss 5.7954 | val_ppl 328.77 | lr 4.43e-05 | 269.7s
+step   200 | train_loss 3.9202 | val_loss 5.6723 | val_ppl 290.71 | lr 3.78e-05 | 357.8s
+step   250 | train_loss 4.0856 | val_loss 5.5962 | val_ppl 269.41 | lr 2.98e-05 | 446.2s
+step   300 | train_loss 3.8098 | val_loss 5.6525 | val_ppl 285.00 | lr 2.12e-05 | 535.1s
+step   350 | train_loss 4.3503 | val_loss 5.5478 | val_ppl 256.67 | lr 1.33e-05 | 624.4s
+step   400 | train_loss 3.8518 | val_loss 5.5952 | val_ppl 269.14 | lr 6.73e-06 | 714.0s
+step   450 | train_loss 3.5981 | val_loss 5.5591 | val_ppl 259.59 | lr 2.48e-06 | 802.5s
+step   499 | train_loss 4.2491 | val_loss 5.6885 | val_ppl 295.45 | lr 1.00e-06 | 890.5s
+Training complete. Best val_loss: 5.5478 (ppl 256.67)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen2_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7231.14it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9184.97it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18013.32it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 6629.61it/s]
+  novelty_accuracy:  0.2941
+  val_perplexity:    302.45
+  logprob_gap:       0.6536 (std=-5.4966 novel=-6.1502)
+  distinct_1/2/3:    0.1684 / 0.4535 / 0.7398
+
+--- Gen 2, Ratio 50%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18474.36it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 5.2292 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.5s
+step    50 | train_loss 4.0727 | val_loss 6.3058 | val_ppl 547.75 | lr 5.00e-05 | 93.7s
+step   100 | train_loss 3.7114 | val_loss 5.8893 | val_ppl 361.17 | lr 4.85e-05 | 184.4s
+step   150 | train_loss 4.4293 | val_loss 5.8225 | val_ppl 337.80 | lr 4.43e-05 | 274.0s
+step   200 | train_loss 4.1769 | val_loss 5.6766 | val_ppl 291.96 | lr 3.78e-05 | 362.2s
+step   250 | train_loss 4.1525 | val_loss 5.6862 | val_ppl 294.78 | lr 2.98e-05 | 451.9s
+step   300 | train_loss 3.7070 | val_loss 5.5870 | val_ppl 266.93 | lr 2.12e-05 | 540.4s
+step   350 | train_loss 3.7946 | val_loss 5.5801 | val_ppl 265.11 | lr 1.33e-05 | 629.4s
+step   400 | train_loss 4.1458 | val_loss 5.6080 | val_ppl 272.59 | lr 6.73e-06 | 718.1s
+step   450 | train_loss 3.8246 | val_loss 5.5692 | val_ppl 262.22 | lr 2.48e-06 | 806.5s
+step   499 | train_loss 3.5191 | val_loss 5.5125 | val_ppl 247.77 | lr 1.00e-06 | 894.5s
+Training complete. Best val_loss: 5.5125 (ppl 247.77)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen2_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8312.67it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28776.05it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 22996.11it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8752.80it/s]
+  novelty_accuracy:  0.2745
+  val_perplexity:    295.71
+  logprob_gap:       0.6712 (std=-5.5333 novel=-6.2045)
+  distinct_1/2/3:    0.1590 / 0.4295 / 0.6639
+
+--- Gen 2, Ratio 50%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9354.53it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 6.7220 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 4.6869 | val_loss 6.3331 | val_ppl 562.89 | lr 5.00e-05 | 93.2s
+step   100 | train_loss 4.3052 | val_loss 5.9315 | val_ppl 376.73 | lr 4.85e-05 | 182.7s
+step   150 | train_loss 3.5849 | val_loss 5.7750 | val_ppl 322.14 | lr 4.43e-05 | 271.3s
+step   200 | train_loss 4.1593 | val_loss 5.7481 | val_ppl 313.60 | lr 3.78e-05 | 360.1s
+step   250 | train_loss 3.9305 | val_loss 5.7189 | val_ppl 304.58 | lr 2.98e-05 | 448.6s
+step   300 | train_loss 4.0197 | val_loss 5.6731 | val_ppl 290.94 | lr 2.12e-05 | 537.4s
+step   350 | train_loss 3.6330 | val_loss 5.5715 | val_ppl 262.83 | lr 1.33e-05 | 625.9s
+step   400 | train_loss 4.1188 | val_loss 5.5902 | val_ppl 267.78 | lr 6.73e-06 | 714.7s
+step   450 | train_loss 3.8149 | val_loss 5.6550 | val_ppl 285.71 | lr 2.48e-06 | 803.8s
+step   499 | train_loss 3.6668 | val_loss 5.5956 | val_ppl 269.23 | lr 1.00e-06 | 891.3s
+Training complete. Best val_loss: 5.5715 (ppl 262.83)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen2_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7717.50it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9146.94it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19030.53it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8075.10it/s]
+  novelty_accuracy:  0.3333
+  val_perplexity:    300.83
+  logprob_gap:       0.6535 (std=-5.4870 novel=-6.1405)
+  distinct_1/2/3:    0.1646 / 0.4400 / 0.6547
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen1_seed137.pt
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_0.50_gen1_seed256.pt
+
+============================================================
+FIXED-RATIO ARM: contamination=100%
+============================================================
+
+--- Gen 0, Ratio 100%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17405.70it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.4862 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.3s
+step    50 | train_loss 6.2173 | val_loss 6.1739 | val_ppl 480.06 | lr 5.00e-05 | 92.8s
+step   100 | train_loss 5.7594 | val_loss 5.7233 | val_ppl 305.90 | lr 4.85e-05 | 181.8s
+step   150 | train_loss 5.6313 | val_loss 5.5901 | val_ppl 267.76 | lr 4.43e-05 | 270.8s
+step   200 | train_loss 5.5711 | val_loss 5.4594 | val_ppl 234.96 | lr 3.78e-05 | 359.5s
+step   250 | train_loss 5.4023 | val_loss 5.3985 | val_ppl 221.07 | lr 2.98e-05 | 448.2s
+step   300 | train_loss 5.5523 | val_loss 5.4436 | val_ppl 231.27 | lr 2.12e-05 | 537.8s
+step   350 | train_loss 5.4154 | val_loss 5.3433 | val_ppl 209.20 | lr 1.33e-05 | 627.1s
+step   400 | train_loss 5.4413 | val_loss 5.3999 | val_ppl 221.38 | lr 6.73e-06 | 716.6s
+step   450 | train_loss 5.3280 | val_loss 5.3442 | val_ppl 209.39 | lr 2.48e-06 | 806.0s
+step   499 | train_loss 5.4385 | val_loss 5.4894 | val_ppl 242.12 | lr 1.00e-06 | 894.4s
+Training complete. Best val_loss: 5.3433 (ppl 209.20)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen0_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9619.07it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 41782.12it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14601.24it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 12730.08it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    248.38
+  logprob_gap:       0.4867 (std=-5.7096 novel=-6.1963)
+  distinct_1/2/3:    0.4252 / 0.9002 / 0.9792
+
+--- Gen 0, Ratio 100%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16516.08it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5476 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.2350 | val_loss 6.1260 | val_ppl 457.61 | lr 5.00e-05 | 93.6s
+step   100 | train_loss 5.6993 | val_loss 5.6730 | val_ppl 290.91 | lr 4.85e-05 | 183.4s
+step   150 | train_loss 5.6549 | val_loss 5.6067 | val_ppl 272.25 | lr 4.43e-05 | 273.6s
+step   200 | train_loss 5.6843 | val_loss 5.4598 | val_ppl 235.04 | lr 3.78e-05 | 364.2s
+step   250 | train_loss 5.4831 | val_loss 5.4864 | val_ppl 241.38 | lr 2.98e-05 | 454.6s
+step   300 | train_loss 5.4546 | val_loss 5.3740 | val_ppl 215.73 | lr 2.12e-05 | 544.5s
+step   350 | train_loss 5.5030 | val_loss 5.3844 | val_ppl 217.97 | lr 1.33e-05 | 634.7s
+step   400 | train_loss 5.4170 | val_loss 5.3968 | val_ppl 220.71 | lr 6.73e-06 | 723.8s
+step   450 | train_loss 5.4412 | val_loss 5.3697 | val_ppl 214.79 | lr 2.48e-06 | 812.8s
+step   499 | train_loss 5.4571 | val_loss 5.3006 | val_ppl 200.46 | lr 1.00e-06 | 901.5s
+Training complete. Best val_loss: 5.3006 (ppl 200.46)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen0_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7049.97it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 30764.05it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15232.93it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23844.09it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    244.94
+  logprob_gap:       0.4912 (std=-5.7365 novel=-6.2277)
+  distinct_1/2/3:    0.4406 / 0.9186 / 0.9867
+
+--- Gen 0, Ratio 100%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7913.98it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5730 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.5s
+step    50 | train_loss 6.2323 | val_loss 6.1332 | val_ppl 460.93 | lr 5.00e-05 | 93.2s
+step   100 | train_loss 5.8972 | val_loss 5.7246 | val_ppl 306.30 | lr 4.85e-05 | 182.7s
+step   150 | train_loss 5.6182 | val_loss 5.5478 | val_ppl 256.66 | lr 4.43e-05 | 272.4s
+step   200 | train_loss 5.5257 | val_loss 5.5467 | val_ppl 256.39 | lr 3.78e-05 | 361.8s
+step   250 | train_loss 5.6209 | val_loss 5.5085 | val_ppl 246.79 | lr 2.98e-05 | 451.1s
+step   300 | train_loss 5.5649 | val_loss 5.4652 | val_ppl 236.33 | lr 2.12e-05 | 540.1s
+step   350 | train_loss 5.3247 | val_loss 5.3486 | val_ppl 210.32 | lr 1.33e-05 | 629.1s
+step   400 | train_loss 5.4397 | val_loss 5.4079 | val_ppl 223.16 | lr 6.73e-06 | 717.9s
+step   450 | train_loss 5.4170 | val_loss 5.4160 | val_ppl 224.98 | lr 2.48e-06 | 806.3s
+step   499 | train_loss 5.4185 | val_loss 5.3983 | val_ppl 221.03 | lr 1.00e-06 | 893.0s
+Training complete. Best val_loss: 5.3486 (ppl 210.32)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen0_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8871.25it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9867.38it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16691.50it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10330.80it/s]
+  novelty_accuracy:  0.3333
+  val_perplexity:    248.30
+  logprob_gap:       0.4909 (std=-5.7057 novel=-6.1966)
+  distinct_1/2/3:    0.4264 / 0.9198 / 0.9896
+
+--- Gen 1, Ratio 100%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17261.47it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 4.6272 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 3.4715 | val_loss 7.1479 | val_ppl 1271.48 | lr 5.00e-05 | 92.4s
+step   100 | train_loss 3.5230 | val_loss 6.8595 | val_ppl 952.85 | lr 4.85e-05 | 181.4s
+step   150 | train_loss 3.1991 | val_loss 6.7905 | val_ppl 889.37 | lr 4.43e-05 | 270.3s
+step   200 | train_loss 3.1384 | val_loss 6.7138 | val_ppl 823.73 | lr 3.78e-05 | 359.4s
+step   250 | train_loss 3.4518 | val_loss 6.7289 | val_ppl 836.20 | lr 2.98e-05 | 447.8s
+step   300 | train_loss 3.3282 | val_loss 6.8690 | val_ppl 961.98 | lr 2.12e-05 | 536.3s
+step   350 | train_loss 3.4294 | val_loss 6.7566 | val_ppl 859.69 | lr 1.33e-05 | 625.3s
+step   400 | train_loss 3.2835 | val_loss 6.7955 | val_ppl 893.86 | lr 6.73e-06 | 713.8s
+step   450 | train_loss 3.1501 | val_loss 6.8048 | val_ppl 902.17 | lr 2.48e-06 | 802.2s
+step   499 | train_loss 3.2746 | val_loss 6.9196 | val_ppl 1011.87 | lr 1.00e-06 | 888.8s
+Training complete. Best val_loss: 6.7138 (ppl 823.73)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen1_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7803.85it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 32356.37it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14949.35it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 22347.07it/s]
+  novelty_accuracy:  0.3529
+  val_perplexity:    938.65
+  logprob_gap:       1.3821 (std=-5.0780 novel=-6.4601)
+  distinct_1/2/3:    0.1080 / 0.5347 / 0.7882
+
+--- Gen 1, Ratio 100%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15481.00it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 4.4939 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.0s
+step    50 | train_loss 3.4064 | val_loss 7.0997 | val_ppl 1211.66 | lr 5.00e-05 | 92.0s
+step   100 | train_loss 3.3995 | val_loss 6.7991 | val_ppl 897.02 | lr 4.85e-05 | 180.5s
+step   150 | train_loss 3.3756 | val_loss 6.7975 | val_ppl 895.61 | lr 4.43e-05 | 268.6s
+step   200 | train_loss 3.2209 | val_loss 6.7236 | val_ppl 831.79 | lr 3.78e-05 | 357.0s
+step   250 | train_loss 3.3431 | val_loss 6.7962 | val_ppl 894.41 | lr 2.98e-05 | 445.1s
+step   300 | train_loss 3.1066 | val_loss 6.7124 | val_ppl 822.54 | lr 2.12e-05 | 533.2s
+step   350 | train_loss 3.2078 | val_loss 6.7972 | val_ppl 895.37 | lr 1.33e-05 | 621.5s
+step   400 | train_loss 3.0179 | val_loss 6.8214 | val_ppl 917.25 | lr 6.73e-06 | 709.8s
+step   450 | train_loss 3.2092 | val_loss 6.7901 | val_ppl 888.98 | lr 2.48e-06 | 798.0s
+step   499 | train_loss 3.1110 | val_loss 6.7514 | val_ppl 855.28 | lr 1.00e-06 | 884.6s
+Training complete. Best val_loss: 6.7124 (ppl 822.54)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen1_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9295.13it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19540.32it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15300.51it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9422.68it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    968.16
+  logprob_gap:       1.4778 (std=-5.2523 novel=-6.7301)
+  distinct_1/2/3:    0.1038 / 0.5477 / 0.8422
+
+--- Gen 1, Ratio 100%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19225.03it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 4.5282 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.4s
+step    50 | train_loss 3.6832 | val_loss 7.0590 | val_ppl 1163.24 | lr 5.00e-05 | 94.0s
+step   100 | train_loss 3.4020 | val_loss 6.7965 | val_ppl 894.69 | lr 4.85e-05 | 184.4s
+step   150 | train_loss 3.3296 | val_loss 6.7660 | val_ppl 867.79 | lr 4.43e-05 | 274.7s
+step   200 | train_loss 3.3069 | val_loss 6.8152 | val_ppl 911.60 | lr 3.78e-05 | 365.0s
+step   250 | train_loss 3.2286 | val_loss 6.8557 | val_ppl 949.30 | lr 2.98e-05 | 454.9s
+step   300 | train_loss 3.2154 | val_loss 6.8299 | val_ppl 925.08 | lr 2.12e-05 | 544.8s
+step   350 | train_loss 3.2637 | val_loss 6.7682 | val_ppl 869.72 | lr 1.33e-05 | 634.7s
+step   400 | train_loss 3.2928 | val_loss 6.8190 | val_ppl 915.09 | lr 6.73e-06 | 724.6s
+step   450 | train_loss 3.4754 | val_loss 6.9193 | val_ppl 1011.64 | lr 2.48e-06 | 814.5s
+step   499 | train_loss 3.2218 | val_loss 6.8156 | val_ppl 911.99 | lr 1.00e-06 | 902.7s
+Training complete. Best val_loss: 6.7660 (ppl 867.79)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen1_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10085.25it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 25873.50it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17769.42it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27930.57it/s]
+  novelty_accuracy:  0.3725
+  val_perplexity:    954.27
+  logprob_gap:       1.2285 (std=-4.8985 novel=-6.1270)
+  distinct_1/2/3:    0.0972 / 0.4515 / 0.6886
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen0_seed137.pt
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen0_seed256.pt
+
+--- Gen 2, Ratio 100%, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18826.79it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 2.3482 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 1.7602 | val_loss 7.4183 | val_ppl 1666.27 | lr 5.00e-05 | 93.5s
+step   100 | train_loss 1.5283 | val_loss 7.3895 | val_ppl 1618.94 | lr 4.85e-05 | 183.8s
+step   150 | train_loss 1.5586 | val_loss 7.3818 | val_ppl 1606.41 | lr 4.43e-05 | 274.1s
+step   200 | train_loss 1.4705 | val_loss 7.3804 | val_ppl 1604.22 | lr 3.78e-05 | 364.4s
+step   250 | train_loss 1.8646 | val_loss 7.5199 | val_ppl 1844.44 | lr 2.98e-05 | 454.8s
+step   300 | train_loss 1.6261 | val_loss 7.6933 | val_ppl 2193.60 | lr 2.12e-05 | 544.7s
+step   350 | train_loss 1.5519 | val_loss 7.6232 | val_ppl 2045.04 | lr 1.33e-05 | 634.6s
+step   400 | train_loss 1.4419 | val_loss 7.6800 | val_ppl 2164.56 | lr 6.73e-06 | 724.5s
+step   450 | train_loss 1.5661 | val_loss 7.7178 | val_ppl 2248.02 | lr 2.48e-06 | 814.4s
+step   499 | train_loss 1.8022 | val_loss 7.8364 | val_ppl 2531.08 | lr 1.00e-06 | 902.6s
+Training complete. Best val_loss: 7.3804 (ppl 1604.22)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen2_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10535.41it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10041.52it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16076.37it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 29813.99it/s]
+  novelty_accuracy:  0.3725
+  val_perplexity:    1854.90
+  logprob_gap:       1.2234 (std=-5.4637 novel=-6.6871)
+  distinct_1/2/3:    0.0366 / 0.2277 / 0.4296
+
+--- Gen 2, Ratio 100%, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9911.65it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 2.1920 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.2s
+step    50 | train_loss 1.6653 | val_loss 7.3637 | val_ppl 1577.61 | lr 5.00e-05 | 93.7s
+step   100 | train_loss 1.7909 | val_loss 7.2540 | val_ppl 1413.77 | lr 4.85e-05 | 184.0s
+step   150 | train_loss 1.5003 | val_loss 7.3792 | val_ppl 1602.35 | lr 4.43e-05 | 274.3s
+step   200 | train_loss 1.6511 | val_loss 7.4265 | val_ppl 1679.94 | lr 3.78e-05 | 364.2s
+step   250 | train_loss 1.3258 | val_loss 7.5981 | val_ppl 1994.49 | lr 2.98e-05 | 454.1s
+step   300 | train_loss 1.4385 | val_loss 7.5803 | val_ppl 1959.21 | lr 2.12e-05 | 544.0s
+step   350 | train_loss 1.6516 | val_loss 7.6810 | val_ppl 2166.84 | lr 1.33e-05 | 634.0s
+step   400 | train_loss 1.7360 | val_loss 7.7383 | val_ppl 2294.49 | lr 6.73e-06 | 723.9s
+step   450 | train_loss 1.5461 | val_loss 7.7240 | val_ppl 2261.99 | lr 2.48e-06 | 813.8s
+step   499 | train_loss 1.6056 | val_loss 7.6738 | val_ppl 2151.19 | lr 1.00e-06 | 901.9s
+Training complete. Best val_loss: 7.2540 (ppl 1413.77)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen2_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9290.13it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9999.31it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18150.79it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 29192.86it/s]
+  novelty_accuracy:  0.3725
+  val_perplexity:    1615.17
+  logprob_gap:       0.9426 (std=-4.8925 novel=-5.8352)
+  distinct_1/2/3:    0.0442 / 0.2776 / 0.6524
+
+--- Gen 2, Ratio 100%, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20498.53it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 2.4544 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 2.0862 | val_loss 7.4296 | val_ppl 1685.08 | lr 5.00e-05 | 93.7s
+step   100 | train_loss 1.7660 | val_loss 7.3239 | val_ppl 1516.13 | lr 4.85e-05 | 184.0s
+step   150 | train_loss 1.6924 | val_loss 7.4075 | val_ppl 1648.31 | lr 4.43e-05 | 274.4s
+step   200 | train_loss 1.7293 | val_loss 7.5741 | val_ppl 1947.18 | lr 3.78e-05 | 364.3s
+step   250 | train_loss 1.8458 | val_loss 7.6328 | val_ppl 2064.74 | lr 2.98e-05 | 454.2s
+step   300 | train_loss 1.4492 | val_loss 7.6930 | val_ppl 2192.92 | lr 2.12e-05 | 544.1s
+step   350 | train_loss 1.6091 | val_loss 7.7460 | val_ppl 2312.34 | lr 1.33e-05 | 634.0s
+step   400 | train_loss 1.8212 | val_loss 7.7399 | val_ppl 2298.27 | lr 6.73e-06 | 723.9s
+step   450 | train_loss 1.7138 | val_loss 7.8459 | val_ppl 2555.23 | lr 2.48e-06 | 813.9s
+step   499 | train_loss 1.6254 | val_loss 7.7370 | val_ppl 2291.52 | lr 1.00e-06 | 902.0s
+Training complete. Best val_loss: 7.3239 (ppl 1516.13)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen2_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9704.94it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24051.96it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17191.67it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 29647.39it/s]
+  novelty_accuracy:  0.3725
+  val_perplexity:    1619.93
+  logprob_gap:       0.9541 (std=-4.8926 novel=-5.8467)
+  distinct_1/2/3:    0.0454 / 0.2475 / 0.4845
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen1_seed137.pt
+  Cleaned up: /Users/natuanand/linguistic_degradation/results/checkpoints/fixed_1.00_gen1_seed256.pt
+
+============================================================
+COMPOUNDING ARM: ratio=25%
+============================================================
+
+--- Compounding Gen 0, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19976.09it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.4862 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.2173 | val_loss 6.1739 | val_ppl 480.06 | lr 5.00e-05 | 93.4s
+step   100 | train_loss 5.7594 | val_loss 5.7233 | val_ppl 305.90 | lr 4.85e-05 | 183.8s
+step   150 | train_loss 5.6313 | val_loss 5.5901 | val_ppl 267.76 | lr 4.43e-05 | 274.0s
+step   200 | train_loss 5.5711 | val_loss 5.4594 | val_ppl 234.96 | lr 3.78e-05 | 364.3s
+step   250 | train_loss 5.4023 | val_loss 5.3985 | val_ppl 221.07 | lr 2.98e-05 | 454.6s
+step   300 | train_loss 5.5523 | val_loss 5.4436 | val_ppl 231.27 | lr 2.12e-05 | 544.9s
+step   350 | train_loss 5.4154 | val_loss 5.3433 | val_ppl 209.20 | lr 1.33e-05 | 634.8s
+step   400 | train_loss 5.4413 | val_loss 5.3999 | val_ppl 221.38 | lr 6.73e-06 | 725.0s
+step   450 | train_loss 5.3280 | val_loss 5.3442 | val_ppl 209.39 | lr 2.48e-06 | 814.9s
+step   499 | train_loss 5.4385 | val_loss 5.4894 | val_ppl 242.12 | lr 1.00e-06 | 902.9s
+Training complete. Best val_loss: 5.3433 (ppl 209.20)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/compound_gen0_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7464.16it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 26213.29it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15798.16it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9322.36it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    248.38
+  logprob_gap:       0.4867 (std=-5.7096 novel=-6.1963)
+  distinct_1/2/3:    0.4218 / 0.9042 / 0.9804
+
+--- Compounding Gen 0, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19706.57it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5476 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.2350 | val_loss 6.1260 | val_ppl 457.61 | lr 5.00e-05 | 93.7s
+step   100 | train_loss 5.6993 | val_loss 5.6730 | val_ppl 290.91 | lr 4.85e-05 | 184.0s
+step   150 | train_loss 5.6549 | val_loss 5.6067 | val_ppl 272.25 | lr 4.43e-05 | 274.4s
+step   200 | train_loss 5.6843 | val_loss 5.4598 | val_ppl 235.04 | lr 3.78e-05 | 364.6s
+step   250 | train_loss 5.4831 | val_loss 5.4864 | val_ppl 241.38 | lr 2.98e-05 | 454.9s
+step   300 | train_loss 5.4546 | val_loss 5.3740 | val_ppl 215.73 | lr 2.12e-05 | 544.8s
+step   350 | train_loss 5.5030 | val_loss 5.3844 | val_ppl 217.97 | lr 1.33e-05 | 635.1s
+step   400 | train_loss 5.4170 | val_loss 5.3969 | val_ppl 220.71 | lr 6.73e-06 | 725.0s
+step   450 | train_loss 5.4412 | val_loss 5.3697 | val_ppl 214.79 | lr 2.48e-06 | 814.9s
+step   499 | train_loss 5.4571 | val_loss 5.3006 | val_ppl 200.46 | lr 1.00e-06 | 903.4s
+Training complete. Best val_loss: 5.3006 (ppl 200.46)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/compound_gen0_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9504.63it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 25252.50it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16452.17it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 33627.14it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    244.94
+  logprob_gap:       0.4912 (std=-5.7365 novel=-6.2277)
+  distinct_1/2/3:    0.4300 / 0.9107 / 0.9859
+
+--- Compounding Gen 0, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20210.22it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 8.5730 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 6.2323 | val_loss 6.1332 | val_ppl 460.93 | lr 5.00e-05 | 93.7s
+step   100 | train_loss 5.8972 | val_loss 5.7246 | val_ppl 306.30 | lr 4.85e-05 | 184.1s
+step   150 | train_loss 5.6182 | val_loss 5.5478 | val_ppl 256.66 | lr 4.43e-05 | 274.4s
+step   200 | train_loss 5.5257 | val_loss 5.5467 | val_ppl 256.39 | lr 3.78e-05 | 364.8s
+step   250 | train_loss 5.6209 | val_loss 5.5085 | val_ppl 246.79 | lr 2.98e-05 | 455.1s
+step   300 | train_loss 5.5649 | val_loss 5.4652 | val_ppl 236.33 | lr 2.12e-05 | 545.4s
+step   350 | train_loss 5.3247 | val_loss 5.3486 | val_ppl 210.32 | lr 1.33e-05 | 635.8s
+step   400 | train_loss 5.4397 | val_loss 5.4079 | val_ppl 223.16 | lr 6.73e-06 | 726.1s
+step   450 | train_loss 5.4170 | val_loss 5.4160 | val_ppl 224.98 | lr 2.48e-06 | 816.0s
+step   499 | train_loss 5.4185 | val_loss 5.3983 | val_ppl 221.03 | lr 1.00e-06 | 904.2s
+Training complete. Best val_loss: 5.3486 (ppl 210.32)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/compound_gen0_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8879.88it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9706.91it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18314.66it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 29138.05it/s]
+  novelty_accuracy:  0.3333
+  val_perplexity:    248.30
+  logprob_gap:       0.4909 (std=-5.7057 novel=-6.1966)
+  distinct_1/2/3:    0.4262 / 0.9137 / 0.9871
+
+--- Compounding Gen 1, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9821.48it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.0979 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 5.8059 | val_loss 6.2500 | val_ppl 518.01 | lr 5.00e-05 | 93.7s
+step   100 | train_loss 5.5693 | val_loss 5.8358 | val_ppl 342.35 | lr 4.85e-05 | 184.0s
+step   150 | train_loss 4.9627 | val_loss 5.6950 | val_ppl 297.37 | lr 4.43e-05 | 274.4s
+step   200 | train_loss 5.3682 | val_loss 5.5691 | val_ppl 262.20 | lr 3.78e-05 | 364.7s
+step   250 | train_loss 5.1946 | val_loss 5.4998 | val_ppl 244.63 | lr 2.98e-05 | 455.0s
+step   300 | train_loss 5.2595 | val_loss 5.5495 | val_ppl 257.11 | lr 2.12e-05 | 545.4s
+step   350 | train_loss 5.1089 | val_loss 5.4552 | val_ppl 233.98 | lr 1.33e-05 | 635.3s
+step   400 | train_loss 4.9077 | val_loss 5.4973 | val_ppl 244.03 | lr 6.73e-06 | 725.6s
+step   450 | train_loss 5.1095 | val_loss 5.4572 | val_ppl 234.44 | lr 2.48e-06 | 815.5s
+step   499 | train_loss 5.0886 | val_loss 5.5916 | val_ppl 268.15 | lr 1.00e-06 | 903.7s
+Training complete. Best val_loss: 5.4552 (ppl 233.98)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/compound_gen1_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9704.33it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23299.94it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15022.43it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 30357.83it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    275.87
+  logprob_gap:       0.6469 (std=-5.5504 novel=-6.1973)
+  distinct_1/2/3:    0.2532 / 0.6828 / 0.8682
+
+--- Compounding Gen 1, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28788.06it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.4285 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 5.6360 | val_loss 6.2246 | val_ppl 505.03 | lr 5.00e-05 | 93.9s
+step   100 | train_loss 5.5639 | val_loss 5.7687 | val_ppl 320.11 | lr 4.85e-05 | 184.2s
+step   150 | train_loss 5.0048 | val_loss 5.7113 | val_ppl 302.28 | lr 4.43e-05 | 274.6s
+step   200 | train_loss 4.9537 | val_loss 5.5730 | val_ppl 263.21 | lr 3.78e-05 | 364.9s
+step   250 | train_loss 4.8857 | val_loss 5.5847 | val_ppl 266.31 | lr 2.98e-05 | 455.2s
+step   300 | train_loss 5.1504 | val_loss 5.4728 | val_ppl 238.13 | lr 2.12e-05 | 545.2s
+step   350 | train_loss 5.0872 | val_loss 5.4917 | val_ppl 242.66 | lr 1.33e-05 | 635.5s
+step   400 | train_loss 5.3130 | val_loss 5.5100 | val_ppl 247.16 | lr 6.73e-06 | 725.4s
+step   450 | train_loss 5.1562 | val_loss 5.4684 | val_ppl 237.09 | lr 2.48e-06 | 815.3s
+step   499 | train_loss 5.0396 | val_loss 5.4115 | val_ppl 223.98 | lr 1.00e-06 | 903.8s
+Training complete. Best val_loss: 5.4115 (ppl 223.98)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/compound_gen1_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8828.86it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19704.69it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16689.26it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21185.52it/s]
+  novelty_accuracy:  0.2745
+  val_perplexity:    271.33
+  logprob_gap:       0.6572 (std=-5.5810 novel=-6.2382)
+  distinct_1/2/3:    0.2214 / 0.6218 / 0.8327
+
+--- Compounding Gen 1, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10398.98it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.8518 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 5.9296 | val_loss 6.2299 | val_ppl 507.71 | lr 5.00e-05 | 93.6s
+step   100 | train_loss 5.2945 | val_loss 5.8332 | val_ppl 341.46 | lr 4.85e-05 | 183.9s
+step   150 | train_loss 5.0086 | val_loss 5.6546 | val_ppl 285.61 | lr 4.43e-05 | 274.3s
+step   200 | train_loss 5.0365 | val_loss 5.6487 | val_ppl 283.93 | lr 3.78e-05 | 364.6s
+step   250 | train_loss 4.9767 | val_loss 5.6173 | val_ppl 275.13 | lr 2.98e-05 | 454.8s
+step   300 | train_loss 5.1780 | val_loss 5.5837 | val_ppl 266.06 | lr 2.12e-05 | 545.1s
+step   350 | train_loss 5.1032 | val_loss 5.4598 | val_ppl 235.05 | lr 1.33e-05 | 635.4s
+step   400 | train_loss 4.8545 | val_loss 5.5032 | val_ppl 245.49 | lr 6.73e-06 | 725.7s
+step   450 | train_loss 4.9917 | val_loss 5.5588 | val_ppl 259.51 | lr 2.48e-06 | 815.6s
+step   499 | train_loss 5.0950 | val_loss 5.5094 | val_ppl 246.99 | lr 1.00e-06 | 903.7s
+Training complete. Best val_loss: 5.4598 (ppl 235.05)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/compound_gen1_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8958.83it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10314.32it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18106.32it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23801.12it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    274.57
+  logprob_gap:       0.6240 (std=-5.5679 novel=-6.1919)
+  distinct_1/2/3:    0.2022 / 0.6315 / 0.8492
+
+--- Compounding Gen 2, Seed 42 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17135.68it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 6.9730 | val_loss 9.1740 | val_ppl 9643.47 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 5.3499 | val_loss 6.2680 | val_ppl 527.40 | lr 5.00e-05 | 93.5s
+step   100 | train_loss 5.2567 | val_loss 5.8424 | val_ppl 344.60 | lr 4.85e-05 | 183.9s
+step   150 | train_loss 5.2553 | val_loss 5.6959 | val_ppl 297.65 | lr 4.43e-05 | 274.2s
+step   200 | train_loss 4.8171 | val_loss 5.5734 | val_ppl 263.34 | lr 3.78e-05 | 364.6s
+step   250 | train_loss 5.0825 | val_loss 5.4957 | val_ppl 243.65 | lr 2.98e-05 | 454.8s
+step   300 | train_loss 4.8914 | val_loss 5.5460 | val_ppl 256.22 | lr 2.12e-05 | 545.1s
+step   350 | train_loss 4.8014 | val_loss 5.4511 | val_ppl 233.01 | lr 1.33e-05 | 635.0s
+step   400 | train_loss 4.6699 | val_loss 5.5014 | val_ppl 245.03 | lr 6.73e-06 | 725.3s
+step   450 | train_loss 4.8583 | val_loss 5.4565 | val_ppl 234.27 | lr 2.48e-06 | 815.2s
+step   499 | train_loss 5.3420 | val_loss 5.5932 | val_ppl 268.60 | lr 1.00e-06 | 903.4s
+Training complete. Best val_loss: 5.4511 (ppl 233.01)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/compound_gen2_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7252.77it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 25633.11it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17483.16it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24096.77it/s]
+  novelty_accuracy:  0.2941
+  val_perplexity:    275.38
+  logprob_gap:       0.6163 (std=-5.5778 novel=-6.1942)
+  distinct_1/2/3:    0.1702 / 0.4596 / 0.6947
+
+--- Compounding Gen 2, Seed 137 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18952.68it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.5357 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 4.9553 | val_loss 6.2248 | val_ppl 505.11 | lr 5.00e-05 | 93.6s
+step   100 | train_loss 4.5726 | val_loss 5.7905 | val_ppl 327.17 | lr 4.85e-05 | 184.0s
+step   150 | train_loss 5.1902 | val_loss 5.7157 | val_ppl 303.59 | lr 4.43e-05 | 274.3s
+step   200 | train_loss 4.9370 | val_loss 5.5671 | val_ppl 261.67 | lr 3.78e-05 | 364.7s
+step   250 | train_loss 5.1421 | val_loss 5.5821 | val_ppl 265.63 | lr 2.98e-05 | 455.0s
+step   300 | train_loss 4.4975 | val_loss 5.4724 | val_ppl 238.04 | lr 2.12e-05 | 544.9s
+step   350 | train_loss 4.6891 | val_loss 5.4785 | val_ppl 239.49 | lr 1.33e-05 | 635.3s
+step   400 | train_loss 4.5804 | val_loss 5.4966 | val_ppl 243.86 | lr 6.73e-06 | 725.2s
+step   450 | train_loss 4.4877 | val_loss 5.4558 | val_ppl 234.12 | lr 2.48e-06 | 815.1s
+step   499 | train_loss 4.1214 | val_loss 5.4041 | val_ppl 222.31 | lr 1.00e-06 | 903.7s
+Training complete. Best val_loss: 5.4041 (ppl 222.31)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/compound_gen2_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8142.57it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19077.91it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15185.97it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 33027.77it/s]
+  novelty_accuracy:  0.2745
+  val_perplexity:    269.87
+  logprob_gap:       0.6145 (std=-5.6009 novel=-6.2154)
+  distinct_1/2/3:    0.2042 / 0.5099 / 0.6933
+
+--- Compounding Gen 2, Seed 256 ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15815.06it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 500 steps (grad_accum=8)...
+step     0 | train_loss 7.7568 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.1s
+step    50 | train_loss 5.8377 | val_loss 6.2369 | val_ppl 511.26 | lr 5.00e-05 | 93.9s
+step   100 | train_loss 4.9569 | val_loss 5.8382 | val_ppl 343.17 | lr 4.85e-05 | 184.3s
+step   150 | train_loss 4.4846 | val_loss 5.6683 | val_ppl 289.54 | lr 4.43e-05 | 274.6s
+step   200 | train_loss 4.8339 | val_loss 5.6454 | val_ppl 283.00 | lr 3.78e-05 | 364.9s
+step   250 | train_loss 4.8393 | val_loss 5.6124 | val_ppl 273.79 | lr 2.98e-05 | 455.3s
+step   300 | train_loss 4.8165 | val_loss 5.5749 | val_ppl 263.71 | lr 2.12e-05 | 545.6s
+step   350 | train_loss 4.6923 | val_loss 5.4590 | val_ppl 234.86 | lr 1.33e-05 | 635.9s
+step   400 | train_loss 5.2804 | val_loss 5.4974 | val_ppl 244.06 | lr 6.73e-06 | 726.2s
+step   450 | train_loss 4.7976 | val_loss 5.5523 | val_ppl 257.83 | lr 2.48e-06 | 816.2s
+step   499 | train_loss 4.6331 | val_loss 5.4963 | val_ppl 243.80 | lr 1.00e-06 | 904.3s
+Training complete. Best val_loss: 5.4590 (ppl 234.86)
+
+--- Evaluating /Users/natuanand/linguistic_degradation/results/checkpoints/compound_gen2_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7961.79it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8600.24it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14884.83it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23856.00it/s]
+  novelty_accuracy:  0.3137
+  val_perplexity:    274.47
+  logprob_gap:       0.6149 (std=-5.5687 novel=-6.1836)
+  distinct_1/2/3:    0.1962 / 0.4705 / 0.6537
+
+============================================================
+EXPERIMENT COMPLETE in 14.5 hours
+Results saved to: /Users/natuanand/linguistic_degradation/results/all_results.jsonl
+Run `python analyze.py` to generate plots.

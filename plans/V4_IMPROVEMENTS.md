@@ -201,6 +201,9 @@ Phase 1 (Methodological fixes — do before any new runs):
 
 Phase 2 (Replication — the long compute phase):
   [1] Multi-seed replication (V2 first, then V4)
+  [1a] Update analyze.py: emit mean ± std tables/figures with error bands
+  [1b] Replace n=1 t-tests in analyze.py with paired-over-seed tests (or bootstrap CIs)
+  [1c] Re-evaluate existing V4 checkpoints against base_test.npy before committing to the ~110h V4 multi-seed rerun — confirms the signal survives the val/test split on the expensive arm
 
 Phase 3 (Analysis & writing — while compute runs or after):
   [6] Training loss curves
