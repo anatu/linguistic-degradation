@@ -1,0 +1,1116 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Device: mps
+Model: gpt2
+Seeds: [42, 137, 256]
+V4 ratios: [0.0, 0.5, 1.0]
+V4 configs: ['primary', 'aggressive_lr']
+
+############################################################
+PHASE 1: Primary config (5000 steps, LR=5e-5)
+############################################################
+
+============================================================
+V4 [primary] FIXED-RATIO ARM: contamination=0%, steps=5000, lr=5e-05
+============================================================
+
+--- Gen 0, Ratio 0%, Seed 42, Config primary ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_primary_fixed_0.00_gen0_seed42.pt
+
+--- Evaluating v4_primary_fixed_0.00_gen0_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7653.18it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 31664.81it/s]
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 22339.03it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 22671.09it/s]
+  novelty_accuracy:    0.3333
+  val_perplexity:      191.95
+  logprob_gap (full):  0.4424
+  logprob_gap (crit):  1.1770
+  distinct_1/2/3:      0.3980 / 0.8756 / 0.9639
+
+--- Gen 0, Ratio 0%, Seed 137, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19831.22it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.5476 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.5s
+step   250 | train_loss 5.7749 | val_loss 5.7039 | val_ppl 300.02 | lr 2.50e-05 | 444.5s
+step   500 | train_loss 5.3836 | val_loss 5.2974 | val_ppl 199.81 | lr 5.00e-05 | 889.9s
+step   750 | train_loss 5.0658 | val_loss 5.2564 | val_ppl 191.80 | lr 4.96e-05 | 1343.9s
+step  1000 | train_loss 5.1197 | val_loss 5.1842 | val_ppl 178.43 | lr 4.85e-05 | 1801.0s
+step  1250 | train_loss 4.9978 | val_loss 5.0496 | val_ppl 155.96 | lr 4.67e-05 | 2246.0s
+step  1500 | train_loss 4.9485 | val_loss 5.0377 | val_ppl 154.12 | lr 4.43e-05 | 2694.4s
+step  1750 | train_loss 4.8704 | val_loss 5.1429 | val_ppl 171.21 | lr 4.12e-05 | 3153.9s
+step  2000 | train_loss 4.6750 | val_loss 5.1263 | val_ppl 168.39 | lr 3.78e-05 | 3613.9s
+step  2250 | train_loss 4.8115 | val_loss 5.1568 | val_ppl 173.61 | lr 3.39e-05 | 4068.9s
+step  2500 | train_loss 4.6499 | val_loss 5.0956 | val_ppl 163.31 | lr 2.98e-05 | 4518.3s
+step  2750 | train_loss 4.6663 | val_loss 5.1222 | val_ppl 167.70 | lr 2.55e-05 | 4966.5s
+step  3000 | train_loss 4.6381 | val_loss 4.9921 | val_ppl 147.24 | lr 2.12e-05 | 5413.0s
+step  3250 | train_loss 4.7510 | val_loss 4.9278 | val_ppl 138.07 | lr 1.71e-05 | 5860.8s
+step  3500 | train_loss 4.6819 | val_loss 5.0039 | val_ppl 148.99 | lr 1.33e-05 | 6314.3s
+step  3750 | train_loss 4.6062 | val_loss 5.0693 | val_ppl 159.06 | lr 9.75e-06 | 6775.2s
+step  4000 | train_loss 4.4856 | val_loss 5.0781 | val_ppl 160.46 | lr 6.73e-06 | 7233.2s
+step  4250 | train_loss 4.5921 | val_loss 5.0956 | val_ppl 163.31 | lr 4.28e-06 | 7684.6s
+step  4500 | train_loss 4.6976 | val_loss 5.1137 | val_ppl 166.28 | lr 2.48e-06 | 8130.5s
+step  4750 | train_loss 4.6793 | val_loss 5.0167 | val_ppl 150.92 | lr 1.37e-06 | 8575.3s
+step  4999 | train_loss 4.6068 | val_loss 4.9996 | val_ppl 148.35 | lr 1.00e-06 | 9022.4s
+Training complete. Best val_loss: 4.9278 (ppl 138.07)
+
+--- Evaluating v4_primary_fixed_0.00_gen0_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7811.21it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 39989.50it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19743.55it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15362.23it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      192.30
+  logprob_gap (full):  0.4495
+  logprob_gap (crit):  1.1864
+  distinct_1/2/3:      0.4234 / 0.8972 / 0.9808
+
+--- Gen 0, Ratio 0%, Seed 256, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15574.99it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.5730 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.2s
+step   250 | train_loss 5.8201 | val_loss 5.7217 | val_ppl 305.41 | lr 2.50e-05 | 452.0s
+step   500 | train_loss 5.5744 | val_loss 5.4170 | val_ppl 225.20 | lr 5.00e-05 | 899.1s
+step   750 | train_loss 5.2817 | val_loss 5.2048 | val_ppl 182.14 | lr 4.96e-05 | 1342.2s
+step  1000 | train_loss 5.0580 | val_loss 5.2443 | val_ppl 189.49 | lr 4.85e-05 | 1785.6s
+step  1250 | train_loss 5.2227 | val_loss 5.1923 | val_ppl 179.89 | lr 4.67e-05 | 2234.4s
+step  1500 | train_loss 4.8084 | val_loss 5.2089 | val_ppl 182.89 | lr 4.43e-05 | 2685.4s
+step  1750 | train_loss 4.8774 | val_loss 5.0901 | val_ppl 162.40 | lr 4.12e-05 | 3134.7s
+step  2000 | train_loss 4.7370 | val_loss 5.1458 | val_ppl 171.71 | lr 3.78e-05 | 3578.2s
+step  2250 | train_loss 4.7102 | val_loss 5.1919 | val_ppl 179.81 | lr 3.39e-05 | 4021.8s
+step  2500 | train_loss 4.5858 | val_loss 5.0723 | val_ppl 159.54 | lr 2.98e-05 | 4467.8s
+step  2750 | train_loss 4.5807 | val_loss 5.0745 | val_ppl 159.90 | lr 2.55e-05 | 4908.3s
+step  3000 | train_loss 4.6575 | val_loss 5.0668 | val_ppl 158.66 | lr 2.12e-05 | 5345.9s
+step  3250 | train_loss 4.5355 | val_loss 5.0546 | val_ppl 156.74 | lr 1.71e-05 | 5784.3s
+step  3500 | train_loss 4.6390 | val_loss 5.1482 | val_ppl 172.12 | lr 1.33e-05 | 6229.2s
+step  3750 | train_loss 4.6137 | val_loss 5.0039 | val_ppl 148.99 | lr 9.75e-06 | 6675.5s
+step  4000 | train_loss 4.4868 | val_loss 5.1145 | val_ppl 166.42 | lr 6.73e-06 | 7121.6s
+step  4250 | train_loss 4.4377 | val_loss 5.1116 | val_ppl 165.93 | lr 4.28e-06 | 7566.9s
+step  4500 | train_loss 4.7215 | val_loss 5.0200 | val_ppl 151.41 | lr 2.48e-06 | 8011.9s
+step  4750 | train_loss 4.6630 | val_loss 5.0331 | val_ppl 153.41 | lr 1.37e-06 | 8457.0s
+step  4999 | train_loss 4.6171 | val_loss 5.0448 | val_ppl 155.21 | lr 1.00e-06 | 8900.4s
+Training complete. Best val_loss: 5.0039 (ppl 148.99)
+
+--- Evaluating v4_primary_fixed_0.00_gen0_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9522.57it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20918.52it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 22981.64it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 25207.38it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      192.48
+  logprob_gap (full):  0.4554
+  logprob_gap (crit):  1.1922
+  distinct_1/2/3:      0.4018 / 0.8879 / 0.9680
+
+--- Gen 1, Ratio 0%, Seed 42, Config primary ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_primary_fixed_0.00_gen1_seed42.pt
+
+--- Evaluating v4_primary_fixed_0.00_gen1_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24874.06it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21225.36it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27596.56it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24958.06it/s]
+  novelty_accuracy:    0.3333
+  val_perplexity:      191.95
+  logprob_gap (full):  0.4424
+  logprob_gap (crit):  1.1770
+  distinct_1/2/3:      0.4064 / 0.8794 / 0.9667
+
+--- Gen 1, Ratio 0%, Seed 137, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14665.05it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.5143 | val_loss 9.1464 | val_ppl 9380.53 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 5.8307 | val_loss 5.6808 | val_ppl 293.17 | lr 2.50e-05 | 448.7s
+step   500 | train_loss 5.3902 | val_loss 5.3663 | val_ppl 214.07 | lr 5.00e-05 | 894.0s
+step   750 | train_loss 5.2826 | val_loss 5.2260 | val_ppl 186.04 | lr 4.96e-05 | 1339.3s
+step  1000 | train_loss 5.2426 | val_loss 5.2235 | val_ppl 185.59 | lr 4.85e-05 | 1784.6s
+step  1250 | train_loss 5.0152 | val_loss 5.2233 | val_ppl 185.54 | lr 4.67e-05 | 2229.9s
+step  1500 | train_loss 5.0769 | val_loss 5.0684 | val_ppl 158.92 | lr 4.43e-05 | 2675.2s
+step  1750 | train_loss 4.9008 | val_loss 5.1264 | val_ppl 168.41 | lr 4.12e-05 | 3120.4s
+step  2000 | train_loss 4.8585 | val_loss 5.0485 | val_ppl 155.79 | lr 3.78e-05 | 3565.3s
+step  2250 | train_loss 4.6685 | val_loss 5.0673 | val_ppl 158.75 | lr 3.39e-05 | 4010.6s
+step  2500 | train_loss 4.8445 | val_loss 5.2293 | val_ppl 186.66 | lr 2.98e-05 | 4455.4s
+step  2750 | train_loss 4.7581 | val_loss 5.0514 | val_ppl 156.24 | lr 2.55e-05 | 4900.3s
+step  3000 | train_loss 4.4017 | val_loss 5.1670 | val_ppl 175.38 | lr 2.12e-05 | 5345.1s
+step  3250 | train_loss 4.5708 | val_loss 5.1967 | val_ppl 180.68 | lr 1.71e-05 | 5789.9s
+step  3500 | train_loss 4.6195 | val_loss 5.0687 | val_ppl 158.97 | lr 1.33e-05 | 6234.8s
+step  3750 | train_loss 4.6379 | val_loss 5.1489 | val_ppl 172.24 | lr 9.75e-06 | 6679.6s
+step  4000 | train_loss 4.5571 | val_loss 5.1347 | val_ppl 169.81 | lr 6.73e-06 | 7124.5s
+step  4250 | train_loss 4.5886 | val_loss 5.0108 | val_ppl 150.03 | lr 4.28e-06 | 7569.3s
+step  4500 | train_loss 4.4418 | val_loss 5.0541 | val_ppl 156.66 | lr 2.48e-06 | 8014.6s
+step  4750 | train_loss 4.5398 | val_loss 5.0502 | val_ppl 156.06 | lr 1.37e-06 | 8459.5s
+step  4999 | train_loss 4.6836 | val_loss 5.1184 | val_ppl 167.06 | lr 1.00e-06 | 8902.5s
+Training complete. Best val_loss: 5.0108 (ppl 150.03)
+
+--- Evaluating v4_primary_fixed_0.00_gen1_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7166.36it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 26905.21it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20998.48it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23436.29it/s]
+  novelty_accuracy:    0.2941
+  val_perplexity:      191.74
+  logprob_gap (full):  0.4749
+  logprob_gap (crit):  1.2051
+  distinct_1/2/3:      0.4060 / 0.8851 / 0.9784
+
+--- Gen 1, Ratio 0%, Seed 256, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 26342.33it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.6032 | val_loss 9.0613 | val_ppl 8615.28 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 5.8729 | val_loss 5.7453 | val_ppl 312.73 | lr 2.50e-05 | 449.4s
+step   500 | train_loss 5.4786 | val_loss 5.4900 | val_ppl 242.26 | lr 5.00e-05 | 894.7s
+step   750 | train_loss 5.1627 | val_loss 5.2777 | val_ppl 195.92 | lr 4.96e-05 | 1340.0s
+step  1000 | train_loss 5.1606 | val_loss 5.2477 | val_ppl 190.13 | lr 4.85e-05 | 1785.5s
+step  1250 | train_loss 5.0095 | val_loss 5.1025 | val_ppl 164.42 | lr 4.67e-05 | 2230.7s
+step  1500 | train_loss 4.8810 | val_loss 5.1201 | val_ppl 167.35 | lr 4.43e-05 | 2675.8s
+step  1750 | train_loss 4.8884 | val_loss 5.1606 | val_ppl 174.28 | lr 4.12e-05 | 3120.8s
+step  2000 | train_loss 4.7961 | val_loss 5.1649 | val_ppl 175.03 | lr 3.78e-05 | 3565.7s
+step  2250 | train_loss 4.6188 | val_loss 5.0551 | val_ppl 156.81 | lr 3.39e-05 | 4010.6s
+step  2500 | train_loss 4.7936 | val_loss 5.1718 | val_ppl 176.23 | lr 2.98e-05 | 4455.9s
+step  2750 | train_loss 4.5821 | val_loss 5.1076 | val_ppl 165.28 | lr 2.55e-05 | 4900.8s
+step  3000 | train_loss 4.5894 | val_loss 5.1234 | val_ppl 167.91 | lr 2.12e-05 | 5345.7s
+step  3250 | train_loss 4.5170 | val_loss 5.1102 | val_ppl 165.70 | lr 1.71e-05 | 5790.5s
+step  3500 | train_loss 4.7165 | val_loss 5.0366 | val_ppl 153.95 | lr 1.33e-05 | 6235.3s
+step  3750 | train_loss 4.5605 | val_loss 5.1069 | val_ppl 165.15 | lr 9.75e-06 | 6680.7s
+step  4000 | train_loss 4.7327 | val_loss 5.1189 | val_ppl 167.15 | lr 6.73e-06 | 7125.6s
+step  4250 | train_loss 4.7405 | val_loss 5.0293 | val_ppl 152.83 | lr 4.28e-06 | 7570.4s
+step  4500 | train_loss 4.6417 | val_loss 5.1221 | val_ppl 167.69 | lr 2.48e-06 | 8015.7s
+step  4750 | train_loss 4.5230 | val_loss 5.0095 | val_ppl 149.83 | lr 1.37e-06 | 8460.6s
+step  4999 | train_loss 4.5792 | val_loss 5.0918 | val_ppl 162.68 | lr 1.00e-06 | 8904.1s
+Training complete. Best val_loss: 5.0095 (ppl 149.83)
+
+--- Evaluating v4_primary_fixed_0.00_gen1_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8143.00it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24397.95it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19450.93it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 30666.78it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      191.36
+  logprob_gap (full):  0.4505
+  logprob_gap (crit):  1.1701
+  distinct_1/2/3:      0.4046 / 0.8992 / 0.9835
+
+--- Gen 2, Ratio 0%, Seed 42, Config primary ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_primary_fixed_0.00_gen2_seed42.pt
+
+--- Evaluating v4_primary_fixed_0.00_gen2_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16708.13it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23056.75it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 29099.80it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24186.91it/s]
+  novelty_accuracy:    0.3333
+  val_perplexity:      191.95
+  logprob_gap (full):  0.4424
+  logprob_gap (crit):  1.1770
+  distinct_1/2/3:      0.4042 / 0.8822 / 0.9692
+
+--- Gen 2, Ratio 0%, Seed 137, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18913.99it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.6486 | val_loss 9.1073 | val_ppl 9021.02 | lr 0.00e+00 | 3.2s
+step   250 | train_loss 5.9549 | val_loss 5.7045 | val_ppl 300.20 | lr 2.50e-05 | 450.0s
+step   500 | train_loss 5.4608 | val_loss 5.4219 | val_ppl 226.31 | lr 5.00e-05 | 895.4s
+step   750 | train_loss 5.3015 | val_loss 5.3018 | val_ppl 200.69 | lr 4.96e-05 | 1340.7s
+step  1000 | train_loss 5.2118 | val_loss 5.1606 | val_ppl 174.26 | lr 4.85e-05 | 1782.8s
+step  1250 | train_loss 5.0249 | val_loss 5.1597 | val_ppl 174.10 | lr 4.67e-05 | 2222.7s
+step  1500 | train_loss 4.9022 | val_loss 5.1065 | val_ppl 165.09 | lr 4.43e-05 | 2659.7s
+step  1750 | train_loss 4.8736 | val_loss 5.0715 | val_ppl 159.42 | lr 4.12e-05 | 3096.6s
+step  2000 | train_loss 4.8129 | val_loss 5.1425 | val_ppl 171.13 | lr 3.78e-05 | 3533.6s
+step  2250 | train_loss 4.6749 | val_loss 5.1615 | val_ppl 174.43 | lr 3.39e-05 | 3977.1s
+step  2500 | train_loss 4.8350 | val_loss 5.0802 | val_ppl 160.81 | lr 2.98e-05 | 4422.1s
+step  2750 | train_loss 4.7546 | val_loss 5.1233 | val_ppl 167.89 | lr 2.55e-05 | 4867.2s
+step  3000 | train_loss 4.5268 | val_loss 5.1036 | val_ppl 164.61 | lr 2.12e-05 | 5312.3s
+step  3250 | train_loss 4.5523 | val_loss 5.1347 | val_ppl 169.81 | lr 1.71e-05 | 5757.3s
+step  3500 | train_loss 4.5208 | val_loss 5.1516 | val_ppl 172.71 | lr 1.33e-05 | 6202.4s
+step  3750 | train_loss 4.7069 | val_loss 4.9053 | val_ppl 135.01 | lr 9.75e-06 | 6647.5s
+step  4000 | train_loss 4.7093 | val_loss 5.0975 | val_ppl 163.62 | lr 6.73e-06 | 7093.0s
+step  4250 | train_loss 4.5696 | val_loss 5.0617 | val_ppl 157.86 | lr 4.28e-06 | 7538.0s
+step  4500 | train_loss 4.6345 | val_loss 4.9791 | val_ppl 145.34 | lr 2.48e-06 | 7983.0s
+step  4750 | train_loss 4.5421 | val_loss 5.0970 | val_ppl 163.53 | lr 1.37e-06 | 8428.2s
+step  4999 | train_loss 4.3959 | val_loss 5.2018 | val_ppl 181.60 | lr 1.00e-06 | 8871.5s
+Training complete. Best val_loss: 4.9053 (ppl 135.01)
+
+--- Evaluating v4_primary_fixed_0.00_gen2_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7474.05it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28448.99it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23443.37it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 26676.28it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      191.15
+  logprob_gap (full):  0.4560
+  logprob_gap (crit):  1.1918
+  distinct_1/2/3:      0.4062 / 0.8949 / 0.9816
+
+--- Gen 2, Ratio 0%, Seed 256, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 25368.08it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.6037 | val_loss 9.1449 | val_ppl 9366.23 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 5.8485 | val_loss 5.7457 | val_ppl 312.83 | lr 2.50e-05 | 448.8s
+step   500 | train_loss 5.3788 | val_loss 5.4152 | val_ppl 224.80 | lr 5.00e-05 | 894.2s
+step   750 | train_loss 5.1660 | val_loss 5.2453 | val_ppl 189.67 | lr 4.96e-05 | 1339.6s
+step  1000 | train_loss 5.0744 | val_loss 5.1801 | val_ppl 177.70 | lr 4.85e-05 | 1785.0s
+step  1250 | train_loss 4.8829 | val_loss 5.1317 | val_ppl 169.30 | lr 4.67e-05 | 2230.4s
+step  1500 | train_loss 4.9319 | val_loss 5.1609 | val_ppl 174.32 | lr 4.43e-05 | 2675.8s
+step  1750 | train_loss 4.9091 | val_loss 5.0528 | val_ppl 156.46 | lr 4.12e-05 | 3120.6s
+step  2000 | train_loss 4.9234 | val_loss 5.0832 | val_ppl 161.29 | lr 3.78e-05 | 3566.0s
+step  2250 | train_loss 4.7813 | val_loss 5.0623 | val_ppl 157.96 | lr 3.39e-05 | 4011.0s
+step  2500 | train_loss 4.7993 | val_loss 5.0546 | val_ppl 156.74 | lr 2.98e-05 | 4456.0s
+step  2750 | train_loss 4.5714 | val_loss 5.0774 | val_ppl 160.36 | lr 2.55e-05 | 4900.9s
+step  3000 | train_loss 4.6646 | val_loss 5.0801 | val_ppl 160.78 | lr 2.12e-05 | 5345.9s
+step  3250 | train_loss 4.6312 | val_loss 5.0613 | val_ppl 157.79 | lr 1.71e-05 | 5790.9s
+step  3500 | train_loss 4.5787 | val_loss 5.0793 | val_ppl 160.66 | lr 1.33e-05 | 6235.8s
+step  3750 | train_loss 4.6335 | val_loss 5.0751 | val_ppl 159.99 | lr 9.75e-06 | 6680.8s
+step  4000 | train_loss 4.6189 | val_loss 5.0679 | val_ppl 158.84 | lr 6.73e-06 | 7125.8s
+step  4250 | train_loss 4.5369 | val_loss 5.1670 | val_ppl 175.39 | lr 4.28e-06 | 7570.7s
+step  4500 | train_loss 4.5166 | val_loss 5.1076 | val_ppl 165.28 | lr 2.48e-06 | 8015.7s
+step  4750 | train_loss 4.6205 | val_loss 5.0793 | val_ppl 160.65 | lr 1.37e-06 | 8460.7s
+step  4999 | train_loss 4.5964 | val_loss 5.1048 | val_ppl 164.80 | lr 1.00e-06 | 8903.9s
+Training complete. Best val_loss: 5.0528 (ppl 156.46)
+
+--- Evaluating v4_primary_fixed_0.00_gen2_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9050.39it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 26744.09it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19394.41it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 32583.96it/s]
+  novelty_accuracy:    0.2941
+  val_perplexity:      194.30
+  logprob_gap (full):  0.6279
+  logprob_gap (crit):  1.3680
+  distinct_1/2/3:      0.4254 / 0.9042 / 0.9873
+
+============================================================
+V4 [primary] FIXED-RATIO ARM: contamination=50%, steps=5000, lr=5e-05
+============================================================
+
+--- Gen 0, Ratio 50%, Seed 42, Config primary ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_primary_fixed_0.50_gen0_seed42.pt
+
+--- Evaluating v4_primary_fixed_0.50_gen0_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 26226.58it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23193.73it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20910.06it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 26909.87it/s]
+  novelty_accuracy:    0.3333
+  val_perplexity:      191.95
+  logprob_gap (full):  0.4424
+  logprob_gap (crit):  1.1770
+  distinct_1/2/3:      0.4060 / 0.8790 / 0.9678
+
+--- Gen 0, Ratio 50%, Seed 137, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10875.21it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.5476 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 5.7749 | val_loss 5.7039 | val_ppl 300.02 | lr 2.50e-05 | 448.6s
+step   500 | train_loss 5.3836 | val_loss 5.2974 | val_ppl 199.81 | lr 5.00e-05 | 893.2s
+step   750 | train_loss 5.0658 | val_loss 5.2564 | val_ppl 191.80 | lr 4.96e-05 | 1337.7s
+step  1000 | train_loss 5.1197 | val_loss 5.1842 | val_ppl 178.43 | lr 4.85e-05 | 1782.3s
+step  1250 | train_loss 4.9978 | val_loss 5.0496 | val_ppl 155.96 | lr 4.67e-05 | 2226.9s
+step  1500 | train_loss 4.9485 | val_loss 5.0377 | val_ppl 154.12 | lr 4.43e-05 | 2671.4s
+step  1750 | train_loss 4.8704 | val_loss 5.1429 | val_ppl 171.21 | lr 4.12e-05 | 3116.0s
+step  2000 | train_loss 4.6750 | val_loss 5.1263 | val_ppl 168.39 | lr 3.78e-05 | 3560.1s
+step  2250 | train_loss 4.8115 | val_loss 5.1568 | val_ppl 173.61 | lr 3.39e-05 | 4004.2s
+step  2500 | train_loss 4.6499 | val_loss 5.0956 | val_ppl 163.31 | lr 2.98e-05 | 4448.3s
+step  2750 | train_loss 4.6663 | val_loss 5.1222 | val_ppl 167.70 | lr 2.55e-05 | 4892.5s
+step  3000 | train_loss 4.6381 | val_loss 4.9921 | val_ppl 147.24 | lr 2.12e-05 | 5336.7s
+step  3250 | train_loss 4.7510 | val_loss 4.9278 | val_ppl 138.07 | lr 1.71e-05 | 5781.2s
+step  3500 | train_loss 4.6819 | val_loss 5.0039 | val_ppl 148.99 | lr 1.33e-05 | 6225.7s
+step  3750 | train_loss 4.6062 | val_loss 5.0693 | val_ppl 159.06 | lr 9.75e-06 | 6670.7s
+step  4000 | train_loss 4.4856 | val_loss 5.0781 | val_ppl 160.46 | lr 6.73e-06 | 7115.6s
+step  4250 | train_loss 4.5921 | val_loss 5.0956 | val_ppl 163.31 | lr 4.28e-06 | 7560.5s
+step  4500 | train_loss 4.6976 | val_loss 5.1137 | val_ppl 166.28 | lr 2.48e-06 | 8005.4s
+step  4750 | train_loss 4.6793 | val_loss 5.0167 | val_ppl 150.92 | lr 1.37e-06 | 8450.3s
+step  4999 | train_loss 4.6068 | val_loss 4.9996 | val_ppl 148.35 | lr 1.00e-06 | 8893.3s
+Training complete. Best val_loss: 4.9278 (ppl 138.07)
+
+--- Evaluating v4_primary_fixed_0.50_gen0_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8015.15it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24528.09it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20501.92it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 33821.35it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      192.30
+  logprob_gap (full):  0.4495
+  logprob_gap (crit):  1.1864
+  distinct_1/2/3:      0.4224 / 0.8960 / 0.9806
+
+--- Gen 0, Ratio 50%, Seed 256, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24552.35it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.5730 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.2s
+step   250 | train_loss 5.8201 | val_loss 5.7217 | val_ppl 305.41 | lr 2.50e-05 | 448.6s
+step   500 | train_loss 5.5744 | val_loss 5.4170 | val_ppl 225.20 | lr 5.00e-05 | 893.8s
+step   750 | train_loss 5.2817 | val_loss 5.2048 | val_ppl 182.14 | lr 4.96e-05 | 1339.1s
+step  1000 | train_loss 5.0580 | val_loss 5.2443 | val_ppl 189.49 | lr 4.85e-05 | 1781.9s
+step  1250 | train_loss 5.2227 | val_loss 5.1923 | val_ppl 179.89 | lr 4.67e-05 | 2222.3s
+step  1500 | train_loss 4.8084 | val_loss 5.2089 | val_ppl 182.89 | lr 4.43e-05 | 2671.7s
+step  1750 | train_loss 4.8774 | val_loss 5.0901 | val_ppl 162.40 | lr 4.12e-05 | 3118.3s
+step  2000 | train_loss 4.7370 | val_loss 5.1458 | val_ppl 171.71 | lr 3.78e-05 | 3562.1s
+step  2250 | train_loss 4.7102 | val_loss 5.1919 | val_ppl 179.81 | lr 3.39e-05 | 4000.7s
+step  2500 | train_loss 4.5858 | val_loss 5.0723 | val_ppl 159.54 | lr 2.98e-05 | 4454.4s
+step  2750 | train_loss 4.5807 | val_loss 5.0745 | val_ppl 159.90 | lr 2.55e-05 | 4912.0s
+step  3000 | train_loss 4.6575 | val_loss 5.0668 | val_ppl 158.66 | lr 2.12e-05 | 5365.2s
+step  3250 | train_loss 4.5355 | val_loss 5.0546 | val_ppl 156.74 | lr 1.71e-05 | 5825.3s
+step  3500 | train_loss 4.6390 | val_loss 5.1482 | val_ppl 172.12 | lr 1.33e-05 | 6276.3s
+step  3750 | train_loss 4.6137 | val_loss 5.0039 | val_ppl 148.99 | lr 9.75e-06 | 6727.3s
+step  4000 | train_loss 4.4868 | val_loss 5.1145 | val_ppl 166.42 | lr 6.73e-06 | 7177.4s
+step  4250 | train_loss 4.4377 | val_loss 5.1116 | val_ppl 165.93 | lr 4.28e-06 | 7634.4s
+step  4500 | train_loss 4.7215 | val_loss 5.0200 | val_ppl 151.41 | lr 2.48e-06 | 8088.1s
+step  4750 | train_loss 4.6630 | val_loss 5.0331 | val_ppl 153.41 | lr 1.37e-06 | 8541.8s
+step  4999 | train_loss 4.6171 | val_loss 5.0448 | val_ppl 155.21 | lr 1.00e-06 | 8995.7s
+Training complete. Best val_loss: 5.0039 (ppl 148.99)
+
+--- Evaluating v4_primary_fixed_0.50_gen0_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8106.10it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 34173.24it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 13223.91it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 11045.50it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      192.48
+  logprob_gap (full):  0.4554
+  logprob_gap (crit):  1.1922
+  distinct_1/2/3:      0.4028 / 0.8863 / 0.9673
+
+--- Gen 1, Ratio 50%, Seed 42, Config primary ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_primary_fixed_0.50_gen1_seed42.pt
+
+--- Evaluating v4_primary_fixed_0.50_gen1_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 25380.53it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 12167.89it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9759.26it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7610.77it/s]
+  novelty_accuracy:    0.3529
+  val_perplexity:      232.47
+  logprob_gap (full):  0.6676
+  logprob_gap (crit):  1.4760
+  distinct_1/2/3:      0.1532 / 0.6091 / 0.8957
+
+--- Gen 1, Ratio 50%, Seed 137, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7699.88it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 6.7452 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.4s
+step   250 | train_loss 4.7810 | val_loss 5.9341 | val_ppl 377.69 | lr 2.50e-05 | 442.7s
+step   500 | train_loss 4.9219 | val_loss 5.5226 | val_ppl 250.28 | lr 5.00e-05 | 893.4s
+step   750 | train_loss 4.5028 | val_loss 5.4292 | val_ppl 227.97 | lr 4.96e-05 | 1340.9s
+step  1000 | train_loss 4.5213 | val_loss 5.3872 | val_ppl 218.59 | lr 4.85e-05 | 1785.4s
+step  1250 | train_loss 4.2539 | val_loss 5.2695 | val_ppl 194.32 | lr 4.67e-05 | 2240.6s
+step  1500 | train_loss 4.2433 | val_loss 5.2410 | val_ppl 188.85 | lr 4.43e-05 | 2699.1s
+step  1750 | train_loss 4.5214 | val_loss 5.3300 | val_ppl 206.44 | lr 4.12e-05 | 3157.8s
+step  2000 | train_loss 4.1614 | val_loss 5.2672 | val_ppl 193.87 | lr 3.78e-05 | 3618.4s
+step  2250 | train_loss 4.2835 | val_loss 5.3659 | val_ppl 213.99 | lr 3.39e-05 | 4077.9s
+step  2500 | train_loss 4.2879 | val_loss 5.3015 | val_ppl 200.63 | lr 2.98e-05 | 4536.2s
+step  2750 | train_loss 4.1453 | val_loss 5.3701 | val_ppl 214.87 | lr 2.55e-05 | 4988.3s
+step  3000 | train_loss 4.2008 | val_loss 5.1972 | val_ppl 180.76 | lr 2.12e-05 | 5448.0s
+step  3250 | train_loss 4.2115 | val_loss 5.1739 | val_ppl 176.61 | lr 1.71e-05 | 5904.3s
+step  3500 | train_loss 3.9554 | val_loss 5.2306 | val_ppl 186.90 | lr 1.33e-05 | 6355.8s
+step  3750 | train_loss 4.1923 | val_loss 5.2879 | val_ppl 197.92 | lr 9.75e-06 | 6803.2s
+step  4000 | train_loss 4.1080 | val_loss 5.3427 | val_ppl 209.08 | lr 6.73e-06 | 7253.8s
+step  4250 | train_loss 4.0890 | val_loss 5.3410 | val_ppl 208.72 | lr 4.28e-06 | 7705.3s
+step  4500 | train_loss 4.0502 | val_loss 5.3552 | val_ppl 211.70 | lr 2.48e-06 | 8161.7s
+step  4750 | train_loss 4.0285 | val_loss 5.2205 | val_ppl 185.03 | lr 1.37e-06 | 8614.4s
+step  4999 | train_loss 4.1551 | val_loss 5.2812 | val_ppl 196.61 | lr 1.00e-06 | 9065.6s
+Training complete. Best val_loss: 5.1739 (ppl 176.61)
+
+--- Evaluating v4_primary_fixed_0.50_gen1_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9649.87it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 30911.11it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15788.11it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19707.20it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      233.38
+  logprob_gap (full):  0.6661
+  logprob_gap (crit):  1.4963
+  distinct_1/2/3:      0.1410 / 0.5865 / 0.8539
+
+--- Gen 1, Ratio 50%, Seed 256, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 19613.79it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 7.0246 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 5.1870 | val_loss 5.9327 | val_ppl 377.18 | lr 2.50e-05 | 457.7s
+step   500 | train_loss 4.5098 | val_loss 5.6444 | val_ppl 282.72 | lr 5.00e-05 | 913.3s
+step   750 | train_loss 4.7226 | val_loss 5.4004 | val_ppl 221.50 | lr 4.96e-05 | 1363.8s
+step  1000 | train_loss 4.6054 | val_loss 5.4265 | val_ppl 227.34 | lr 4.85e-05 | 1809.4s
+step  1250 | train_loss 4.6903 | val_loss 5.3682 | val_ppl 214.48 | lr 4.67e-05 | 2254.1s
+step  1500 | train_loss 4.1709 | val_loss 5.3577 | val_ppl 212.24 | lr 4.43e-05 | 2698.6s
+step  1750 | train_loss 4.5896 | val_loss 5.2768 | val_ppl 195.74 | lr 4.12e-05 | 3142.0s
+step  2000 | train_loss 4.3154 | val_loss 5.3556 | val_ppl 211.80 | lr 3.78e-05 | 3584.9s
+step  2250 | train_loss 4.0689 | val_loss 5.3616 | val_ppl 213.06 | lr 3.39e-05 | 4027.6s
+step  2500 | train_loss 4.2344 | val_loss 5.2774 | val_ppl 195.87 | lr 2.98e-05 | 4475.6s
+step  2750 | train_loss 4.0333 | val_loss 5.2570 | val_ppl 191.90 | lr 2.55e-05 | 4927.1s
+step  3000 | train_loss 4.0051 | val_loss 5.2938 | val_ppl 199.09 | lr 2.12e-05 | 5379.0s
+step  3250 | train_loss 4.2991 | val_loss 5.2556 | val_ppl 191.64 | lr 1.71e-05 | 5830.5s
+step  3500 | train_loss 3.9369 | val_loss 5.3865 | val_ppl 218.43 | lr 1.33e-05 | 6282.3s
+step  3750 | train_loss 4.1423 | val_loss 5.1558 | val_ppl 173.44 | lr 9.75e-06 | 6733.3s
+step  4000 | train_loss 4.1256 | val_loss 5.3288 | val_ppl 206.20 | lr 6.73e-06 | 7184.5s
+step  4250 | train_loss 4.0682 | val_loss 5.3094 | val_ppl 202.23 | lr 4.28e-06 | 7634.9s
+step  4500 | train_loss 4.3039 | val_loss 5.1895 | val_ppl 179.39 | lr 2.48e-06 | 8085.2s
+step  4750 | train_loss 4.0329 | val_loss 5.2827 | val_ppl 196.91 | lr 1.37e-06 | 8535.1s
+step  4999 | train_loss 3.9921 | val_loss 5.2061 | val_ppl 182.38 | lr 1.00e-06 | 8983.6s
+Training complete. Best val_loss: 5.1558 (ppl 173.44)
+
+--- Evaluating v4_primary_fixed_0.50_gen1_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8000.06it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8789.60it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15153.35it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24283.42it/s]
+  novelty_accuracy:    0.3333
+  val_perplexity:      233.69
+  logprob_gap (full):  0.6745
+  logprob_gap (crit):  1.4927
+  distinct_1/2/3:      0.1638 / 0.6111 / 0.8349
+
+--- Gen 2, Ratio 50%, Seed 42, Config primary ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_primary_fixed_0.50_gen2_seed42.pt
+
+--- Evaluating v4_primary_fixed_0.50_gen2_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 22693.46it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 30389.04it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18501.34it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21688.86it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      235.86
+  logprob_gap (full):  0.6903
+  logprob_gap (crit):  1.5075
+  distinct_1/2/3:      0.0722 / 0.3075 / 0.6367
+
+--- Gen 2, Ratio 50%, Seed 137, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16629.35it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 5.8878 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.2s
+step   250 | train_loss 4.3353 | val_loss 5.9339 | val_ppl 377.63 | lr 2.50e-05 | 448.9s
+step   500 | train_loss 4.2738 | val_loss 5.5286 | val_ppl 251.80 | lr 5.00e-05 | 898.6s
+step   750 | train_loss 3.6269 | val_loss 5.4337 | val_ppl 229.01 | lr 4.96e-05 | 1349.6s
+step  1000 | train_loss 3.7079 | val_loss 5.3895 | val_ppl 219.09 | lr 4.85e-05 | 1800.2s
+step  1250 | train_loss 3.9711 | val_loss 5.2725 | val_ppl 194.90 | lr 4.67e-05 | 2250.2s
+step  1500 | train_loss 3.8424 | val_loss 5.2441 | val_ppl 189.45 | lr 4.43e-05 | 2700.2s
+step  1750 | train_loss 3.4832 | val_loss 5.3430 | val_ppl 209.15 | lr 4.12e-05 | 3150.2s
+step  2000 | train_loss 3.6147 | val_loss 5.2787 | val_ppl 196.11 | lr 3.78e-05 | 3599.7s
+step  2250 | train_loss 3.6880 | val_loss 5.3668 | val_ppl 214.18 | lr 3.39e-05 | 4049.3s
+step  2500 | train_loss 3.6802 | val_loss 5.3162 | val_ppl 203.60 | lr 2.98e-05 | 4499.0s
+step  2750 | train_loss 3.7846 | val_loss 5.3670 | val_ppl 214.23 | lr 2.55e-05 | 4948.8s
+step  3000 | train_loss 3.3671 | val_loss 5.2045 | val_ppl 182.10 | lr 2.12e-05 | 5398.7s
+step  3250 | train_loss 3.5320 | val_loss 5.1811 | val_ppl 177.88 | lr 1.71e-05 | 5848.6s
+step  3500 | train_loss 3.4349 | val_loss 5.2349 | val_ppl 187.72 | lr 1.33e-05 | 6298.6s
+step  3750 | train_loss 3.6486 | val_loss 5.2889 | val_ppl 198.13 | lr 9.75e-06 | 6748.3s
+step  4000 | train_loss 3.8635 | val_loss 5.3488 | val_ppl 210.36 | lr 6.73e-06 | 7198.1s
+step  4250 | train_loss 3.5215 | val_loss 5.3592 | val_ppl 212.56 | lr 4.28e-06 | 7647.1s
+step  4500 | train_loss 3.6232 | val_loss 5.3671 | val_ppl 214.25 | lr 2.48e-06 | 8087.4s
+step  4750 | train_loss 3.4561 | val_loss 5.2299 | val_ppl 186.77 | lr 1.37e-06 | 8528.0s
+step  4999 | train_loss 3.5590 | val_loss 5.2864 | val_ppl 197.63 | lr 1.00e-06 | 8966.4s
+Training complete. Best val_loss: 5.1811 (ppl 177.88)
+
+--- Evaluating v4_primary_fixed_0.50_gen2_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7969.87it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8384.76it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15969.26it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24402.74it/s]
+  novelty_accuracy:    0.3333
+  val_perplexity:      235.95
+  logprob_gap (full):  0.7349
+  logprob_gap (crit):  1.5538
+  distinct_1/2/3:      0.0908 / 0.3418 / 0.6496
+
+--- Gen 2, Ratio 50%, Seed 256, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 13022.24it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 6.7978 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 4.3330 | val_loss 5.9418 | val_ppl 380.64 | lr 2.50e-05 | 441.8s
+step   500 | train_loss 4.3825 | val_loss 5.6413 | val_ppl 281.83 | lr 5.00e-05 | 891.2s
+step   750 | train_loss 3.9708 | val_loss 5.4010 | val_ppl 221.64 | lr 4.96e-05 | 1340.8s
+step  1000 | train_loss 3.8123 | val_loss 5.4335 | val_ppl 228.94 | lr 4.85e-05 | 1789.9s
+step  1250 | train_loss 4.0990 | val_loss 5.3753 | val_ppl 216.01 | lr 4.67e-05 | 2238.2s
+step  1500 | train_loss 3.6721 | val_loss 5.3614 | val_ppl 213.01 | lr 4.43e-05 | 2686.6s
+step  1750 | train_loss 3.5312 | val_loss 5.2901 | val_ppl 198.36 | lr 4.12e-05 | 3134.8s
+step  2000 | train_loss 3.6359 | val_loss 5.3500 | val_ppl 210.61 | lr 3.78e-05 | 3582.8s
+step  2250 | train_loss 3.7603 | val_loss 5.3718 | val_ppl 215.24 | lr 3.39e-05 | 4030.2s
+step  2500 | train_loss 3.5990 | val_loss 5.2803 | val_ppl 196.42 | lr 2.98e-05 | 4477.7s
+step  2750 | train_loss 3.3063 | val_loss 5.2726 | val_ppl 194.91 | lr 2.55e-05 | 4925.4s
+step  3000 | train_loss 3.3108 | val_loss 5.3028 | val_ppl 200.90 | lr 2.12e-05 | 5373.1s
+step  3250 | train_loss 3.7979 | val_loss 5.2708 | val_ppl 194.58 | lr 1.71e-05 | 5820.7s
+step  3500 | train_loss 3.8926 | val_loss 5.3976 | val_ppl 220.87 | lr 1.33e-05 | 6268.1s
+step  3750 | train_loss 3.5024 | val_loss 5.1615 | val_ppl 174.42 | lr 9.75e-06 | 6715.3s
+step  4000 | train_loss 3.6896 | val_loss 5.3484 | val_ppl 210.27 | lr 6.73e-06 | 7162.6s
+step  4250 | train_loss 3.4834 | val_loss 5.3256 | val_ppl 205.53 | lr 4.28e-06 | 7609.3s
+step  4500 | train_loss 3.7144 | val_loss 5.2033 | val_ppl 181.87 | lr 2.48e-06 | 8056.1s
+step  4750 | train_loss 3.5237 | val_loss 5.3000 | val_ppl 200.33 | lr 1.37e-06 | 8502.6s
+step  4999 | train_loss 3.6808 | val_loss 5.2171 | val_ppl 184.41 | lr 1.00e-06 | 8947.1s
+Training complete. Best val_loss: 5.1615 (ppl 174.42)
+
+--- Evaluating v4_primary_fixed_0.50_gen2_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8122.54it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 11174.14it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 11601.42it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 37601.13it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      235.41
+  logprob_gap (full):  0.6783
+  logprob_gap (crit):  1.4764
+  distinct_1/2/3:      0.0702 / 0.3083 / 0.6404
+
+============================================================
+V4 [primary] FIXED-RATIO ARM: contamination=100%, steps=5000, lr=5e-05
+============================================================
+
+--- Gen 0, Ratio 100%, Seed 42, Config primary ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_primary_fixed_1.00_gen0_seed42.pt
+
+--- Evaluating v4_primary_fixed_1.00_gen0_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 29453.26it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27060.03it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14701.87it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15663.02it/s]
+  novelty_accuracy:    0.3333
+  val_perplexity:      191.95
+  logprob_gap (full):  0.4424
+  logprob_gap (crit):  1.1770
+  distinct_1/2/3:      0.4054 / 0.8778 / 0.9661
+
+--- Gen 0, Ratio 100%, Seed 137, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14770.43it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.5476 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.2s
+step   250 | train_loss 5.7749 | val_loss 5.7039 | val_ppl 300.02 | lr 2.50e-05 | 448.7s
+step   500 | train_loss 5.3836 | val_loss 5.2974 | val_ppl 199.81 | lr 5.00e-05 | 894.1s
+step   750 | train_loss 5.0658 | val_loss 5.2564 | val_ppl 191.80 | lr 4.96e-05 | 1339.4s
+step  1000 | train_loss 5.1197 | val_loss 5.1842 | val_ppl 178.43 | lr 4.85e-05 | 1784.7s
+step  1250 | train_loss 4.9978 | val_loss 5.0496 | val_ppl 155.96 | lr 4.67e-05 | 2230.0s
+step  1500 | train_loss 4.9485 | val_loss 5.0377 | val_ppl 154.12 | lr 4.43e-05 | 2675.3s
+step  1750 | train_loss 4.8704 | val_loss 5.1429 | val_ppl 171.21 | lr 4.12e-05 | 3120.6s
+step  2000 | train_loss 4.6750 | val_loss 5.1263 | val_ppl 168.39 | lr 3.78e-05 | 3567.6s
+step  2250 | train_loss 4.8115 | val_loss 5.1568 | val_ppl 173.61 | lr 3.39e-05 | 4015.9s
+step  2500 | train_loss 4.6499 | val_loss 5.0956 | val_ppl 163.31 | lr 2.98e-05 | 4463.2s
+step  2750 | train_loss 4.6663 | val_loss 5.1222 | val_ppl 167.70 | lr 2.55e-05 | 4910.3s
+step  3000 | train_loss 4.6381 | val_loss 4.9921 | val_ppl 147.24 | lr 2.12e-05 | 5357.2s
+step  3250 | train_loss 4.7510 | val_loss 4.9278 | val_ppl 138.07 | lr 1.71e-05 | 5804.6s
+step  3500 | train_loss 4.6819 | val_loss 5.0038 | val_ppl 148.99 | lr 1.33e-05 | 6252.0s
+step  3750 | train_loss 4.6062 | val_loss 5.0693 | val_ppl 159.06 | lr 9.75e-06 | 6699.3s
+step  4000 | train_loss 4.4856 | val_loss 5.0781 | val_ppl 160.46 | lr 6.73e-06 | 7146.4s
+step  4250 | train_loss 4.5921 | val_loss 5.0956 | val_ppl 163.31 | lr 4.28e-06 | 7593.4s
+step  4500 | train_loss 4.6976 | val_loss 5.1137 | val_ppl 166.28 | lr 2.48e-06 | 8040.4s
+step  4750 | train_loss 4.6793 | val_loss 5.0167 | val_ppl 150.92 | lr 1.37e-06 | 8487.3s
+step  4999 | train_loss 4.6068 | val_loss 4.9996 | val_ppl 148.35 | lr 1.00e-06 | 8932.7s
+Training complete. Best val_loss: 4.9278 (ppl 138.07)
+
+--- Evaluating v4_primary_fixed_1.00_gen0_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8881.91it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28036.54it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10466.14it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7755.58it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      192.30
+  logprob_gap (full):  0.4495
+  logprob_gap (crit):  1.1864
+  distinct_1/2/3:      0.4284 / 0.8970 / 0.9804
+
+--- Gen 0, Ratio 100%, Seed 256, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8450.39it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.5730 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.2s
+step   250 | train_loss 5.8201 | val_loss 5.7217 | val_ppl 305.41 | lr 2.50e-05 | 448.7s
+step   500 | train_loss 5.5744 | val_loss 5.4170 | val_ppl 225.20 | lr 5.00e-05 | 893.9s
+step   750 | train_loss 5.2817 | val_loss 5.2048 | val_ppl 182.14 | lr 4.96e-05 | 1341.0s
+step  1000 | train_loss 5.0580 | val_loss 5.2443 | val_ppl 189.49 | lr 4.85e-05 | 1788.1s
+step  1250 | train_loss 5.2227 | val_loss 5.1923 | val_ppl 179.89 | lr 4.67e-05 | 2234.9s
+step  1500 | train_loss 4.8084 | val_loss 5.2089 | val_ppl 182.89 | lr 4.43e-05 | 2682.0s
+step  1750 | train_loss 4.8774 | val_loss 5.0901 | val_ppl 162.40 | lr 4.12e-05 | 3128.6s
+step  2000 | train_loss 4.7370 | val_loss 5.1458 | val_ppl 171.71 | lr 3.78e-05 | 3576.1s
+step  2250 | train_loss 4.7102 | val_loss 5.1919 | val_ppl 179.81 | lr 3.39e-05 | 4023.4s
+step  2500 | train_loss 4.5858 | val_loss 5.0723 | val_ppl 159.54 | lr 2.98e-05 | 4470.7s
+step  2750 | train_loss 4.5807 | val_loss 5.0745 | val_ppl 159.90 | lr 2.55e-05 | 4918.2s
+step  3000 | train_loss 4.6575 | val_loss 5.0668 | val_ppl 158.66 | lr 2.12e-05 | 5364.9s
+step  3250 | train_loss 4.5355 | val_loss 5.0546 | val_ppl 156.74 | lr 1.71e-05 | 5811.8s
+step  3500 | train_loss 4.6390 | val_loss 5.1482 | val_ppl 172.12 | lr 1.33e-05 | 6260.0s
+step  3750 | train_loss 4.6137 | val_loss 5.0039 | val_ppl 148.99 | lr 9.75e-06 | 6706.4s
+step  4000 | train_loss 4.4868 | val_loss 5.1145 | val_ppl 166.42 | lr 6.73e-06 | 7153.1s
+step  4250 | train_loss 4.4377 | val_loss 5.1116 | val_ppl 165.93 | lr 4.28e-06 | 7599.6s
+step  4500 | train_loss 4.7215 | val_loss 5.0200 | val_ppl 151.41 | lr 2.48e-06 | 8046.1s
+step  4750 | train_loss 4.6630 | val_loss 5.0331 | val_ppl 153.41 | lr 1.37e-06 | 8493.1s
+step  4999 | train_loss 4.6171 | val_loss 5.0448 | val_ppl 155.21 | lr 1.00e-06 | 8937.8s
+Training complete. Best val_loss: 5.0039 (ppl 148.99)
+
+--- Evaluating v4_primary_fixed_1.00_gen0_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7485.67it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27941.89it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7826.48it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9973.60it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      192.48
+  logprob_gap (full):  0.4554
+  logprob_gap (crit):  1.1922
+  distinct_1/2/3:      0.4000 / 0.8832 / 0.9651
+
+--- Gen 1, Ratio 100%, Seed 42, Config primary ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_primary_fixed_1.00_gen1_seed42.pt
+
+--- Evaluating v4_primary_fixed_1.00_gen1_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18253.26it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28191.88it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15852.62it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 11677.36it/s]
+  novelty_accuracy:    0.2549
+  val_perplexity:      821.83
+  logprob_gap (full):  2.3918
+  logprob_gap (crit):  3.5545
+  distinct_1/2/3:      0.1110 / 0.5491 / 0.8294
+
+--- Gen 1, Ratio 100%, Seed 137, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 13826.25it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 4.7815 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 3.7569 | val_loss 6.8044 | val_ppl 901.84 | lr 2.50e-05 | 448.0s
+step   500 | train_loss 3.6000 | val_loss 6.6507 | val_ppl 773.29 | lr 5.00e-05 | 892.7s
+step   750 | train_loss 3.5147 | val_loss 6.7341 | val_ppl 840.57 | lr 4.96e-05 | 1337.3s
+step  1000 | train_loss 3.5212 | val_loss 6.7265 | val_ppl 834.26 | lr 4.85e-05 | 1781.5s
+step  1250 | train_loss 3.6096 | val_loss 6.6079 | val_ppl 740.94 | lr 4.67e-05 | 2227.5s
+step  1500 | train_loss 3.5665 | val_loss 6.6142 | val_ppl 745.64 | lr 4.43e-05 | 2674.3s
+step  1750 | train_loss 3.5269 | val_loss 6.6690 | val_ppl 787.58 | lr 4.12e-05 | 3120.8s
+step  2000 | train_loss 3.5599 | val_loss 6.6584 | val_ppl 779.28 | lr 3.78e-05 | 3567.1s
+step  2250 | train_loss 3.4044 | val_loss 6.7099 | val_ppl 820.48 | lr 3.39e-05 | 4013.1s
+step  2500 | train_loss 3.6025 | val_loss 6.7272 | val_ppl 834.78 | lr 2.98e-05 | 4459.2s
+step  2750 | train_loss 3.4554 | val_loss 6.7506 | val_ppl 854.54 | lr 2.55e-05 | 4905.1s
+step  3000 | train_loss 3.3870 | val_loss 6.6817 | val_ppl 797.67 | lr 2.12e-05 | 5350.6s
+step  3250 | train_loss 3.4162 | val_loss 6.6384 | val_ppl 763.84 | lr 1.71e-05 | 5796.4s
+step  3500 | train_loss 3.3196 | val_loss 6.7126 | val_ppl 822.71 | lr 1.33e-05 | 6242.1s
+step  3750 | train_loss 3.4476 | val_loss 6.7638 | val_ppl 865.91 | lr 9.75e-06 | 6687.9s
+step  4000 | train_loss 3.3911 | val_loss 6.7782 | val_ppl 878.48 | lr 6.73e-06 | 7133.8s
+step  4250 | train_loss 3.3236 | val_loss 6.7594 | val_ppl 862.15 | lr 4.28e-06 | 7580.3s
+step  4500 | train_loss 3.3190 | val_loss 6.8266 | val_ppl 922.08 | lr 2.48e-06 | 8026.2s
+step  4750 | train_loss 3.4368 | val_loss 6.7048 | val_ppl 816.34 | lr 1.37e-06 | 8472.0s
+step  4999 | train_loss 3.2482 | val_loss 6.7289 | val_ppl 836.25 | lr 1.00e-06 | 8915.8s
+Training complete. Best val_loss: 6.6079 (ppl 740.94)
+
+--- Evaluating v4_primary_fixed_1.00_gen1_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7924.69it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23917.58it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8440.16it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9696.00it/s]
+  novelty_accuracy:    0.1961
+  val_perplexity:      864.03
+  logprob_gap (full):  2.3245
+  logprob_gap (crit):  3.4247
+  distinct_1/2/3:      0.1294 / 0.6008 / 0.8818
+
+--- Gen 1, Ratio 100%, Seed 256, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7451.08it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 4.8302 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.2s
+step   250 | train_loss 3.8459 | val_loss 6.7608 | val_ppl 863.35 | lr 2.50e-05 | 448.7s
+step   500 | train_loss 3.6624 | val_loss 6.7919 | val_ppl 890.63 | lr 5.00e-05 | 894.0s
+step   750 | train_loss 3.4934 | val_loss 6.6597 | val_ppl 780.33 | lr 4.96e-05 | 1338.8s
+step  1000 | train_loss 3.6044 | val_loss 6.7575 | val_ppl 860.50 | lr 4.85e-05 | 1784.1s
+step  1250 | train_loss 3.5694 | val_loss 6.6814 | val_ppl 797.41 | lr 4.67e-05 | 2228.9s
+step  1500 | train_loss 3.5586 | val_loss 6.7164 | val_ppl 825.86 | lr 4.43e-05 | 2673.8s
+step  1750 | train_loss 3.4544 | val_loss 6.7025 | val_ppl 814.46 | lr 4.12e-05 | 3118.7s
+step  2000 | train_loss 3.5250 | val_loss 6.6910 | val_ppl 805.16 | lr 3.78e-05 | 3563.6s
+step  2250 | train_loss 3.4906 | val_loss 6.7710 | val_ppl 872.20 | lr 3.39e-05 | 4008.6s
+step  2500 | train_loss 3.2171 | val_loss 6.6440 | val_ppl 768.18 | lr 2.98e-05 | 4453.6s
+step  2750 | train_loss 3.5109 | val_loss 6.6893 | val_ppl 803.75 | lr 2.55e-05 | 4899.1s
+step  3000 | train_loss 3.3712 | val_loss 6.7335 | val_ppl 840.09 | lr 2.12e-05 | 5344.0s
+step  3250 | train_loss 3.4181 | val_loss 6.7280 | val_ppl 835.47 | lr 1.71e-05 | 5789.2s
+step  3500 | train_loss 3.3608 | val_loss 6.7849 | val_ppl 884.39 | lr 1.33e-05 | 6234.5s
+step  3750 | train_loss 3.4118 | val_loss 6.6338 | val_ppl 760.34 | lr 9.75e-06 | 6679.7s
+step  4000 | train_loss 3.2757 | val_loss 6.7767 | val_ppl 877.19 | lr 6.73e-06 | 7125.5s
+step  4250 | train_loss 3.3109 | val_loss 6.7416 | val_ppl 846.88 | lr 4.28e-06 | 7570.9s
+step  4500 | train_loss 3.3510 | val_loss 6.6960 | val_ppl 809.16 | lr 2.48e-06 | 8017.0s
+step  4750 | train_loss 3.3351 | val_loss 6.7015 | val_ppl 813.63 | lr 1.37e-06 | 8462.8s
+step  4999 | train_loss 3.4188 | val_loss 6.6680 | val_ppl 786.83 | lr 1.00e-06 | 8906.6s
+Training complete. Best val_loss: 6.6338 (ppl 760.34)
+
+--- Evaluating v4_primary_fixed_1.00_gen1_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9843.60it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 30672.84it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10038.60it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9511.62it/s]
+  novelty_accuracy:    0.2941
+  val_perplexity:      875.76
+  logprob_gap (full):  2.1732
+  logprob_gap (crit):  3.2967
+  distinct_1/2/3:      0.1186 / 0.5822 / 0.8794
+
+--- Gen 2, Ratio 100%, Seed 42, Config primary ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_primary_fixed_1.00_gen2_seed42.pt
+
+--- Evaluating v4_primary_fixed_1.00_gen2_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7085.38it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9531.19it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21660.11it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28544.49it/s]
+  novelty_accuracy:    0.4314
+  val_perplexity:      1455.65
+  logprob_gap (full):  0.9074
+  logprob_gap (crit):  1.4648
+  distinct_1/2/3:      0.0882 / 0.4949 / 0.8080
+
+--- Gen 2, Ratio 100%, Seed 137, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21987.71it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 3.1758 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 2.5184 | val_loss 7.2219 | val_ppl 1369.15 | lr 2.50e-05 | 446.7s
+step   500 | train_loss 2.4649 | val_loss 7.4029 | val_ppl 1640.75 | lr 5.00e-05 | 888.7s
+step   750 | train_loss 2.4638 | val_loss 7.8248 | val_ppl 2501.82 | lr 4.96e-05 | 1332.1s
+step  1000 | train_loss 2.2722 | val_loss 7.8370 | val_ppl 2532.56 | lr 4.85e-05 | 1776.7s
+step  1250 | train_loss 2.4794 | val_loss 7.6844 | val_ppl 2174.11 | lr 4.67e-05 | 2233.7s
+step  1500 | train_loss 2.2577 | val_loss 7.6858 | val_ppl 2177.25 | lr 4.43e-05 | 2681.9s
+step  1750 | train_loss 2.2228 | val_loss 7.6502 | val_ppl 2101.16 | lr 4.12e-05 | 3129.7s
+step  2000 | train_loss 2.2361 | val_loss 7.6500 | val_ppl 2100.65 | lr 3.78e-05 | 3571.3s
+step  2250 | train_loss 2.5351 | val_loss 7.7807 | val_ppl 2393.91 | lr 3.39e-05 | 4009.8s
+step  2500 | train_loss 2.3715 | val_loss 7.7164 | val_ppl 2244.78 | lr 2.98e-05 | 4448.2s
+step  2750 | train_loss 2.3899 | val_loss 7.7909 | val_ppl 2418.40 | lr 2.55e-05 | 4890.0s
+step  3000 | train_loss 2.4018 | val_loss 7.6800 | val_ppl 2164.65 | lr 2.12e-05 | 5332.4s
+step  3250 | train_loss 2.2265 | val_loss 7.7598 | val_ppl 2344.33 | lr 1.71e-05 | 5776.6s
+step  3500 | train_loss 2.1750 | val_loss 7.7457 | val_ppl 2311.72 | lr 1.33e-05 | 6219.8s
+step  3750 | train_loss 2.0989 | val_loss 7.9566 | val_ppl 2854.37 | lr 9.75e-06 | 6662.5s
+step  4000 | train_loss 2.3984 | val_loss 7.8877 | val_ppl 2664.43 | lr 6.73e-06 | 7107.1s
+step  4250 | train_loss 2.2041 | val_loss 7.9194 | val_ppl 2750.26 | lr 4.28e-06 | 7553.0s
+step  4500 | train_loss 2.3149 | val_loss 7.9898 | val_ppl 2950.78 | lr 2.48e-06 | 8000.2s
+step  4750 | train_loss 2.1555 | val_loss 7.8790 | val_ppl 2641.17 | lr 1.37e-06 | 8447.2s
+step  4999 | train_loss 2.3644 | val_loss 7.9372 | val_ppl 2799.48 | lr 1.00e-06 | 8894.5s
+Training complete. Best val_loss: 7.2219 (ppl 1369.15)
+
+--- Evaluating v4_primary_fixed_1.00_gen2_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8680.34it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 26297.69it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 21309.89it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9977.61it/s]
+  novelty_accuracy:    0.4314
+  val_perplexity:      1466.41
+  logprob_gap (full):  0.8983
+  logprob_gap (crit):  1.4650
+  distinct_1/2/3:      0.0764 / 0.4315 / 0.7820
+
+--- Gen 2, Ratio 100%, Seed 256, Config primary ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 20016.03it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 3.1808 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.3s
+step   250 | train_loss 2.3373 | val_loss 7.2486 | val_ppl 1406.16 | lr 2.50e-05 | 448.5s
+step   500 | train_loss 2.4076 | val_loss 7.5877 | val_ppl 1973.82 | lr 5.00e-05 | 895.7s
+step   750 | train_loss 2.2030 | val_loss 7.7745 | val_ppl 2379.11 | lr 4.96e-05 | 1342.2s
+step  1000 | train_loss 2.1130 | val_loss 8.1290 | val_ppl 3391.55 | lr 4.85e-05 | 1789.0s
+step  1250 | train_loss 2.3798 | val_loss 7.8644 | val_ppl 2602.95 | lr 4.67e-05 | 2236.5s
+step  1500 | train_loss 2.3726 | val_loss 7.7320 | val_ppl 2280.18 | lr 4.43e-05 | 2683.4s
+step  1750 | train_loss 2.3525 | val_loss 7.6561 | val_ppl 2113.57 | lr 4.12e-05 | 3130.7s
+step  2000 | train_loss 2.4200 | val_loss 7.5709 | val_ppl 1940.85 | lr 3.78e-05 | 3578.4s
+step  2250 | train_loss 2.2854 | val_loss 7.7564 | val_ppl 2336.55 | lr 3.39e-05 | 4026.2s
+step  2500 | train_loss 2.2932 | val_loss 7.8120 | val_ppl 2470.06 | lr 2.98e-05 | 4473.9s
+step  2750 | train_loss 2.3085 | val_loss 7.5935 | val_ppl 1985.19 | lr 2.55e-05 | 4921.6s
+step  3000 | train_loss 2.4944 | val_loss 7.8447 | val_ppl 2552.16 | lr 2.12e-05 | 5370.0s
+step  3250 | train_loss 2.1474 | val_loss 7.7865 | val_ppl 2407.90 | lr 1.71e-05 | 5818.0s
+step  3500 | train_loss 2.2287 | val_loss 7.9866 | val_ppl 2941.33 | lr 1.33e-05 | 6267.1s
+step  3750 | train_loss 2.2136 | val_loss 7.7748 | val_ppl 2379.96 | lr 9.75e-06 | 6718.4s
+step  4000 | train_loss 2.2410 | val_loss 7.8667 | val_ppl 2608.85 | lr 6.73e-06 | 7170.4s
+step  4250 | train_loss 2.3174 | val_loss 7.8444 | val_ppl 2551.38 | lr 4.28e-06 | 7623.3s
+step  4500 | train_loss 2.2518 | val_loss 7.8462 | val_ppl 2556.01 | lr 2.48e-06 | 8077.5s
+step  4750 | train_loss 2.1452 | val_loss 7.8437 | val_ppl 2549.60 | lr 1.37e-06 | 8530.9s
+step  4999 | train_loss 2.2088 | val_loss 7.8079 | val_ppl 2459.92 | lr 1.00e-06 | 8982.2s
+Training complete. Best val_loss: 7.2486 (ppl 1406.16)
+
+--- Evaluating v4_primary_fixed_1.00_gen2_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8210.85it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10520.41it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 14073.89it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9292.91it/s]
+  novelty_accuracy:    0.3922
+  val_perplexity:      1524.17
+  logprob_gap (full):  0.9462
+  logprob_gap (crit):  1.5027
+  distinct_1/2/3:      0.0682 / 0.3640 / 0.6896
+
+############################################################
+PHASE 2: Aggressive LR (5000 steps, LR=1e-4) — 100% only
+############################################################
+
+============================================================
+V4 [aggressive_lr] FIXED-RATIO ARM: contamination=100%, steps=5000, lr=0.0001
+============================================================
+
+--- Gen 0, Ratio 100%, Seed 42, Config aggressive_lr ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_aggressive_lr_fixed_1.00_gen0_seed42.pt
+
+--- Evaluating v4_aggressive_lr_fixed_1.00_gen0_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18335.21it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9312.29it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8533.68it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10323.75it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      196.65
+  logprob_gap (full):  0.4626
+  logprob_gap (crit):  1.1629
+  distinct_1/2/3:      0.3900 / 0.8921 / 0.9827
+
+--- Gen 0, Ratio 100%, Seed 137, Config aggressive_lr ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 15547.69it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.5476 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.2s
+step   250 | train_loss 5.5695 | val_loss 5.5170 | val_ppl 248.89 | lr 5.00e-05 | 453.4s
+step   500 | train_loss 5.1999 | val_loss 5.1883 | val_ppl 179.17 | lr 1.00e-04 | 909.9s
+step   750 | train_loss 4.8587 | val_loss 5.1707 | val_ppl 176.04 | lr 9.92e-05 | 1365.6s
+step  1000 | train_loss 4.8841 | val_loss 5.1145 | val_ppl 166.41 | lr 9.70e-05 | 1819.7s
+step  1250 | train_loss 4.7377 | val_loss 4.9927 | val_ppl 147.33 | lr 9.34e-05 | 2272.8s
+step  1500 | train_loss 4.6638 | val_loss 4.9976 | val_ppl 148.06 | lr 8.84e-05 | 2725.9s
+step  1750 | train_loss 4.5896 | val_loss 5.1452 | val_ppl 171.60 | lr 8.23e-05 | 3177.9s
+step  2000 | train_loss 4.3503 | val_loss 5.1401 | val_ppl 170.73 | lr 7.52e-05 | 3629.9s
+step  2250 | train_loss 4.4671 | val_loss 5.1900 | val_ppl 179.47 | lr 6.74e-05 | 4081.8s
+step  2500 | train_loss 4.3333 | val_loss 5.1428 | val_ppl 171.20 | lr 5.91e-05 | 4533.9s
+step  2750 | train_loss 4.3195 | val_loss 5.2063 | val_ppl 182.41 | lr 5.05e-05 | 4986.2s
+step  3000 | train_loss 4.2450 | val_loss 5.0800 | val_ppl 160.77 | lr 4.19e-05 | 5438.4s
+step  3250 | train_loss 4.3485 | val_loss 5.0055 | val_ppl 149.23 | lr 3.36e-05 | 5889.8s
+step  3500 | train_loss 4.2815 | val_loss 5.0916 | val_ppl 162.64 | lr 2.58e-05 | 6341.0s
+step  3750 | train_loss 4.1629 | val_loss 5.1680 | val_ppl 175.56 | lr 1.87e-05 | 6792.0s
+step  4000 | train_loss 4.0593 | val_loss 5.1956 | val_ppl 180.48 | lr 1.26e-05 | 7242.6s
+step  4250 | train_loss 4.1787 | val_loss 5.2028 | val_ppl 181.78 | lr 7.63e-06 | 7693.3s
+step  4500 | train_loss 4.2647 | val_loss 5.2271 | val_ppl 186.25 | lr 3.99e-06 | 8144.0s
+step  4750 | train_loss 4.2772 | val_loss 5.1283 | val_ppl 168.72 | lr 1.75e-06 | 8597.1s
+step  4999 | train_loss 4.1696 | val_loss 5.0974 | val_ppl 163.59 | lr 1.00e-06 | 9045.8s
+Training complete. Best val_loss: 4.9927 (ppl 147.33)
+
+--- Evaluating v4_aggressive_lr_fixed_1.00_gen0_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8741.82it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 29983.91it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7749.97it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7715.58it/s]
+  novelty_accuracy:    0.3137
+  val_perplexity:      196.32
+  logprob_gap (full):  0.5321
+  logprob_gap (crit):  1.2679
+  distinct_1/2/3:      0.3988 / 0.8820 / 0.9755
+
+--- Gen 0, Ratio 100%, Seed 256, Config aggressive_lr ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16433.45it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 8.5730 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.4s
+step   250 | train_loss 5.6006 | val_loss 5.5396 | val_ppl 254.57 | lr 5.00e-05 | 453.5s
+step   500 | train_loss 5.4075 | val_loss 5.2909 | val_ppl 198.52 | lr 1.00e-04 | 908.2s
+step   750 | train_loss 5.0769 | val_loss 5.1256 | val_ppl 168.27 | lr 9.92e-05 | 1362.6s
+step  1000 | train_loss 4.8291 | val_loss 5.1852 | val_ppl 178.61 | lr 9.70e-05 | 1817.6s
+step  1250 | train_loss 4.9754 | val_loss 5.1653 | val_ppl 175.09 | lr 9.34e-05 | 2272.8s
+step  1500 | train_loss 4.5108 | val_loss 5.2056 | val_ppl 182.29 | lr 8.84e-05 | 2728.4s
+step  1750 | train_loss 4.5893 | val_loss 5.1063 | val_ppl 165.06 | lr 8.23e-05 | 3187.5s
+step  2000 | train_loss 4.4310 | val_loss 5.1645 | val_ppl 174.94 | lr 7.52e-05 | 3631.3s
+step  2250 | train_loss 4.3734 | val_loss 5.2395 | val_ppl 188.57 | lr 6.74e-05 | 4074.0s
+step  2500 | train_loss 4.2197 | val_loss 5.1275 | val_ppl 168.59 | lr 5.91e-05 | 4523.0s
+step  2750 | train_loss 4.1689 | val_loss 5.1385 | val_ppl 170.46 | lr 5.05e-05 | 4969.3s
+step  3000 | train_loss 4.2338 | val_loss 5.1486 | val_ppl 172.19 | lr 4.19e-05 | 5411.9s
+step  3250 | train_loss 4.0905 | val_loss 5.1456 | val_ppl 171.68 | lr 3.36e-05 | 5857.7s
+step  3500 | train_loss 4.2238 | val_loss 5.2547 | val_ppl 191.46 | lr 2.58e-05 | 6306.3s
+step  3750 | train_loss 4.1783 | val_loss 5.0975 | val_ppl 163.61 | lr 1.87e-05 | 6760.1s
+step  4000 | train_loss 4.0776 | val_loss 5.2195 | val_ppl 184.84 | lr 1.26e-05 | 7217.4s
+step  4250 | train_loss 3.9993 | val_loss 5.2266 | val_ppl 186.17 | lr 7.63e-06 | 7674.1s
+step  4500 | train_loss 4.3087 | val_loss 5.1243 | val_ppl 168.06 | lr 3.99e-06 | 8133.0s
+step  4750 | train_loss 4.2343 | val_loss 5.1348 | val_ppl 169.83 | lr 1.75e-06 | 8594.9s
+step  4999 | train_loss 4.1951 | val_loss 5.1646 | val_ppl 174.97 | lr 1.00e-06 | 9049.3s
+Training complete. Best val_loss: 5.0975 (ppl 163.61)
+
+--- Evaluating v4_aggressive_lr_fixed_1.00_gen0_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8658.91it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27708.65it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 16178.19it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 29172.28it/s]
+  novelty_accuracy:    0.3333
+  val_perplexity:      218.50
+  logprob_gap (full):  0.3170
+  logprob_gap (crit):  1.0111
+  distinct_1/2/3:      0.3854 / 0.8780 / 0.9724
+
+--- Gen 1, Ratio 100%, Seed 42, Config aggressive_lr ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_aggressive_lr_fixed_1.00_gen1_seed42.pt
+
+--- Evaluating v4_aggressive_lr_fixed_1.00_gen1_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28315.33it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 28688.28it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 18268.84it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 24823.33it/s]
+  novelty_accuracy:    0.1569
+  val_perplexity:      800.80
+  logprob_gap (full):  2.1694
+  logprob_gap (crit):  3.2679
+  distinct_1/2/3:      0.1148 / 0.5457 / 0.8155
+
+--- Gen 1, Ratio 100%, Seed 137, Config aggressive_lr ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10871.21it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 4.6647 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 3.7601 | val_loss 6.6643 | val_ppl 783.91 | lr 5.00e-05 | 452.2s
+step   500 | train_loss 3.6838 | val_loss 6.6995 | val_ppl 812.01 | lr 1.00e-04 | 907.8s
+step   750 | train_loss 3.6087 | val_loss 6.6641 | val_ppl 783.73 | lr 9.92e-05 | 1361.7s
+step  1000 | train_loss 3.5203 | val_loss 6.6893 | val_ppl 803.77 | lr 9.70e-05 | 1816.2s
+step  1250 | train_loss 3.6442 | val_loss 6.6413 | val_ppl 766.08 | lr 9.34e-05 | 2270.2s
+step  1500 | train_loss 3.4595 | val_loss 6.7136 | val_ppl 823.55 | lr 8.84e-05 | 2724.8s
+step  1750 | train_loss 3.2884 | val_loss 6.7417 | val_ppl 847.03 | lr 8.23e-05 | 3179.3s
+step  2000 | train_loss 3.2760 | val_loss 6.7623 | val_ppl 864.61 | lr 7.52e-05 | 3633.9s
+step  2250 | train_loss 3.3864 | val_loss 6.8711 | val_ppl 964.05 | lr 6.74e-05 | 4088.6s
+step  2500 | train_loss 3.2990 | val_loss 6.9877 | val_ppl 1083.25 | lr 5.91e-05 | 4542.4s
+step  2750 | train_loss 3.4874 | val_loss 7.0457 | val_ppl 1147.88 | lr 5.05e-05 | 4994.5s
+step  3000 | train_loss 3.3183 | val_loss 7.0894 | val_ppl 1199.21 | lr 4.19e-05 | 5446.0s
+step  3250 | train_loss 3.2224 | val_loss 7.1251 | val_ppl 1242.75 | lr 3.36e-05 | 5898.0s
+step  3500 | train_loss 3.2367 | val_loss 7.2045 | val_ppl 1345.50 | lr 2.58e-05 | 6349.2s
+step  3750 | train_loss 3.3769 | val_loss 7.3230 | val_ppl 1514.80 | lr 1.87e-05 | 6801.4s
+step  4000 | train_loss 3.3396 | val_loss 7.3676 | val_ppl 1583.83 | lr 1.26e-05 | 7254.1s
+step  4250 | train_loss 3.2570 | val_loss 7.3358 | val_ppl 1534.20 | lr 7.63e-06 | 7706.5s
+step  4500 | train_loss 3.4046 | val_loss 7.4373 | val_ppl 1698.12 | lr 3.99e-06 | 8158.3s
+step  4750 | train_loss 3.2957 | val_loss 7.2899 | val_ppl 1465.46 | lr 1.75e-06 | 8604.4s
+step  4999 | train_loss 3.3752 | val_loss 7.3321 | val_ppl 1528.65 | lr 1.00e-06 | 9047.8s
+Training complete. Best val_loss: 6.6413 (ppl 766.08)
+
+--- Evaluating v4_aggressive_lr_fixed_1.00_gen1_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7777.25it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 34212.80it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17784.19it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 12142.18it/s]
+  novelty_accuracy:    0.1569
+  val_perplexity:      880.37
+  logprob_gap (full):  2.1905
+  logprob_gap (crit):  3.3206
+  distinct_1/2/3:      0.1060 / 0.5354 / 0.8429
+
+--- Gen 1, Ratio 100%, Seed 256, Config aggressive_lr ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17090.39it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 4.9313 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 3.9964 | val_loss 6.6430 | val_ppl 767.37 | lr 5.00e-05 | 446.2s
+step   500 | train_loss 3.6819 | val_loss 6.8120 | val_ppl 908.67 | lr 1.00e-04 | 888.9s
+step   750 | train_loss 3.6065 | val_loss 6.6565 | val_ppl 777.84 | lr 9.92e-05 | 1331.2s
+step  1000 | train_loss 3.5558 | val_loss 6.6860 | val_ppl 801.10 | lr 9.70e-05 | 1773.5s
+step  1250 | train_loss 3.4577 | val_loss 6.6788 | val_ppl 795.33 | lr 9.34e-05 | 2215.7s
+step  1500 | train_loss 3.4358 | val_loss 6.7282 | val_ppl 835.65 | lr 8.84e-05 | 2658.0s
+step  1750 | train_loss 3.4469 | val_loss 6.7506 | val_ppl 854.58 | lr 8.23e-05 | 3099.9s
+step  2000 | train_loss 3.5556 | val_loss 6.8245 | val_ppl 920.10 | lr 7.52e-05 | 3541.7s
+step  2250 | train_loss 3.2370 | val_loss 6.9920 | val_ppl 1087.95 | lr 6.74e-05 | 3983.5s
+step  2500 | train_loss 3.3514 | val_loss 6.9636 | val_ppl 1057.47 | lr 5.91e-05 | 4425.3s
+step  2750 | train_loss 3.3100 | val_loss 6.9949 | val_ppl 1091.05 | lr 5.05e-05 | 4867.1s
+step  3000 | train_loss 3.2560 | val_loss 7.1292 | val_ppl 1247.83 | lr 4.19e-05 | 5308.9s
+step  3250 | train_loss 3.1115 | val_loss 7.2131 | val_ppl 1357.16 | lr 3.36e-05 | 5750.6s
+step  3500 | train_loss 3.2494 | val_loss 7.3254 | val_ppl 1518.45 | lr 2.58e-05 | 6192.4s
+step  3750 | train_loss 3.1847 | val_loss 7.2181 | val_ppl 1363.83 | lr 1.87e-05 | 6634.1s
+step  4000 | train_loss 3.2596 | val_loss 7.3672 | val_ppl 1583.26 | lr 1.26e-05 | 7076.1s
+step  4250 | train_loss 3.1541 | val_loss 7.3359 | val_ppl 1534.39 | lr 7.63e-06 | 7518.4s
+step  4500 | train_loss 3.2750 | val_loss 7.3100 | val_ppl 1495.17 | lr 3.99e-06 | 7960.7s
+step  4750 | train_loss 3.3732 | val_loss 7.3178 | val_ppl 1506.90 | lr 1.75e-06 | 8402.9s
+step  4999 | train_loss 3.1901 | val_loss 7.2983 | val_ppl 1477.76 | lr 1.00e-06 | 8843.3s
+Training complete. Best val_loss: 6.6430 (ppl 767.37)
+
+--- Evaluating v4_aggressive_lr_fixed_1.00_gen1_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8807.44it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 11119.50it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 12845.99it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9216.06it/s]
+  novelty_accuracy:    0.2549
+  val_perplexity:      854.03
+  logprob_gap (full):  1.1137
+  logprob_gap (crit):  1.8021
+  distinct_1/2/3:      0.1450 / 0.6471 / 0.8990
+
+--- Gen 2, Ratio 100%, Seed 42, Config aggressive_lr ---
+  Checkpoint exists, skipping training: /Users/natuanand/linguistic_degradation/results/checkpoints/v4_aggressive_lr_fixed_1.00_gen2_seed42.pt
+
+--- Evaluating v4_aggressive_lr_fixed_1.00_gen2_seed42.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 27276.43it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 11078.62it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7087.08it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10476.20it/s]
+  novelty_accuracy:    0.2549
+  val_perplexity:      1593.64
+  logprob_gap (full):  2.5801
+  logprob_gap (crit):  3.5792
+  distinct_1/2/3:      0.0458 / 0.2941 / 0.5241
+
+--- Gen 2, Ratio 100%, Seed 137, Config aggressive_lr ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 17918.17it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 3.1640 | val_loss 9.1173 | val_ppl 9111.15 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 2.0163 | val_loss 7.2374 | val_ppl 1390.42 | lr 5.00e-05 | 446.1s
+step   500 | train_loss 2.1498 | val_loss 7.6687 | val_ppl 2140.30 | lr 1.00e-04 | 888.8s
+step   750 | train_loss 2.0619 | val_loss 7.5262 | val_ppl 1856.08 | lr 9.92e-05 | 1331.1s
+step  1000 | train_loss 2.2434 | val_loss 7.6007 | val_ppl 1999.59 | lr 9.70e-05 | 1773.4s
+step  1250 | train_loss 2.1704 | val_loss 7.3960 | val_ppl 1629.52 | lr 9.34e-05 | 2215.6s
+step  1500 | train_loss 1.8813 | val_loss 7.4691 | val_ppl 1753.05 | lr 8.84e-05 | 2657.9s
+step  1750 | train_loss 1.9385 | val_loss 7.5792 | val_ppl 1957.00 | lr 8.23e-05 | 3100.3s
+step  2000 | train_loss 1.9022 | val_loss 7.4759 | val_ppl 1765.06 | lr 7.52e-05 | 3542.6s
+step  2250 | train_loss 2.0035 | val_loss 7.6107 | val_ppl 2019.64 | lr 6.74e-05 | 3984.8s
+step  2500 | train_loss 2.2350 | val_loss 7.7035 | val_ppl 2215.99 | lr 5.91e-05 | 4427.1s
+step  2750 | train_loss 2.0134 | val_loss 7.8192 | val_ppl 2487.83 | lr 5.05e-05 | 4869.5s
+step  3000 | train_loss 1.9078 | val_loss 7.8312 | val_ppl 2517.89 | lr 4.19e-05 | 5311.8s
+step  3250 | train_loss 1.8016 | val_loss 7.8230 | val_ppl 2497.39 | lr 3.36e-05 | 5754.0s
+step  3500 | train_loss 1.9832 | val_loss 7.9569 | val_ppl 2855.17 | lr 2.58e-05 | 6196.3s
+step  3750 | train_loss 2.0917 | val_loss 7.9561 | val_ppl 2852.80 | lr 1.87e-05 | 6638.7s
+step  4000 | train_loss 2.1164 | val_loss 8.0873 | val_ppl 3252.85 | lr 1.26e-05 | 7081.0s
+step  4250 | train_loss 2.0013 | val_loss 8.1290 | val_ppl 3391.53 | lr 7.63e-06 | 7523.4s
+step  4500 | train_loss 1.8638 | val_loss 8.1665 | val_ppl 3520.85 | lr 3.99e-06 | 7965.7s
+step  4750 | train_loss 1.8108 | val_loss 7.9906 | val_ppl 2953.00 | lr 1.75e-06 | 8408.0s
+step  4999 | train_loss 2.0896 | val_loss 8.0651 | val_ppl 3181.33 | lr 1.00e-06 | 8848.5s
+Training complete. Best val_loss: 7.2374 (ppl 1390.42)
+
+--- Evaluating v4_aggressive_lr_fixed_1.00_gen2_seed137.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7831.51it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23465.52it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 7680.73it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 10176.18it/s]
+  novelty_accuracy:    0.3333
+  val_perplexity:      1537.12
+  logprob_gap (full):  0.9859
+  logprob_gap (crit):  1.6446
+  distinct_1/2/3:      0.0646 / 0.3921 / 0.7106
+
+--- Gen 2, Ratio 100%, Seed 256, Config aggressive_lr ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 22096.50it/s]
+Loaded gpt2: 124.4M parameters
+Fine-tuning gpt2 on mps for 5000 steps (grad_accum=8)...
+step     0 | train_loss 3.0478 | val_loss 9.1209 | val_ppl 9144.21 | lr 0.00e+00 | 3.1s
+step   250 | train_loss 2.1772 | val_loss 7.3066 | val_ppl 1490.09 | lr 5.00e-05 | 446.0s
+step   500 | train_loss 1.9889 | val_loss 7.9167 | val_ppl 2742.77 | lr 1.00e-04 | 888.7s
+step   750 | train_loss 2.1266 | val_loss 7.6625 | val_ppl 2127.09 | lr 9.92e-05 | 1330.9s
+step  1000 | train_loss 1.8013 | val_loss 7.5049 | val_ppl 1816.84 | lr 9.70e-05 | 1773.1s
+step  1250 | train_loss 2.0684 | val_loss 7.5718 | val_ppl 1942.67 | lr 9.34e-05 | 2215.4s
+step  1500 | train_loss 1.9653 | val_loss 7.4782 | val_ppl 1769.04 | lr 8.84e-05 | 2657.7s
+step  1750 | train_loss 2.1874 | val_loss 7.3492 | val_ppl 1554.88 | lr 8.23e-05 | 3099.9s
+step  2000 | train_loss 2.3128 | val_loss 7.5666 | val_ppl 1932.62 | lr 7.52e-05 | 3542.2s
+step  2250 | train_loss 2.3075 | val_loss 7.7971 | val_ppl 2433.43 | lr 6.74e-05 | 3984.4s
+step  2500 | train_loss 2.1965 | val_loss 7.7510 | val_ppl 2323.83 | lr 5.91e-05 | 4426.7s
+step  2750 | train_loss 1.9122 | val_loss 7.8386 | val_ppl 2536.67 | lr 5.05e-05 | 4868.8s
+step  3000 | train_loss 2.1844 | val_loss 7.8490 | val_ppl 2563.16 | lr 4.19e-05 | 5310.9s
+step  3250 | train_loss 1.6041 | val_loss 7.9496 | val_ppl 2834.54 | lr 3.36e-05 | 5753.1s
+step  3500 | train_loss 1.9685 | val_loss 8.1350 | val_ppl 3411.69 | lr 2.58e-05 | 6195.3s
+step  3750 | train_loss 2.0424 | val_loss 7.9607 | val_ppl 2866.20 | lr 1.87e-05 | 6637.4s
+step  4000 | train_loss 1.8313 | val_loss 8.1603 | val_ppl 3499.17 | lr 1.26e-05 | 7079.5s
+step  4250 | train_loss 1.9803 | val_loss 8.1270 | val_ppl 3384.66 | lr 7.63e-06 | 7521.6s
+step  4500 | train_loss 2.0128 | val_loss 8.0321 | val_ppl 3078.10 | lr 3.99e-06 | 7963.9s
+step  4750 | train_loss 2.1504 | val_loss 8.0946 | val_ppl 3276.62 | lr 1.75e-06 | 8406.0s
+step  4999 | train_loss 1.9430 | val_loss 8.0658 | val_ppl 3183.74 | lr 1.00e-06 | 8846.3s
+Training complete. Best val_loss: 7.3066 (ppl 1490.09)
+
+--- Evaluating v4_aggressive_lr_fixed_1.00_gen2_seed256.pt ---
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 8536.03it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 23493.05it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 11436.41it/s]
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 9446.63it/s]
+  novelty_accuracy:    0.3529
+  val_perplexity:      1676.88
+  logprob_gap (full):  0.9980
+  logprob_gap (crit):  1.6237
+  distinct_1/2/3:      0.0502 / 0.3055 / 0.6076
+
+============================================================
+V4 EXPERIMENT COMPLETE in 60.2 hours
+Results saved to: /Users/natuanand/linguistic_degradation/results/all_results_v4.jsonl
+Run `python analyze.py --v4` to generate plots.

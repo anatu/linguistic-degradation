@@ -488,6 +488,179 @@ def run_statistical_tests(results):
                 print(f"{metric:<15} {ratio:>6.0%} {gen:>4d} {t:>8.3f} {p:>8.4f} {sig:>4}")
 
 
+def plot_training_curves(output_dir):
+    """Plot train_loss and val_loss vs step for key conditions.
+
+    Loads training logs from results/logs/ and shows convergence behavior
+    across contamination levels for both shallow (V2) and deep (V4) runs.
+    """
+    log_dir = config.LOG_DIR
+
+    # Define conditions to plot: (label, glob pattern prefix, color, linestyle)
+    v2_conditions = [
+        ("V2 0% seed42",   "fixed_0.00_gen1_seed42",   "tab:blue",   "-"),
+        ("V2 50% seed42",  "fixed_0.50_gen1_seed42",   "tab:orange", "-"),
+        ("V2 100% seed42", "fixed_1.00_gen1_seed42",   "tab:red",    "-"),
+    ]
+    v4_conditions = [
+        ("V4 0% seed42",     "v4_primary_fixed_0.00_gen1_seed42",       "tab:blue",   "-"),
+        ("V4 50% seed42",    "v4_primary_fixed_0.50_gen1_seed42",       "tab:orange", "-"),
+        ("V4 100% seed42",   "v4_primary_fixed_1.00_gen1_seed42",       "tab:red",    "-"),
+        ("V4 100% aggr s42", "v4_aggressive_lr_fixed_1.00_gen1_seed42", "tab:red",    "--"),
+    ]
+
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+    for ax, conditions, title in [
+        (axes[0], v2_conditions, "Shallow Fine-Tuning (500 steps, Gen 1)"),
+        (axes[1], v4_conditions, "Deep Fine-Tuning (5,000 steps, Gen 1)"),
+    ]:
+        for label, prefix, color, ls in conditions:
+            log_path = os.path.join(log_dir, f"{prefix}.json")
+            if not os.path.exists(log_path):
+                continue
+            with open(log_path) as f:
+                log = json.load(f)
+            steps_data = log.get("steps", [])
+            if not steps_data:
+                continue
+            steps = [s["step"] for s in steps_data]
+            val_losses = [s["val_loss"] for s in steps_data]
+            ax.plot(steps, val_losses, color=color, linestyle=ls, linewidth=1.5, label=label)
+
+        ax.set_xlabel("Step")
+        ax.set_ylabel("Validation Loss")
+        ax.set_title(title)
+        ax.legend(fontsize=8)
+        ax.grid(alpha=0.3)
+
+    fig.suptitle("Training Curves: Validation Loss by Contamination Level", y=1.02, fontsize=13)
+    fig.tight_layout()
+    fig.savefig(os.path.join(output_dir, "training_curves.png"), dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    print("Saved training_curves.png")
+
+
+def run_per_item_analysis(output_dir):
+    """Per-item benchmark sensitivity analysis.
+
+    For each of the 51 benchmark items, compute the mean log-prob gap change
+    from baseline (0%, gen 0) to contaminated (100%, gen 1) under deep training.
+    Rank items by sensitivity and save a summary table + plot.
+    """
+    # Load V4 results
+    v4_path = config.RESULTS_V4_PATH
+    if not os.path.exists(v4_path):
+        print("No V4 results found, skipping per-item analysis.")
+        return
+
+    results = load_results(version="v4")
+
+    # We need per-item scores — load benchmark and re-evaluate key checkpoints
+    benchmark_path = config.BENCHMARK_PATH
+    examples = []
+    with open(benchmark_path) as f:
+        for line in f:
+            if line.strip():
+                examples.append(json.loads(line))
+
+    # Get category_gaps from results (per-category, not per-item)
+    # For per-item we need to run the eval — but we can approximate with category-level
+    # data from the existing results, or actually run per-item eval.
+
+    # Use existing category_gaps_critical data to show per-category sensitivity
+    primary_100_gen1 = [r for r in results
+                        if r.get("v4_config") == "primary"
+                        and r["ratio"] == 1.0 and r["generation"] == 1]
+    primary_0_gen0 = [r for r in results
+                      if r.get("v4_config") == "primary"
+                      and r["ratio"] == 0.0 and r["generation"] == 0]
+
+    if not primary_100_gen1 or not primary_0_gen0:
+        print("Missing baseline or contaminated results for per-item analysis.")
+        return
+
+    # Category-level analysis from existing data
+    categories = sorted(set(ex["category"] for ex in examples))
+    cat_counts = {}
+    for ex in examples:
+        cat_counts[ex["category"]] = cat_counts.get(ex["category"], 0) + 1
+
+    print("\n--- Per-Category Sensitivity Analysis (Deep Training, Critical-Span Gap) ---")
+    print(f"{'Category':<25} {'N':>3} {'Gap@0%g0':>10} {'Gap@100%g1':>11} {'Delta':>8} {'Rel.Change':>10}")
+    print("-" * 70)
+
+    cat_data = []
+    for cat in categories:
+        baseline_gaps = [r["category_gaps_critical"].get(cat, float("nan")) for r in primary_0_gen0]
+        contaminated_gaps = [r["category_gaps_critical"].get(cat, float("nan")) for r in primary_100_gen1]
+        base_mean = np.nanmean(baseline_gaps)
+        cont_mean = np.nanmean(contaminated_gaps)
+        delta = cont_mean - base_mean
+        rel = delta / abs(base_mean) * 100 if base_mean != 0 else float("nan")
+        cat_data.append((cat, cat_counts.get(cat, 0), base_mean, cont_mean, delta, rel))
+        print(f"{cat:<25} {cat_counts.get(cat, 0):>3} {base_mean:>10.4f} {cont_mean:>11.4f} {delta:>8.4f} {rel:>9.1f}%")
+
+    # Sort by delta (most sensitive first)
+    cat_data.sort(key=lambda x: -x[4])
+    print("\nRanked by sensitivity (most affected first):")
+    for i, (cat, n, base, cont, delta, rel) in enumerate(cat_data, 1):
+        print(f"  {i}. {cat} (n={n}): +{delta:.3f} ({rel:+.1f}%)")
+
+    # Plot per-category sensitivity
+    fig, ax = plt.subplots(figsize=(10, 6))
+    cats = [d[0].replace("_", " ").title() for d in cat_data]
+    deltas = [d[4] for d in cat_data]
+    baselines = [d[2] for d in cat_data]
+    contaminated = [d[3] for d in cat_data]
+
+    x = np.arange(len(cats))
+    width = 0.35
+    ax.bar(x - width/2, baselines, width, label="Baseline (0%, Gen 0)", color="tab:blue", alpha=0.8)
+    ax.bar(x + width/2, contaminated, width, label="Contaminated (100%, Gen 1)", color="tab:red", alpha=0.8)
+    ax.set_xticks(x)
+    ax.set_xticklabels(cats, rotation=20, ha="right")
+    ax.set_ylabel("Critical-Span Log-Prob Gap")
+    ax.set_title("Per-Category Sensitivity to Contamination\n(Deep Training, 100% Contamination, Gen 1)")
+    ax.legend()
+
+    # Add delta annotations
+    for i, (b, c, d) in enumerate(zip(baselines, contaminated, deltas)):
+        ax.annotate(f"+{d:.2f}", (i + width/2, c), textcoords="offset points",
+                    xytext=(0, 5), ha="center", fontsize=8, color="tab:red")
+
+    fig.tight_layout()
+    fig.savefig(os.path.join(output_dir, "per_category_sensitivity.png"), dpi=150)
+    plt.close(fig)
+    print("Saved per_category_sensitivity.png")
+
+    # Also do per-category across generations for the full-sentence gap
+    fig, ax = plt.subplots(figsize=(10, 6))
+    gens = [0, 1, 2]
+    colors = plt.cm.Set2(np.linspace(0, 1, len(categories)))
+
+    for cat, color in zip(categories, colors):
+        means = []
+        for gen in gens:
+            group = [r for r in results
+                     if r.get("v4_config") == "primary"
+                     and r["ratio"] == 1.0 and r["generation"] == gen]
+            gaps = [r["category_gaps_critical"].get(cat, float("nan")) for r in group]
+            means.append(np.nanmean(gaps))
+        ax.plot(gens, means, "o-", color=color,
+                label=cat.replace("_", " ").title(), linewidth=2)
+
+    ax.set_xlabel("Generation")
+    ax.set_ylabel("Critical-Span Log-Prob Gap")
+    ax.set_title("Per-Category Gap Trajectory at 100% Contamination\n(Deep Training, Primary LR)")
+    ax.legend(fontsize=9)
+    ax.grid(alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(os.path.join(output_dir, "per_category_trajectory.png"), dpi=150)
+    plt.close(fig)
+    print("Saved per_category_trajectory.png")
+
+
 def main():
     import argparse
     parser = argparse.ArgumentParser()
@@ -527,6 +700,13 @@ def main():
     if has_v4:
         plot_v4_lr_comparison(results, config.PLOT_DIR)
         plot_v4_decomposed_by_config(results, config.PLOT_DIR)
+
+    # Training curves (works for both V2 and V4 logs)
+    plot_training_curves(config.PLOT_DIR)
+
+    # Per-item/category analysis (requires V4 results)
+    if args.v4:
+        run_per_item_analysis(config.PLOT_DIR)
 
     print(f"\nAll plots saved to: {config.PLOT_DIR}")
 
