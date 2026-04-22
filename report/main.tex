@@ -180,9 +180,26 @@ Each example includes character-level annotations of the critical span containin
 
 \subsection{Compute}
 
-All experiments are run on Apple Silicon (MPS backend).
-Shallow runs take approximately 25 minutes each; deep runs take approximately 2.5 hours each.
-Total compute: shallow multi-seed sweep $\approx$~14.5 hours, deep multi-seed sweep $\approx$~60 hours.
+All experiments are run on a single Apple M4 Pro (24\,GB unified memory) using PyTorch's MPS backend.
+\Cref{tab:compute} summarizes the compute budget.
+Total wall-clock time across all experiments is approximately 75 hours, dominated by the deep fine-tuning multi-seed sweep.
+
+\begin{table}[htbp]
+\centering
+\caption{Compute budget. All runs on Apple M4 Pro, 24\,GB RAM, MPS backend.}
+\label{tab:compute}
+\begin{tabular}{lccc}
+\toprule
+Phase & Runs & Time per run & Total \\
+\midrule
+Shallow (V2) multi-seed & 54 & $\sim$25 min & 14.5 h \\
+Deep (V4) multi-seed    & 45 (30 trained) & $\sim$2.5 h & 60.2 h \\
+V3 critical-span re-eval & 45 & $<$1 min & $\sim$0.5 h \\
+\midrule
+\textbf{Total} & & & $\mathbf{\sim}$\textbf{75 h} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 %----------------------------------------------------------------------
 \section{Results: Shallow Fine-Tuning}
@@ -196,7 +213,7 @@ The 0\% control arm produces a stable gap of $0.49 \pm 0.01$ across all generati
 Contaminated arms show statistically significant dose-dependent gap widening at generation~1, with the 100\% arm producing a gap of $1.36 \pm 0.10$---nearly $3\times$ the baseline.
 \Cref{fig:gap} visualizes this trend with error bands across seeds.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \centering
 \caption{Log-probability gap ($\Delta_{\text{LP}}$, mean $\pm$ std, $n{=}3$) under shallow fine-tuning (500 steps). Higher values indicate a wider differential between standard and novel text processing.}
 \label{tab:gap-v2}
@@ -215,7 +232,7 @@ Compound (25\%) & $0.490 \pm 0.002$ & $0.643 \pm 0.014$ & $0.615 \pm 0.001$ \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{logprob_gap.png}
 \caption{Log-probability gap across generations and contamination ratios under shallow fine-tuning. Error bands show $\pm 1$ standard deviation over $n{=}3$ seeds. The dose-dependent widening is monotonic at generation~1; partial recovery at generation~2 reflects the degenerate collapse artifact at 100\% contamination (\cref{sec:degenerate}).}
@@ -231,7 +248,7 @@ The model becomes more confident on in-distribution text without losing capacity
 At 100\% contamination, both mechanisms contribute: standard-text log-probability improves sharply ($-5.72 \to -5.08$) \emph{and} novel-text log-probability degrades ($-6.21 \to -6.44$).
 This is the only condition under shallow training where novel-text processing genuinely worsens.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \centering
 \caption{Decomposition of mean log-probability at generation~1 (shallow, mean $\pm$ std, $n{=}3$). At moderate contamination, the gap widens because standard text gets easier; at 100\%, novel text also gets harder.}
 \label{tab:decomp-v2}
@@ -254,7 +271,7 @@ Perplexity degrades monotonically with contamination (\cref{tab:ppl-v2}), replic
 At 10--50\% contamination, the degradation is modest (5--22\%).
 The 100\% arm exhibits catastrophic collapse, reaching a perplexity of $1{,}697 \pm 112$ by generation~2.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \centering
 \caption{Validation perplexity (mean $\pm$ std, $n{=}3$) under shallow fine-tuning. The 100\% arm shows catastrophic collapse; moderate contamination produces modest degradation.}
 \label{tab:ppl-v2}
@@ -279,7 +296,7 @@ This asymmetry between generation and comprehension degradation is a central fin
 At 100\% contamination by generation~2, Distinct-1 falls to 0.04, indicating near-repetitive output.
 The 0\% control remains stable across all generations.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \centering
 \caption{Distinct-1 (mean $\pm$ std, $n{=}3$) under shallow fine-tuning. Diversity collapses at all contamination levels, providing the earliest signal of distribution narrowing.}
 \label{tab:diversity-v2}
@@ -296,7 +313,7 @@ Contamination & Gen 0 & Gen 1 & Gen 2 \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{diversity_over_generations.png}
 \caption{Distinct-N diversity metrics across generations and contamination ratios. Diversity collapses sharply even at 10\% contamination, making it the most sensitive early-warning signal of distribution narrowing.}
@@ -328,7 +345,7 @@ Deeper optimization drives the model further from its pretrained representations
 
 At 50\% contamination, the gap also widens significantly ($0.67 \pm 0.004$, $p < 0.001$), and unlike the shallow regime, the gap continues to grow at generation~2 ($0.70 \pm 0.02$, $p = 0.036$) rather than recovering.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \centering
 \caption{Log-probability gap ($\Delta_{\text{LP}}$, mean $\pm$ std) under deep fine-tuning (5{,}000 steps, LR\,$=$\,$5 \times 10^{-5}$, $n{=}3$). Asterisks denote significance vs.\ 0\% control ($^{*}p < 0.05$, $^{**}p < 0.001$).}
 \label{tab:gap-v4}
@@ -352,7 +369,7 @@ While the log-probability gap shows an apparent ``recovery'' at 100\% generation
 The gap compression at generation~2 is a metric artifact, not model improvement (\cref{sec:degenerate}).
 \Cref{fig:ppl-vs-gap} visualizes the relationship between perplexity and gap across all conditions, revealing the degenerate region where the two metrics diverge.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \centering
 \caption{Validation perplexity (mean $\pm$ std, $n{=}3$) under deep fine-tuning. Monotonic collapse at 100\% contamination confirms progressive model degradation despite apparent gap ``recovery.''}
 \label{tab:ppl-v4}
@@ -367,7 +384,7 @@ Contamination & Gen 0 & Gen 1 & Gen 2 \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{perplexity_vs_gap.png}
 \caption{Perplexity vs.\ log-probability gap across all conditions. Below $\text{PPL} \approx 1{,}000$, the gap correlates positively with perplexity. Above $\text{PPL} \approx 1{,}400$, the model enters degenerate collapse and the gap compresses despite worsening perplexity.}
@@ -381,7 +398,7 @@ To further test whether deeper optimization breaks the pretrained buffer, we rep
 The higher variance reflects the instability of aggressive optimization on contaminated data.
 \Cref{fig:v4-lr} compares the two learning rate configurations directly.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \centering
 \caption{Aggressive learning rate ($1 \times 10^{-4}$) at 100\% contamination (mean $\pm$ std, $n{=}3$). Higher LR produces qualitatively similar degradation with greater variance.}
 \label{tab:aggressive}
@@ -396,7 +413,7 @@ Gen & $\Delta_{\text{LP}}$ & $\Delta_{\text{LP}}^{\text{crit}}$ & PPL & D-1 \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{v4_lr_comparison.png}
 \caption{Comparison of primary (LR\,$=$\,$5 \times 10^{-5}$) and aggressive (LR\,$=$\,$1 \times 10^{-4}$) configurations at 100\% contamination under deep fine-tuning. Both configurations produce progressive degradation; the aggressive LR shows higher variance.}
@@ -409,7 +426,7 @@ The critical difference between shallow and deep fine-tuning is visible in the d
 Under deep training at 100\% contamination generation~1, novel-text log-probability drops to $-8.09 \pm 0.06$, compared to $-6.44 \pm 0.25$ under shallow training---a $1.65$ nats further decline.
 The pretrained buffer that preserved novel-text processing under shallow training has been overcome: 5{,}000 steps of optimization on contaminated data is sufficient to degrade the model's internal representations of out-of-distribution language.
 
-\begin{table}[t]
+\begin{table}[htbp]
 \centering
 \caption{Decomposition at generation~1 under deep fine-tuning (primary LR, mean $\pm$ std, $n{=}3$). Novel-text log-probability degrades sharply at 100\%, unlike under shallow training where it remained stable at moderate contamination.}
 \label{tab:decomp-v4}
@@ -424,7 +441,7 @@ Contamination & $\bar{\ell}_{\text{std}}$ (Gen 0) & $\bar{\ell}_{\text{std}}$ (G
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{v4_decomposed_by_config.png}
 \caption{Decomposed log-probability components under deep fine-tuning. Standard-text log-probability (dashed) improves at all contamination levels; novel-text log-probability (solid) degrades sharply at 100\%, revealing that the pretrained buffer has been overcome.}
@@ -437,14 +454,14 @@ The critical-span variant of the gap, which scores only the novel construction t
 Under deep training at 100\% contamination generation~1, the critical-span gap reaches $3.43 \pm 0.11$ compared to $2.30 \pm 0.09$ for the full-sentence gap.
 This confirms that the novel construction tokens themselves---not the surrounding conventional context---are the locus of degradation.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{logprob_gap_critical.png}
 \caption{Critical-span log-probability gap, measuring only the tokens within annotated novel construction spans. The contamination signal is amplified relative to the full-sentence gap (\cref{fig:gap}).}
 \label{fig:gap-critical}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{gap_comparison_v2_v3.png}
 \caption{Comparison of full-sentence and critical-span gap variants. The critical-span gap (right) is uniformly larger and shows clearer separation between contamination levels, confirming that novel construction tokens are the primary locus of degradation.}
@@ -466,6 +483,8 @@ The gap shrinks because both components are pulled toward the same degenerate at
 We identify perplexity $> 1{,}400$ as a practical threshold for degenerate collapse, beyond which log-probability gap metrics should not be interpreted at face value.
 Perplexity itself remains a reliable monotonic indicator of degradation throughout.
 
+\clearpage
+
 %----------------------------------------------------------------------
 \section{Discussion}
 \label{sec:discussion}
@@ -478,7 +497,7 @@ Under shallow training, all conditions converge within 500 steps, with contamina
 Under deep training, the 0\% and 50\% arms converge smoothly, but the 100\% arm exhibits persistently elevated loss throughout 5{,}000 steps---the model never recovers from the distribution mismatch introduced by fully synthetic training data.
 The aggressive learning rate configuration at 100\% shows even higher loss, confirming that stronger optimization on contaminated data worsens rather than overcomes the distribution shift.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{training_curves.png}
 \caption{Validation loss curves for generation~1 models under shallow (left) and deep (right) fine-tuning. Under deep training, the 100\% contamination arms settle to substantially higher loss, reflecting persistent distribution mismatch from fully synthetic data.}
@@ -536,11 +555,19 @@ Generation diversity emerges as the earliest and most sensitive indicator of dis
 We recommend Distinct-N monitoring as a practical diagnostic for synthetic contamination in training pipelines, and we caution against interpreting log-probability gap metrics when model perplexity exceeds the degenerate collapse threshold ($\text{PPL} > 1{,}400$).
 Future work should extend this analysis to larger models with deeper pretrained buffers, more generations of recursive training, and a finer contamination sweep in the 50--100\% range to precisely locate the threshold at which narrowing transitions to competence loss.
 
+\clearpage
+
 %----------------------------------------------------------------------
 \bibliography{references}
 %----------------------------------------------------------------------
 
 \appendix
+
+\clearpage
+\begin{center}
+\Large\bfseries Appendix
+\end{center}
+\vspace{1em}
 
 \section{Per-Category Sensitivity Analysis}
 \label{sec:appendix-category}
@@ -554,7 +581,7 @@ Creative neologisms show the smallest relative increase ($+158\%$), possibly bec
 
 These results should be interpreted cautiously given the small per-category sample sizes, particularly for code-switching ($n{=}3$) and pragmatic inference ($n{=}6$).
 
-\begin{table}[t]
+\begin{table}[htbp]
 \centering
 \caption{Per-category critical-span gap sensitivity under deep fine-tuning (primary LR, mean over $n{=}3$ seeds). $\Delta$ is the change from baseline (0\%, Gen~0) to contaminated (100\%, Gen~1).}
 \label{tab:category-sensitivity}
@@ -571,14 +598,14 @@ Creative neologism       & 14 & 1.242 & 3.203 & $+1.961$ & $+158\%$ \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{per_category_sensitivity.png}
 \caption{Per-category critical-span gap at baseline vs.\ 100\% contamination generation~1 under deep fine-tuning. All categories show substantial degradation; annotations show the absolute gap increase.}
 \label{fig:category-sensitivity}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{per_category_trajectory.png}
 \caption{Per-category critical-span gap trajectory across generations at 100\% contamination (deep fine-tuning, primary LR). All categories peak at generation~1 and compress at generation~2 due to the degenerate collapse artifact.}
