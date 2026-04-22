@@ -1,3 +1,7 @@
+% ══════════════════════════════════════════════════════════════════════
+% Model collapse — foundational
+% ══════════════════════════════════════════════════════════════════════
+
 @article{shumailov2024curse,
   author    = {Shumailov, Ilia and Shumaylov, Zakhar and Zhao, Yiren and
                Papernot, Nicolas and Anderson, Ross and Gal, Yarin},
@@ -8,13 +12,13 @@
   year      = {2024},
 }
 
-@misc{gerstgrasser2024model,
-  author       = {Gerstgrasser, Matthias and Schoenholz, Sam and Hoffman, Matt
-                  and others},
-  title        = {Is Model Collapse Inevitable? Breaking the Curse of Recursion
-                  by Accumulating Real and Synthetic Data},
-  year         = {2024},
-  eprint       = {2404.01413},
+@misc{alemohammad2023selfconsuming,
+  author       = {Alemohammad, Sina and Casco-Rodriguez, Josue and Luzi, Lorenzo
+                  and Humayun, Ahmed Imtiaz and Babaei, Hossein and LeJeune, Daniel
+                  and Siahkoohi, Ali and Baraniuk, Richard G.},
+  title        = {Self-Consuming Generative Models Go MAD},
+  year         = {2023},
+  eprint       = {2307.01850},
   archiveprefix = {arXiv},
   primaryclass = {cs.LG},
 }
@@ -29,44 +33,39 @@
   primaryclass = {cs.LG},
 }
 
-@article{radford2019language,
-  author    = {Radford, Alec and Wu, Jeffrey and Child, Rewon and
-               Luan, David and Amodei, Dario and Sutskever, Ilya},
-  title     = {Language Models are Unsupervised Multitask Learners},
-  journal   = {OpenAI Blog},
-  year      = {2019},
-}
-
-@article{merity2017pointer,
-  author    = {Merity, Stephen and Xiong, Caiming and Bradbury, James and
-               Socher, Richard},
-  title     = {Pointer Sentinel Mixture Models},
-  journal   = {arXiv preprint arXiv:1609.07843},
-  year      = {2017},
-}
-
-@inproceedings{li2016diversity,
-  author    = {Li, Jiwei and Galley, Michel and Brockett, Chris and
-               Gao, Jianfeng and Dolan, Bill},
-  title     = {A Diversity-Promoting Objective Function for Neural
-               Conversation Models},
-  booktitle = {Proceedings of the 2016 Conference of the North American
-               Chapter of the Association for Computational Linguistics:
-               Human Language Technologies (NAACL-HLT)},
-  year      = {2016},
-  pages     = {110--119},
-}
-
-@misc{alemohammad2023selfconsuming,
-  author       = {Alemohammad, Sina and Casco-Rodriguez, Josue and Luzi, Lorenzo
-                  and Humayun, Ahmed Imtiaz and Babaei, Hossein and LeJeune, Daniel
-                  and Siahkoohi, Ali and Baraniuk, Richard G.},
-  title        = {Self-Consuming Generative Models Go MAD},
-  year         = {2023},
-  eprint       = {2307.01850},
+@misc{gerstgrasser2024model,
+  author       = {Gerstgrasser, Matthias and Schoenholz, Sam and Hoffman, Matt
+                  and others},
+  title        = {Is Model Collapse Inevitable? Breaking the Curse of Recursion
+                  by Accumulating Real and Synthetic Data},
+  year         = {2024},
+  eprint       = {2404.01413},
   archiveprefix = {arXiv},
   primaryclass = {cs.LG},
 }
+
+@misc{shumailov2024ai,
+  author       = {Shumailov, Ilia and Shumaylov, Zakhar and Zhao, Yiren and
+                  Gal, Yarin and Papernot, Nicolas and Anderson, Ross},
+  title        = {{AI} Models Collapse When Trained on Recursively Generated Data},
+  year         = {2024},
+  eprint       = {2305.17493},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.LG},
+}
+
+@misc{dohmatob2024strong,
+  author       = {Dohmatob, Elvis and Feng, Yunzhen and Subramonian, Arjun and Niu, Pu},
+  title        = {Strong Model Collapse},
+  year         = {2024},
+  eprint       = {2410.04840},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.LG},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% Synthetic data quality and contamination
+% ══════════════════════════════════════════════════════════════════════
 
 @misc{hataya2023will,
   author       = {Hataya, Ryuichiro and Bao, Han and Arai, Hiromi},
@@ -97,4 +96,358 @@
   eprint       = {2306.06130},
   archiveprefix = {arXiv},
   primaryclass = {cs.CY},
+}
+
+@misc{bohacek2023nepotistically,
+  author       = {Bohacek, Matyas and Braun, Michal},
+  title        = {Nepotistically Trained Generative-{AI} Models Collapse},
+  year         = {2023},
+  eprint       = {2311.12202},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.LG},
+}
+
+@misc{long2024llms,
+  author       = {Long, Shangbin and Zhou, Yilun and Dai, Wen},
+  title        = {{LLMs} May Dominate Information Access: Neural Retrievers
+                  Are Biased Towards {LLM}-Generated Texts},
+  year         = {2024},
+  eprint       = {2404.08799},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.IR},
+}
+
+@misc{gudibande2023false,
+  author       = {Gudibande, Arnav and Wallace, Eric and Snell, Charlie and
+                  Geng, Xinyang and Liu, Hao and Abbeel, Pieter and
+                  Levine, Sergey and Song, Dawn},
+  title        = {The False Promise of Imitating Proprietary {LLMs}},
+  year         = {2023},
+  eprint       = {2305.15717},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% Synthetic data — positive uses and curation
+% ══════════════════════════════════════════════════════════════════════
+
+@misc{liu2024best,
+  author       = {Liu, Ruibo and Wei, Jerry and Liu, Fangyu and Si, Chenglei
+                  and Zhang, Yanzhe and Rao, Jinmeng and Zheng, Steven and
+                  Peng, Daiyi and Yang, Diyi and Zhou, Denny and Dai, Andrew M.},
+  title        = {Best Practices and Lessons Learned on Synthetic Data for
+                  Language Models},
+  year         = {2024},
+  eprint       = {2404.07503},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+}
+
+@misc{longpre2023pretrainers,
+  author       = {Longpre, Shayne and Hou, Le and Vu, Tu and Webson, Albert
+                  and Chung, Hyung Won and Tay, Yi and Zhou, Denny and
+                  Le, Quoc V. and Zoph, Barret and Wei, Jason and Roberts, Adam},
+  title        = {The Pretrainer's Guide to Training Data: Measuring the
+                  Effects of Data Age, Domain Coverage, Quality, and Toxicity},
+  year         = {2023},
+  eprint       = {2305.13169},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+}
+
+@misc{penedo2023refinedweb,
+  author       = {Penedo, Guilherme and Malartic, Quentin and Hesslow, Daniel
+                  and Cojocaru, Ruxandra and Cappelli, Alessandro and
+                  Alobeidli, Hamza and Launay, Baptiste and Pasber, Jean and
+                  Fourrier, Cl{\'e}mentine and Hsu, Colin},
+  title        = {The {RefinedWeb} Dataset for {Falcon} {LLM}: Outperforming
+                  Curated Corpora with Web Data, and Web Data Only},
+  year         = {2023},
+  eprint       = {2306.01116},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% Dataset shift foundations
+% ══════════════════════════════════════════════════════════════════════
+
+@book{quinonerocandela2009dataset,
+  author    = {Qui{\~n}onero-Candela, Joaquin and Sugiyama, Masashi and
+               Schwaighofer, Anton and Lawrence, Neil D.},
+  title     = {Dataset Shift in Machine Learning},
+  publisher = {MIT Press},
+  year      = {2009},
+}
+
+@article{morenotorres2012unifying,
+  author  = {Moreno-Torres, Jose G. and Raeder, Troy and Alaiz-Rodr{\'\i}guez,
+             Roc{\'\i}o and Chawla, Nitesh V. and Herrera, Francisco},
+  title   = {A Unifying View on Dataset Shift in Classification},
+  journal = {Pattern Recognition},
+  volume  = {45},
+  number  = {1},
+  pages   = {521--530},
+  year    = {2012},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% Fine-tuning, catastrophic forgetting, representation drift
+% ══════════════════════════════════════════════════════════════════════
+
+@misc{loshchilov2019decoupled,
+  author       = {Loshchilov, Ilya and Hutter, Frank},
+  title        = {Decoupled Weight Decay Regularization},
+  year         = {2019},
+  eprint       = {1711.05101},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.LG},
+}
+
+@article{kirkpatrick2017overcoming,
+  author  = {Kirkpatrick, James and Pascanu, Razvan and Rabinowitz, Neil and
+             Veness, Joel and Desjardins, Guillaume and Rusu, Andrei A. and
+             Milan, Kieran and Quan, John and Ramalho, Tiago and
+             Grabska-Barwinska, Agnieszka and others},
+  title   = {Overcoming Catastrophic Forgetting in Neural Networks},
+  journal = {Proceedings of the National Academy of Sciences},
+  volume  = {114},
+  number  = {13},
+  pages   = {3521--3526},
+  year    = {2017},
+}
+
+@misc{aghajanyan2021intrinsic,
+  author       = {Aghajanyan, Armen and Zettlemoyer, Luke and Gupta, Sonal},
+  title        = {Intrinsic Dimensionality Explains the Effectiveness of
+                  Language Model Fine-Tuning},
+  year         = {2021},
+  eprint       = {2012.13255},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.LG},
+}
+
+@misc{kumar2022finetuning,
+  author       = {Kumar, Ananya and Raghunathan, Aditi and Jones, Robbie and
+                  Ma, Tengyu and Liang, Percy},
+  title        = {Fine-Tuning Can Distort Pretrained Features and Underperform
+                  Out-of-Distribution},
+  year         = {2022},
+  eprint       = {2202.10054},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.LG},
+}
+
+@misc{lee2022surgical,
+  author       = {Lee, Yoonho and Chen, Annie S. and Tajwar, Fahim and
+                  Kumar, Ananya and Yao, Huaxiu and Liang, Percy and Finn, Chelsea},
+  title        = {Surgical Fine-Tuning Improves Adaptation to Distribution Shifts},
+  year         = {2022},
+  eprint       = {2210.11466},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.LG},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% LLM evaluation — perplexity, diversity, log-probs
+% ══════════════════════════════════════════════════════════════════════
+
+@article{jelinek1977perplexity,
+  author  = {Jelinek, Frederick and Mercer, Robert L. and Bahl, Lalit R.
+             and Baker, James K.},
+  title   = {Perplexity---A Measure of the Difficulty of Speech Recognition Tasks},
+  journal = {The Journal of the Acoustical Society of America},
+  volume  = {62},
+  number  = {S1},
+  pages   = {S63},
+  year    = {1977},
+}
+
+@inproceedings{holtzman2020curious,
+  author    = {Holtzman, Ari and Buys, Jan and Du, Li and Forbes, Maxwell
+               and Choi, Yejin},
+  title     = {The Curious Case of Neural Text Degeneration},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2020},
+}
+
+@misc{pillutla2021mauve,
+  author       = {Pillutla, Krishna and Swayamdipta, Swabha and Zellers, Rowan
+                  and Thickstun, John and Welleck, Sean and Choi, Yejin
+                  and Harchaoui, Zaid},
+  title        = {{MAUVE}: Measuring the Gap Between Neural Text and Human
+                  Text using Divergence Frontiers},
+  year         = {2021},
+  eprint       = {2102.01454},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% Language models — architecture and pretraining
+% ══════════════════════════════════════════════════════════════════════
+
+@article{radford2019language,
+  author    = {Radford, Alec and Wu, Jeffrey and Child, Rewon and
+               Luan, David and Amodei, Dario and Sutskever, Ilya},
+  title     = {Language Models are Unsupervised Multitask Learners},
+  journal   = {OpenAI Blog},
+  year      = {2019},
+}
+
+@inproceedings{vaswani2017attention,
+  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and
+               Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and
+               Kaiser, {\L}ukasz and Polosukhin, Illia},
+  title     = {Attention Is All You Need},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {30},
+  year      = {2017},
+}
+
+@misc{brown2020language,
+  author       = {Brown, Tom and Mann, Benjamin and Ryder, Nick and Subbiah, Melanie
+                  and Kaplan, Jared and Dhariwal, Prafulla and Neelakantan, Arvind
+                  and Shyam, Pranav and Sastry, Girish and Askell, Amanda and others},
+  title        = {Language Models are Few-Shot Learners},
+  year         = {2020},
+  eprint       = {2005.14165},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+}
+
+@misc{touvron2023llama,
+  author       = {Touvron, Hugo and Lavril, Thibaut and Izacard, Gautier
+                  and Martinet, Xavier and Lachaux, Marie-Anne and Lacroix, Timoth{\'e}e
+                  and Rozi{\`e}re, Baptiste and Goyal, Naman and Hambro, Eric
+                  and Azhar, Faisal and others},
+  title        = {{LLaMA}: Open and Efficient Foundation Language Models},
+  year         = {2023},
+  eprint       = {2302.13971},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% Data and benchmarks
+% ══════════════════════════════════════════════════════════════════════
+
+@article{merity2017pointer,
+  author    = {Merity, Stephen and Xiong, Caiming and Bradbury, James and
+               Socher, Richard},
+  title     = {Pointer Sentinel Mixture Models},
+  journal   = {arXiv preprint arXiv:1609.07843},
+  year      = {2017},
+}
+
+@inproceedings{li2016diversity,
+  author    = {Li, Jiwei and Galley, Michel and Brockett, Chris and
+               Gao, Jianfeng and Dolan, Bill},
+  title     = {A Diversity-Promoting Objective Function for Neural
+               Conversation Models},
+  booktitle = {Proceedings of the 2016 Conference of the North American
+               Chapter of the Association for Computational Linguistics:
+               Human Language Technologies (NAACL-HLT)},
+  year      = {2016},
+  pages     = {110--119},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% Linguistic novelty and OOD language
+% ══════════════════════════════════════════════════════════════════════
+
+@article{eisenstein2014systematic,
+  author  = {Eisenstein, Jacob and O'Connor, Brendan and Smith, Noah A.
+             and Xing, Eric P.},
+  title   = {Diffusion of Lexical Change in Social Media},
+  journal = {PLOS ONE},
+  volume  = {9},
+  number  = {11},
+  pages   = {e113114},
+  year    = {2014},
+}
+
+@inproceedings{stewart2018language,
+  author    = {Stewart, Ian and Eisenstein, Jacob},
+  title     = {Making ``Fetch'' Happen: The Influence of Social and Linguistic
+               Context on Nonstandard Word Growth and Decline},
+  booktitle = {Proceedings of the 2018 Conference on Empirical Methods in
+               Natural Language Processing (EMNLP)},
+  year      = {2018},
+  pages     = {4360--4370},
+}
+
+@inproceedings{nguyen2020bertweet,
+  author    = {Nguyen, Dat Quoc and Vu, Thanh and Nguyen, Anh Tuan},
+  title     = {{BERTweet}: A Pre-trained Language Model for {E}nglish Tweets},
+  booktitle = {Proceedings of the 2020 Conference on Empirical Methods in
+               Natural Language Processing: System Demonstrations (EMNLP)},
+  year      = {2020},
+  pages     = {9--14},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% Nucleus sampling and decoding
+% ══════════════════════════════════════════════════════════════════════
+
+@misc{fan2018hierarchical,
+  author       = {Fan, Angela and Lewis, Mike and Dauphin, Yann},
+  title        = {Hierarchical Neural Story Generation},
+  year         = {2018},
+  eprint       = {1805.04833},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% Scaling laws
+% ══════════════════════════════════════════════════════════════════════
+
+@misc{kaplan2020scaling,
+  author       = {Kaplan, Jared and McCandlish, Sam and Henighan, Tom and
+                  Brown, Tom B. and Chess, Benjamin and Child, Rewon and
+                  Gray, Scott and Radford, Alec and Wu, Jeffrey and Amodei, Dario},
+  title        = {Scaling Laws for Neural Language Models},
+  year         = {2020},
+  eprint       = {2001.08361},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.LG},
+}
+
+@misc{hoffmann2022training,
+  author       = {Hoffmann, Jordan and Borgeaud, Sebastian and Mensch, Arthur
+                  and Buchatskaya, Elena and Cai, Trevor and Rutherford, Eliza
+                  and Casas, Diego de Las and Hendricks, Lisa Anne and
+                  Welbl, Johannes and Clark, Aidan and others},
+  title        = {Training Compute-Optimal Large Language Models},
+  year         = {2022},
+  eprint       = {2203.15556},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+}
+
+% ══════════════════════════════════════════════════════════════════════
+% Contamination detection
+% ══════════════════════════════════════════════════════════════════════
+
+@misc{shi2024detecting,
+  author       = {Shi, Weijia and Ajith, Anirudh and Xia, Mengzhou and
+                  Huang, Yangsibo and Liu, Daogao and Blevins, Terra and
+                  Chen, Danqi and Zettlemoyer, Luke},
+  title        = {Detecting Pretraining Data from Large Language Models},
+  year         = {2024},
+  eprint       = {2310.16789},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
+}
+
+@misc{golchin2024time,
+  author       = {Golchin, Shahriar and Surdeanu, Mihai},
+  title        = {Time Travel in {LLMs}: Tracing Data Contamination in
+                  Large Language Models},
+  year         = {2024},
+  eprint       = {2308.08493},
+  archiveprefix = {arXiv},
+  primaryclass = {cs.CL},
 }
