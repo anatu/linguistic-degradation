@@ -2,12 +2,12 @@
 
 Multi-seed experiment testing whether training language models on synthetic-contaminated data degrades their ability to comprehend novel linguistic constructions.
 
-## Status: Paper Draft Complete
+## Status: ArXiv Preprint Ready
 
 - **V2 (fine-tuning GPT-2 124M, 500 steps):** Complete, n=3 seeds. Moderate contamination (10-50%) narrows distribution without degrading novel-text comprehension.
 - **V3 (critical-span metric):** Complete. Scoring only construction-defining tokens amplifies the contamination signal.
 - **V4 (extended fine-tuning, 5000 steps):** Complete, n=3 seeds (60.2h on MPS). Deeper training breaks the pretrained buffer — gap widens to 2.30±0.09 (p<0.001) at 100% contamination.
-- **Paper:** 16-page draft at `report/main.tex` covering all results with error bars, 10 figures, per-category appendix, expanded related work.
+- **Paper:** 18-page preprint in NeurIPS 2025 format at `report/main.tex`. 39 references, 10 figures, per-category appendix, broader impact section. Submission bundle: `report/arxiv_submission.zip`.
 
 **Key findings:**
 1. At shallow fine-tuning (500 steps), synthetic contamination narrows what models *generate* (D-1: 0.43 → 0.04) without affecting what they *comprehend* — a generation-comprehension asymmetry.
